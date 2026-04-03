@@ -1,0 +1,9 @@
+scholar:
+  label: Scholar
+  permalink: /scholar
+  description: Scholar Changelog
+
+dokumentation:
+  label: Dokumentation
+  permalink: /dokumentation
+  description: Dokumentations-Einträge
