@@ -15,7 +15,7 @@ function HomepageHeader() {
           Scholar & Planora
         </Heading>
         <p className="hero__subtitle">
-          Dokumentation und Handbücher – entwickelt von David Schomburg / <a href="https://dashtec.de" target="_blank" rel="noopener noreferrer" style={{color: 'inherit'}}>Dashtec.de</a>
+          Scholar & Planora – ein Produkt von <a href="https://dashtec.de" target="_blank" rel="noopener noreferrer" style={{color: 'inherit'}}>Dashtec.de</a>
         </p>
         <div className={styles.buttons}>
           <Link className="button button--secondary button--lg" to="/docs/intro">
