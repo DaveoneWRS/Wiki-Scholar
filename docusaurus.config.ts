@@ -138,7 +138,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Scholar, DashTec - Services`,
+      copyright: `Copyright © ${new Date().getFullYear()} Scholar, DashTec – Stand: ${new Date().toLocaleDateString('de-DE', {day: '2-digit', month: '2-digit', year: 'numeric'})}`,
     },
     prism: {
       theme: prismThemes.github,
