@@ -22,9 +22,14 @@ Planora richtet sich an:
 | [Aufgaben](./aufgaben) | Aufgaben erstellen, zuweisen und verwalten |
 | [Projekte](./projekte) | Projekte strukturieren und freigeben |
 | [Kalender](./kalender) | Termine und Ereignisse planen |
+| [Kalenderfreigabe & Terminbuchung](./terminbuchung) | Öffentliche Kalender, Buchungslinks, ICS/CalDAV |
+| [Notizzettel](./notizen) | Kurznotizen, Telefonnotizen und kleine ToDos |
 | [Zeiterfassung](./zeiterfassung) | Arbeitszeiten, Urlaub und Überstunden |
 | [Schilder](./schilder) | Türschilder und Kiosk-Anzeigen |
+| [Statistiken](./statistiken) | Auswertungen zu Aufgaben und Arbeitszeit |
 | [Einstellungen](./einstellungen) | Persönliche Einstellungen und Module |
+| [Serververwaltung](./server) | Serverinventar, Prüfintervalle, Logbuch |
+| [Administration](./administration) | Benutzer, Module, Push, Lizenz |
 
 ## Anmelden
 

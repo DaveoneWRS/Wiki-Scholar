@@ -16,10 +16,14 @@ Dieses Handbuch beschreibt den vollständigen Funktionsumfang der Schulverwaltun
 
 - **Schülerverwaltung** – Stammdaten, Klassenzuordnung und Laufbahnverfolgung
 - **Zeugnisse & Noten** – Erstellung und Verwaltung von Zeugnissen und Zertifikaten
+- **Lernmittel** – Katalog, Bestellungen und Ausgabe an der Ausgabestation
 - **Bibliothek** – Ausleihe und Rückgabe von Büchern und Medien
 - **Geräteverwaltung** – Verwaltung und Zuweisung von Schulgeräten
 - **WLAN-Zugang** – Verwaltung von Schüler- und Mitarbeiterzugängen über RADIUS
-- **Finanzen** – Abwicklung von Zahlungen und Transaktionen (z. B. Lernmittel)
+- **Finanzen** – Zahlungseingänge, Guthaben, Kassenbuch und Belege
+- **Klassengeld** – Projekte, Forderungen, Auszahlungen und Klassenkassen
+- **Schulküche** – Reservierung, Genehmigung und Rückgabeprüfung
+- **Checklisten & Listen** – zugewiesene Abläufe, Klassenlisten und Notfallcheckliste
 - **Benutzerverwaltung** – Rollen und Berechtigungen für Mitarbeitende
 
 [→ Zum Scholar Benutzerhandbuch](/docs/scholar/start)
@@ -36,8 +40,11 @@ Dieses Handbuch beschreibt den vollständigen Funktionsumfang der Schulverwaltun
 - **Aufgaben** – Erstellen, Zuweisen und Verwalten von Aufgaben mit Prioritäten, Labels und Unteraufgaben
 - **Projekte** – Hierarchische Projektstruktur mit Freigabe-Funktion für Teammitglieder
 - **Kalender** – Planung von Terminen und Ereignissen mit Projektverknüpfung
+- **Terminbuchung** – Öffentliche Kalender, Buchungslinks und Terminvorschläge
+- **Notizzettel** – Kurznotizen, Telefonnotizen und kleine ToDos
 - **Zeiterfassung** – Arbeitszeitprotokoll, Stempeluhr, Urlaubs- und Überstundenverwaltung
 - **Schilder** – Digitale Türschilder und Kiosk-Anzeigen für Statusmeldungen
+- **Statistiken** – Auswertungen zu Aufgaben, Produktivität und Arbeitszeit
 - **Einstellungen** – Module, API-Token und persönliche Konfiguration
 
 [→ Zum Planora Benutzerhandbuch](/docs/planora/start)
@@ -49,3 +56,5 @@ Dieses Handbuch beschreibt den vollständigen Funktionsumfang der Schulverwaltun
 Dieses Benutzerhandbuch richtet sich an alle Nutzergruppen – Lehrkräfte, Verwaltungsmitarbeitende, Eltern und Schülerinnen und Schüler. Die Dokumentation ist nach Anwendung und Funktionsbereich gegliedert, sodass Sie gezielt die benötigten Informationen finden.
 
 Nutzen Sie die Navigation auf der linken Seite, um direkt zu einem Thema zu springen.
+
+Welche Voraussetzungen Arbeitsplatz, Server und Peripherie erfüllen müssen, steht unter [Systemanforderungen](/docs/systemanforderungen).

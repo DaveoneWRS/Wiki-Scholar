@@ -26,13 +26,20 @@ Scholar richtet sich an alle Mitarbeitenden der Schule:
 | [Elternverwaltung](./eltern) | Elternprofile, Kontakte, Elternvertretung |
 | [Noten & Zeugnisse](./noten) | Noteneingabe, Zeugniskonfiguration, Phrasen |
 | [Lernmittel](./lernmittel) | Bücher, Preise, Bestellungen, digitale Medien |
+| [Lernmittelausgabe](./ausgabe) | Ausgabestation, Scanner-App, fehlende Lernmittel |
 | [Arbeitsgemeinschaften](./ags) | AG-Verwaltung, Zuweisung, Statistiken |
 | [Geräteverwaltung](./geraete) | Inventar, Ausleihe, Wartung, Reservierungen |
 | [Bibliothek](./bibliothek) | Medien, Ausleihe, Reservierung, Mahnungen |
 | [Schließfächer](./schliessacher) | Fachverwaltung, Zuweisung, Schlösser |
 | [WLAN-Verwaltung](./wlan) | Zugänge, Voucher, IP-Verwaltung |
+| [Finanzen & Zahlungen](./finanzen) | Zahlungseingänge, Guthaben, Kassenbuch, Belege |
+| [Klassengeld](./klassengeld) | Projekte, Forderungen, Klassenkasse, Jahresabschluss |
+| [Schulküche](./schulkueche) | Reservierung, Genehmigung, Rückgabeprüfung |
+| [Checklisten](./checklisten) | Zuweisung, Bearbeitung, Fortschritt |
+| [Listen & Druck](./listen) | Klassenlisten, Notfallcheckliste, Barcodes, Stundenplan |
 | [Fallmanagement](./fallmanagement) | Formulare, Kiosk, Vorlagen |
 | [Selbstservice](./selbstservice) | Office 365, iServ, WLAN-Reset |
+| [Mitarbeitende](./mitarbeiter) | On-/Offboarding, Zugangsdaten |
 | [Administration](./administration) | Benutzer, Rollen, Module, Backups |
 
 ## Anmelden
