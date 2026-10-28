@@ -40,14 +40,16 @@ Folgende Metadaten können verwaltet werden:
 
 ## Ausleihe
 
+Ausleihe und Rückgabe laufen über das **Scanner Interface** (Menü **Bibliothekssystem → Scanner System**). Es zeigt oben Kennzahlen wie Exemplare gesamt, verfügbar, ausgeliehen und überfällig sowie die Ausleihen und Rückgaben des Tages.
+
 ### Ausleihe durchführen
 1. Leserausweis / Barcode des Ausleihers scannen
-2. Buch-Barcode scannen
-3. Ausleihe bestätigen
+2. Buch-Barcode(s) scannen
+3. **Ausleihen** klicken
 
 ### Rückgabe
-1. Buch-Barcode scannen
-2. Rückgabe bestätigen
+1. Nur Buch-Barcode(s) scannen
+2. **Zurückgeben** klicken
 
 ### Verlängerung
 Ausgeliehene Bücher können verlängert werden:
@@ -58,6 +60,9 @@ Ausgeliehene Bücher können verlängert werden:
 - Ausleihhistorie eines Lesers einsehen
 - Ausleihhistorie eines Buchs einsehen
 - Überfällige Ausleihen anzeigen
+- **Verleihistorie** je Leserin bzw. Leser
+
+Ein Ausleih-Eintrag kann gelöscht werden; ist die Ausleihe noch offen, wird das Exemplar dabei zurückgebucht.
 
 ## Mahnungen
 
@@ -65,6 +70,7 @@ Bei überfälligen Büchern können Mahnungen versendet werden:
 
 - Mahnung für einzelne Ausleihe senden
 - Alle überfälligen Leser auf einmal benachrichtigen
+- Texte der Erinnerungen über **Mahn-E-Mail-Vorlagen** anpassen oder auf den Standard zurücksetzen
 
 ## Reservierungen
 

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 14
+sidebar_position: 20
 ---
 
 # FAQ – Häufige Fragen
@@ -12,11 +12,11 @@ Hier finden Sie Antworten auf die häufigsten Fragen zu Planora.
 
 ### Was sind Arbeitsbereiche?
 
-Planora trennt Aufgaben, Projekte und Kalendereinträge in drei Arbeitsbereiche: **💼 Beruflich**, **🏠 Privat** und **📋 Alles**. Über den Schalter oben auf jeder Seite wechseln Sie die Ansicht. Neue Elemente werden automatisch dem aktiven Arbeitsbereich zugeordnet.
+Planora trennt Aufgaben, Projekte und Kalendereinträge in drei Arbeitsbereiche: **💼 Beruflich**, **🏠 Privat** und **📋 Alles**. Über den Schalter oben auf Dashboard und Statistik wechseln Sie die Ansicht. Ein neues Projekt übernimmt die gerade aktive Ansicht.
 
-### Kann ich den Arbeitsbereich eines Elements nachträglich ändern?
+### Kann ich den Arbeitsbereich eines Projekts nachträglich ändern?
 
-Ja. Öffnen Sie die Aufgabe oder das Projekt und ändern Sie das Feld **Arbeitsbereich**.
+Ja. Öffnen Sie das Projekt und setzen oder entfernen Sie das Häkchen **🏠 Privates Projekt**.
 
 ---
 
@@ -24,23 +24,27 @@ Ja. Öffnen Sie die Aufgabe oder das Projekt und ändern Sie das Feld **Arbeitsb
 
 ### Wie erstelle ich eine neue Aufgabe?
 
-**Aufgaben → „+"** → Titel, Beschreibung, Fälligkeit und Priorität eintragen → Speichern. Details finden Sie unter [Aufgaben](./aufgaben).
+Am schnellsten über die **Schnellaufgabe** auf dem Dashboard oder über das Eingabefeld einer Spalte im **Board**. Details finden Sie unter [Aufgaben](./aufgaben).
 
 ### Welche Prioritätsstufen gibt es?
 
-Es gibt vier Stufen: **⬜ Niedrig**, **🔵 Mittel**, **🟠 Hoch** und **🔴 Dringend**. Dringende und hohe Aufgaben werden im Dashboard hervorgehoben.
+Es gibt vier Stufen: **⬜ Niedrig**, **🔵 Mittel**, **🟠 Hoch** und **🔴 Dringend**.
 
 ### Kann ich wiederkehrende Aufgaben erstellen?
 
-Ja. Beim Erstellen einer Aufgabe gibt es das Feld **Wiederholung** mit den Optionen: Einmalig, Täglich, Wöchentlich, Alle 2 Wochen, Monatlich, Vierteljährlich, Jährlich und Jeden Werktag.
+Ja. Im Feld **🔁 Wiederholung** gibt es die Optionen: Einmalig, Täglich, Wöchentlich, Alle 2 Wochen, Monatlich, Vierteljährlich, Jährlich und Jeden Werktag. Serienaufgaben sind in den Listen mit 🔁 markiert.
 
 ### Wie filtere ich Aufgaben?
 
-Auf der Aufgaben-Seite gibt es Filter für: **Termin** (Heute/Morgen/Kommende/Überfällig/Ohne Datum), **Priorität**, **Projekt** und **Labels**. Mit dem Schalter **Erledigte zeigen** blenden Sie abgeschlossene Aufgaben ein.
+In der Ansicht **📋 Liste** gibt es Filter für: **Termin** (Heute/Morgen/Kommende/Überfällig/Ohne Datum), **Priorität**, **Projekt** und **Labels**. Mit dem Schalter **Erledigte zeigen** blenden Sie abgeschlossene Aufgaben ein.
+
+### Wie plane ich meinen Tag?
+
+Mit dem **🗓 Planungsraster**: Aufgaben auf eine Uhrzeit ziehen oder mit **✨ Automatisch verteilen** in freie Lücken legen lassen. Siehe [Planungsraster](./aufgaben#planungsraster).
 
 ### Was sind Labels?
 
-Labels sind farbige Tags, die Sie Aufgaben zuordnen können, um sie thematisch zu gruppieren. Labels werden unter **Labels** im Menü verwaltet. Sie können eigene Labels mit Farbe und Name erstellen.
+Labels sind farbige Tags, die Sie Aufgaben zuordnen können, um sie thematisch zu gruppieren. Labels werden unter **Board → 🏷️ Labels** mit Name, Farbe und Gewichtung verwaltet.
 
 ---
 
@@ -52,11 +56,11 @@ Labels sind farbige Tags, die Sie Aufgaben zuordnen können, um sie thematisch z
 
 ### Wie erstelle ich ein neues Projekt?
 
-**Projekte → „+ Neues Projekt"** → Name und Arbeitsbereich auswählen → Speichern.
+**Board → 📁 Projekte → „+ Neues Projekt"** → Name und Optionen wählen → Speichern.
 
-### Wie weise ich eine Aufgabe einem Projekt zu?
+### Wie arbeite ich mit anderen in einem Projekt?
 
-Aufgabe öffnen oder beim Erstellen im Feld **Projekt** ein bestehendes Projekt auswählen.
+Über **🌍 Für alle freigeben** oder eine Einzelfreigabe mit **Ansehen** bzw. **Bearbeiten**. Details unter [Projekt freigeben](./projekte#projekt-freigeben).
 
 ---
 
@@ -68,7 +72,7 @@ Aufgabe öffnen oder beim Erstellen im Feld **Projekt** ein bestehendes Projekt 
 
 ### Gibt es eine Planungsansicht?
 
-Ja, über den Schalter **📋 Planen** wechselt der Kalender in eine listbasierte Tagesplanung.
+Ja, im Reiter **Board → 📅 Kalender** blendet der Schalter **📋 Planen** ungeplante Aufgaben ein, die Sie auf einen Tag ziehen. Für die Planung nach Uhrzeit gibt es das [Planungsraster](./aufgaben#planungsraster).
 
 ---
 
@@ -76,27 +80,27 @@ Ja, über den Schalter **📋 Planen** wechselt der Kalender in eine listbasiert
 
 ### Wie stempele ich ein und aus?
 
-Auf der Zeiterfassungsseite gibt es eine **Stechuhr** mit dem Knopf **▶ Einstempeln**. Nach dem Einstempeln erscheint der Knopf **◀ Ausstempeln**.
+Auf der Zeiterfassungsseite gibt es eine **Stechuhr** mit dem Knopf **▶ Einstempeln**. Nach dem Einstempeln zeigt sie den Tagesstand und den Knopf **Stoppen**.
 
 ### Wie trage ich Arbeitszeit manuell ein?
 
-**Zeiterfassung → „Neuer Eintrag"** → Von/Bis-Zeit oder Dauer, Typ (Arbeit / Krank / Urlaub / Feiertag / Stundenausgleich / Sonstiges), Projekt und Beschreibung eintragen → **Eintrag speichern**. Details unter [Zeiterfassung](./zeiterfassung).
+Tag wählen → Typ (Arbeit / Krank / Urlaub / Feiertag / Stundenausgleich / Sonstiges), Von/Bis-Zeit, Pause, Projekt und Beschreibung eintragen → Speichern. Details unter [Zeiterfassung](./zeiterfassung).
 
-### Welche Eintragstypen gibt es?
+### Warum wird mein Eintrag abgelehnt?
 
-Arbeit, Krank, Urlaub, Feiertag, Stundenausgleich und Sonstiges. Jeder Typ wird in der Monatsauswertung gesondert ausgewiesen.
+Arbeitseinträge desselben Tages dürfen sich nicht überschneiden. Prüfen Sie die übrigen Einträge des Tages.
 
 ### Wie sehe ich mein Stundenkonto und meinen Urlaubssaldo?
 
-Auf der Zeiterfassungsseite sehen Sie oben: **Stundenkonto** (Gesamt-Saldo) und **Urlaub** mit verbleibenden Tagen. Die detaillierte Monatsübersicht zeigt Soll/Ist-Vergleich pro Tag.
+Oben auf der Zeiterfassungsseite stehen die Kacheln **Stundenkonto** (Gesamt-Saldo) und **Urlaub** mit den verfügbaren Tagen. Monatstabelle und Jahresübersicht zeigen Soll, Ist und Plus/Minus.
 
-### Kann ich Zeit auf ein Projekt buchen?
+### Wo stelle ich meine Sollstunden ein?
 
-Ja. Beim manuellen Eintrag gibt es das Feld **Projekt**, über das ein Projekt zugeordnet wird.
+Über **⚙️ Soll-Stunden** auf der Zeiterfassungsseite – am einfachsten mit einer Vorlage nach TV-L oder TV-H.
 
 ### Wie rufe ich einen Report ab?
 
-**Zeiterfassung → 📄 Report** – dort werden Auswertungen nach Zeitraum und Projekt dargestellt.
+**Zeiterfassung → 📄 Report** erzeugt die Monatsauswertung. Weitere Auswertungen finden Sie unter [Statistiken](./statistiken).
 
 ---
 
@@ -104,15 +108,27 @@ Ja. Beim manuellen Eintrag gibt es das Feld **Projekt**, über das ein Projekt z
 
 ### Wie erstelle ich ein neues Schild?
 
-**Schilder → „+ Neues Schild"** → Typ und Inhalt ausfüllen → Speichern. Details unter [Schilder](./schilder).
+**Türschild → „+ Neues Schild"** → Überschrift, Farbe und Displays wählen → Speichern. Details unter [Schilder](./schilder).
 
 ### Was sind Vorlagen?
 
-Wenn Sie ein Schild als **Vorlage** speichern, erscheint es unter **📋 Vorlagen (Schnellauswahl)** und kann mit einem Klick als aktives Schild gesetzt werden.
+Wenn Sie ein Schild als **Vorlage** speichern, erscheint es unter **📋 Vorlagen (Schnellauswahl)** und kann mit einem Klick oder zeitgesteuert aktiviert werden.
 
 ### Wie richte ich ein Tür-Display ein?
 
-Unter **Schilder → 🖥️ Tür-Display-Einstellungen** konfigurieren Sie Auto-Reload-Intervall, Seitenüberschrift, Uhrzeit-Anzeige und Info-Cards. Den fertigen **Einbettungs-Code (iframe)** können Sie auf einem Display-Gerät anzeigen. Die öffentliche URL ist `/door-view/start`.
+Unter **Türschild-Displays → „+ Neues Display"** legen Sie Größe, Darstellung und optional eine IP-Sperre fest. Den **geheimen Link** öffnen Sie auf dem Display-Gerät. Details unter [Türschild-Displays](./schilder#türschild-displays).
+
+---
+
+## IT-Dokumentation
+
+### Wo ist die Serververwaltung geblieben?
+
+Sie ist in der [IT-Dokumentation](/docs/planora/it/uebersicht) aufgegangen. Server stehen dort als Geräte und Dienste; Prüfintervalle sind Wartungspläne geworden.
+
+### Kann ich dem Schulträger Einblick geben?
+
+Ja, über einen zeitlich begrenzten [Gastzugang](/docs/planora/it/zugaenge#gastzugänge) mit QR-Code. Änderungen des Gastes kommen als Vorschlag zur Freigabe an.
 
 ---
 
@@ -120,23 +136,27 @@ Unter **Schilder → 🖥️ Tür-Display-Einstellungen** konfigurieren Sie Auto
 
 ### Wie aktiviere oder deaktiviere ich ein Modul?
 
-**Einstellungen → Module** → Schalter neben dem gewünschten Modul umlegen → **Einstellungen speichern**. Deaktivierte Module verschwinden aus der Navigation.
+**Einstellungen → Module** → Schalter neben dem gewünschten Modul umlegen → Speichern. Deaktivierte Module verschwinden aus der Navigation. Module, die Ihre Rolle nicht freigibt, lassen sich nicht einschalten.
 
 ### Welche Module gibt es?
 
-📁 Projektverwaltung, ⏰ Zeiterfassung, 🚪 Schilder, 🦞 Open Claude (Claude-Integration), 🖥️ Server, 📊 Statistiken, 👥 Benutzer.
+📁 Projektverwaltung, 📝 Notizen, ⏰ Zeiterfassung, 📅 Kalender, 🚪 Schilder, 🗂️ IT-Dokumentation, 🛡️ Datenschutz, 📊 Statistiken, 👥 Benutzer & Rollen.
+
+### Wo finde ich Statistiken und Benutzerverwaltung?
+
+Beide sind Abschnitte der **Einstellungen**. Alte Lesezeichen leiten automatisch dorthin weiter.
 
 ### Wie ändere ich mein Passwort?
 
-**Einstellungen → Passwort ändern** → Aktuelles und neues Passwort eingeben → Bestätigen. Im Demo-Modus ist diese Funktion deaktiviert. Details unter [Einstellungen](./einstellungen).
+**Einstellungen → Passwort** → Aktuelles und neues Passwort eingeben → Bestätigen. Im Demo-Modus ist diese Funktion deaktiviert. Details unter [Einstellungen](./einstellungen).
 
 ### Wie aktiviere ich den Dunkelmodus?
 
-Der Schalter befindet sich unten in der linken Seitenleiste.
+Der Schalter befindet sich oben in der linken Seitenleiste neben dem Pfeil zum Einklappen.
 
 ### Wie prüfe ich, ob Updates verfügbar sind?
 
-**Einstellungen → Updates & Telemetrie → 🔄 Auf Updates prüfen**. Aktuelle und neueste Version sowie der Update-Kanal werden dort angezeigt.
+**Einstellungen → Lizenz & Updates → 🔄 Auf Updates prüfen**. Aktuelle und neueste Version sowie der Update-Kanal werden dort angezeigt.
 
 :::tip Weitere Hilfe
 Falls Ihre Frage hier nicht beantwortet wird, wenden Sie sich an Ihren Systemadministrator oder schauen Sie in den jeweiligen Handbuchbereich.

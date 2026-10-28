@@ -26,13 +26,17 @@ Ja. Rollen in Scholar sind kumulativ – jede zugewiesene Rolle schaltet zusätz
 
 In der linken Seitenleiste können Sie beliebige Seiten als **Favoriten** speichern (Name + Icon wählbar) und damit schnell erreichbar machen. Klicken Sie dazu auf „Neuen Favoriten hinzufügen".
 
+### Kann ich das Dashboard umstellen?
+
+Ja. Über **Anordnung anpassen** lassen sich die Boxen verschieben und ausblenden; die Anordnung wird für Sie persönlich gespeichert. **Standard wiederherstellen** setzt alles zurück. Details unter [Dashboard](./dashboard#dashboard-anpassen).
+
 ---
 
 ## Schüler & Klassen
 
 ### Wie sehe ich die Daten eines einzelnen Schülers?
 
-**Klassenverwaltung → Klasse auswählen → Schüler auswählen**. Im Schülerprofil sind alle Stammdaten, WLAN-Status, Lernmittel, Schließfach und weitere Informationen zusammengefasst. Mehr dazu unter [Schülerverwaltung](./schueler).
+Am schnellsten über die **Schülersuche** oben rechts; das Uhr-Symbol daneben zeigt die zuletzt geöffneten Personen. Alternativ **Meine Klassen → Schülerübersicht** bzw. **Klassenverwaltung → Klasse auswählen → Schüler auswählen**. Im Schülerprofil sind alle Stammdaten, WLAN-Status, Lernmittel, Schließfach und weitere Informationen zusammengefasst. Mehr dazu unter [Schülerverwaltung](./schueler).
 
 ### Wie drucke ich eine Klassenliste?
 
@@ -40,7 +44,11 @@ In der linken Seitenleiste können Sie beliebige Seiten als **Favoriten** speich
 
 ### Wie importiere ich Schülerdaten aus Magellan?
 
-**Datenimport → Magellan Import** → Datei hochladen (XLS, XLSX, CSV oder TXT) → **Vorschau anzeigen** (empfohlen) → Importieren. Für Lehrerdaten wird eine CSV-Datei erwartet.
+**Sekretariat → Datenimport → Magellan Import** → Datei hochladen (XLS, XLSX, CSV oder TXT) → **Vorschau anzeigen** (empfohlen) → Importieren. Für Lehrerdaten wird eine CSV-Datei erwartet. Leere Felder in der Datei überschreiben vorhandene Angaben nur, wenn Sie **Leere Felder aus der Datei übernehmen** anhaken (siehe [Administration](./administration#magellan-import-vorschau)).
+
+### Wie hinterlege ich ein Abholverbot?
+
+In der Schülerakte über das Aktionsmenü **Elterliche Sorge** → Themenbereich „Umgangsrecht / Abholberechtigung" wählen → Einstufung **Rot** → Vermerk speichern. Der Vermerk erscheint als roter Reiter im Kopf der Akte und ist für alle sichtbar, die die Akte öffnen dürfen. Eintragen dürfen nur Sekretariat, Schulleitung, Koordinatoren und Administration. Details unter [Elterliche Sorge](./schueler#elterliche-sorge).
 
 ### Was ist das On-/Offboarding?
 
@@ -52,11 +60,15 @@ In der linken Seitenleiste können Sie beliebige Seiten als **Favoriten** speich
 
 ### Wie suche ich nach einem Elternteil?
 
-Auf der Eltern-Seite können Sie nach **Elternnamen und nach Kindernamen** suchen. Über den Filter **Eltern ohne aktive Kinder** finden Sie verwaiste Datensätze. Details unter [Elternverwaltung](./eltern).
+Auf der Eltern-Seite können Sie nach **Elternnamen und nach Kindernamen** suchen. Unter **Erziehungsberechtigte → Eltern ohne SuS** finden Sie verwaiste Datensätze. Details unter [Elternverwaltung](./eltern).
 
 ### Wie weise ich ein Mitglied der Elternvertretung zu?
 
-**Eltern → Elternvertretung zuweisen** → Elternteil auswählen → Typ wählen (Elternsprecher, Fachkonferenzvertreter oder Schulelternrat) → Klasse/Jahrgang, Fach, Amtsantritt und -ende eintragen → Zuweisen.
+**Erziehungsberechtigte → Elternvertretung** → Elternteil auswählen → Typ wählen (Elternsprecher, Fachkonferenzvertreter oder Schulelternrat) → Klasse/Jahrgang, Fach, Amtsantritt und -ende eintragen → Zuweisen.
+
+### Wie erstelle ich einen E-Mail-Verteiler für Eltern?
+
+Über **E-Mail-Export** in der Elternübersicht (oder **Admin → Export**) Jahrgänge bzw. Klassen auswählen und das Format wählen: Outlook-Kontakte, Verteilerliste zum Einfügen ins BCC-Feld oder Excel-Liste. Details unter [E-Mail-Export](./eltern#e-mail-export).
 
 ---
 
@@ -66,11 +78,15 @@ Auf der Eltern-Seite können Sie nach **Elternnamen und nach Kindernamen** suche
 
 Der Prozess läuft in vier Schritten ab:
 1. **Fachlehrer** – Noteneintrag und Einschätzungen
-2. **Klassenleitung** – AV/SV-Zusammenfassung
-3. **Fehltage / AV SV** – Fehlzeiten eintragen
+2. **Klassenleitung** – AV/SV-Zusammenfassung (Note und Text)
+3. **Fehltage** – Fehlzeiten eintragen
 4. **Zeugniskonferenzen** – Abschluss und Genehmigung
 
-Details finden Sie unter [Noten & Zeugnisse](./noten).
+Unter Schritt 1 sehen Sie, in welchen Klassen und Fächern Ihnen noch Noten fehlen. Details finden Sie unter [Noten & Zeugnisse](./noten).
+
+### Warum verlangt die Noteneingabe eine Begründung?
+
+Weicht eine Note um zwei oder mehr Stufen von der Note des vorherigen Halbjahres ab, ist eine **Begründung des Notensprungs** Pflicht. Sie ist nur in der Zeugniskonferenz sichtbar und erscheint nicht auf dem Zeugnis.
 
 ### Was sind Zwischennoten?
 
@@ -78,7 +94,7 @@ Unter **Zwischennoten** können Lernstandseinschätzungen zwischen den Zeugniste
 
 ### Wie konfiguriere ich Notengewichtungen?
 
-**Notengewichtung** im Menü → Fach und Klasse auswählen → Gewichtungen für Kategorien anpassen → Speichern.
+**FKL-Verwaltung → Notengewichtung** (bzw. **Notensystem → FKL-Gewichtungen**) → Fach und Klasse auswählen → Gewichtungen für Kategorien anpassen → Speichern.
 
 ---
 
@@ -110,7 +126,11 @@ Auf der Geräteübersicht gibt es einen Status-Filter: **Verfügbar, Ausgeliehen
 
 ### Was passiert bei überfälliger Rückgabe?
 
-Scholar zeigt wartungsfällige und defekte Geräte in der Gerätestatistik gesondert aus. Mahnungen können über die Administration konfiguriert werden.
+Scholar zeigt wartungsfällige und defekte Geräte in der Gerätestatistik gesondert aus. Bei Problemen mit einzelnen Schülerinnen und Schülern kann die Geräteausleihe im Schülerprofil gesperrt werden; für nicht geprüfte Akkus oder nicht ausgeschaltete Geräte gibt es die [Verwarnungen am Lager-Scanner](./geraete#verwarnungen).
+
+### Was passiert, wenn ich ein noch ausgeliehenes Gerät warte?
+
+Die Wartung zeigt Ausleiher und Ausleihdatum und lässt Sie wählen: zurückbuchen und warten, Ausleihe behalten und nur die Wartung erfassen, oder abbrechen. Details unter [Wartung](./geraete#noch-ausgeliehene-geräte).
 
 ---
 
@@ -146,11 +166,11 @@ Die Verwaltung umfasst: **Schließfächer** (Übersicht), **Zuweisungen**, **Zah
 
 ### Wie schalte ich WLAN für eine Klasse frei?
 
-Im Menü unter **WLAN-Verwaltung** gibt es direkte Schnellaktionen: **Freischaltung 45 Minuten** und **Freischaltung 90 Minuten** – damit wird das WLAN für alle Schüler einer Klasse temporär freigeschaltet.
+Im Menü **Meine Klassen → WLAN Freischaltung** gibt es die Schnellaktionen **45 Minuten** und **90 Minuten** – damit wird das WLAN für alle Schüler einer Klasse temporär freigeschaltet.
 
 ### Wie sehe ich den WLAN-Status aller Schüler?
 
-**WLAN-Verwaltung → Schülerübersicht** → Filter nach Klasse, WLAN-Status (Freigeschaltet/Gesperrt) und Online-Status (Online/Offline). Details unter [WLAN-Verwaltung](./wlan).
+**Meine Klassen → Schüler im WLAN** → Filter nach Klasse, WLAN-Status (Freigeschaltet/Gesperrt) und Online-Status (Online/Offline). Details unter [WLAN-Verwaltung](./wlan).
 
 ---
 
@@ -158,11 +178,11 @@ Im Menü unter **WLAN-Verwaltung** gibt es direkte Schnellaktionen: **Freischalt
 
 ### Was ist das Case Management?
 
-Das Case Management ermöglicht die Erstellung von **Templates** und **Cases** für ein Touch-Interface (Kiosk). Die öffentliche Kiosk-Ansicht ist über `/kiosk` erreichbar. Details unter [Fallmanagement](./fallmanagement).
+Das Case Management ermöglicht die Erstellung von **Vorlagen** und **Fällen** für ein Touch-Interface (Kiosk) und für Freigabe-Links, die Eltern per E-Mail erhalten. Die Kiosk-Ansicht ist über `/kiosk` erreichbar – allerdings nur von freigegebenen IP-Adressen. Details unter [Fallmanagement](./fallmanagement).
 
 ### Wie sende ich eine Kiosk-Nachricht?
 
-**Administration → Case Management → Kiosk-Nachricht erstellen** → Typ (Info/Warnung/Erfolg/Fehler), Text (max. 1000 Zeichen) und optionales Ablaufdatum eingeben → Nachricht senden.
+**Org** (bzw. **Admin → Case Management**) → **Kiosk-Nachricht erstellen** → Typ (Info/Warnung/Erfolg/Fehler), Text (max. 1000 Zeichen), Display (leer = alle Displays) und optionales Ablaufdatum eingeben → Nachricht senden.
 
 ---
 
@@ -174,7 +194,7 @@ Scholar ist responsiv gestaltet und auf mobilen Geräten nutzbar, jedoch für di
 
 ### Wie exportiere ich Daten?
 
-Unter **Administration → Tools → Export** können Daten exportiert werden. Zusätzlich gibt es auf vielen Listenseiten direkte Druckfunktionen.
+Unter **Admin → Export** können Daten exportiert werden. Zusätzlich gibt es auf vielen Listenseiten direkte Druckfunktionen.
 
 :::tip Weitere Hilfe
 Falls Ihre Frage hier nicht beantwortet wird, wenden Sie sich an Ihren Systemadministrator oder schauen Sie in den jeweiligen Handbuchbereich.

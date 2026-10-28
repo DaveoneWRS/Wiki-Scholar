@@ -17,7 +17,7 @@ Die Startseite des Moduls zeigt die aktuellen Projekte mit Soll- und Ist-Beträg
 | Klärliste | Eingänge ohne erkennbare Zuordnung |
 | Auszahlungen | Auszahlungsanträge und Freigaben |
 | Klassenkasse | Bar- und Buchkassen je Klasse |
-| Import | Kontoumsätze einlesen |
+| CSV-Import | Kontoumsätze einlesen |
 | Jahresabschluss | Schuljahr prüfen und abschließen |
 | Einstellungen | Bankverbindung und Haushaltsstellen |
 
@@ -45,11 +45,11 @@ Ein Projekt bündelt alle Forderungen eines Vorhabens.
 | Entfernen | Teilnehmende aus dem Projekt löschen |
 | Zahlungsaufforderungen senden | Erziehungsberechtigte per E-Mail über offene Beträge informieren |
 
-Die Teilnehmerliste zeigt pro Person den Status **Offen** oder **Bezahlt** sowie den bereits eingegangenen Betrag. Wahlleistungen aus dem Elternportal werden im Projekt gesondert ausgewiesen.
+Die Teilnehmerliste zeigt pro Person den Status **Offen** oder **Bezahlt** sowie den bereits eingegangenen Betrag. Wahlleistungen aus dem Elternportal werden im Projekt gesondert ausgewiesen; sie werden über eine geplante Aufgabe aus dem Elternportal abgeholt (siehe [Administration](./administration#geplante-tasks)).
 
 ## Eingänge und Klärliste
 
-Zahlungen werden über **Import** aus den Kontoumsätzen eingelesen. Die Zuordnung erfolgt automatisch anhand der Magellan-ID im Verwendungszweck.
+Zahlungen werden über **CSV-Import** aus den Kontoumsätzen eingelesen. Die Zuordnung erfolgt automatisch anhand der Magellan-ID im Verwendungszweck.
 
 - **Eingänge** – erfolgreich zugeordnete Zahlungen; einzelne Einträge lassen sich ausblenden und wieder einblenden
 - **Klärliste** – Eingänge ohne erkennbare Magellan-ID. Diese ordnen Sie manuell einem Schüler und Projekt zu.
@@ -69,7 +69,7 @@ Freigegebene Auszahlungen werden dem Projekt belastet und fließen in den Jahres
 
 ## Klassenkasse
 
-Jede Klasse kann eine eigene Kasse führen.
+Jede Klasse kann eine eigene Kasse führen. Klassenleitungen erreichen die Kasse ihrer Klasse auch ohne Klassengeld-Rechte über **Meine Klassen → Klassenkasse**.
 
 | Funktion | Beschreibung |
 |---|---|

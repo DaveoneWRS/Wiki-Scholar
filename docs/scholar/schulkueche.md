@@ -12,14 +12,14 @@ Der Bereich ist an das Modul **Küchenreservierungen** gebunden. Ist es nicht ak
 
 ## Reservierung beantragen
 
-1. **Schulküche → Neue Reservierung**
+1. **Reservierungen → Schulküche → Neue Reservierung**
 2. **Reservierungsbedingungen** lesen und bestätigen
 3. Angaben ausfüllen:
 
 | Feld | Beschreibung |
 |---|---|
-| Anlass | Bezeichnung der Veranstaltung |
-| Zeitraum | Datum und Uhrzeit für Beginn und Ende |
+| Veranstaltungsart | Bezeichnung der Veranstaltung |
+| Startdatum / Startzeit, Enddatum / Endzeit | Beginn und Ende der Nutzung |
 | Beteiligte Klassen | Klassen, die teilnehmen |
 | Beteiligte Lehrkräfte | Verantwortliche Personen |
 | Bemerkung | Zusätzliche Hinweise |
@@ -83,4 +83,4 @@ Zu jedem Mangel können Fotos hinterlegt und wieder entfernt werden. Bei Mängel
 
 ## Prüfpunkte konfigurieren
 
-Administratoren pflegen die Prüfpunkte unter **Admin Tools → Küchen-Checkliste**. Zu jedem Punkt können Beschreibung und Hinweise hinterlegt werden; die Reihenfolge bestimmt den Ablauf der Prüfung. Sind keine Prüfpunkte konfiguriert, kann keine Rückgabeprüfung durchgeführt werden.
+Administration und Schulleitung pflegen die Prüfpunkte über **Checkliste verwalten** auf der Seite der Küchenreservierungen. Zu jedem Punkt können Beschreibung und Hinweise hinterlegt werden; die Reihenfolge bestimmt den Ablauf der Prüfung. Sind keine Prüfpunkte konfiguriert, kann keine Rückgabeprüfung durchgeführt werden.

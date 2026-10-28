@@ -10,6 +10,39 @@ Scholar bildet den Zahlungsverkehr rund um Lernmittel, Gebühren und Barkassen a
 Die Finanzbereiche sind an eigene Berechtigungen gebunden (`lm_transactions`, `lm_admin`, `finance_cashbook`, `finance_receipts`). Ohne diese Rechte erscheinen die Menüpunkte nicht.
 :::
 
+Die Lernmittelzahlungen erreichen Sie über **Module → Schulbuch (LM) → Konto / LM Zahlungen**, das Kassenbuch über die Kachel **Finanzen** in der [Administration](./administration).
+
+## Zahlungsübersicht (Lernmittel)
+
+Die Seite **LM - Zahlungen** zeigt je Schülerin bzw. Schüler Kontostand, Zahlungsstatus für analoges und digitales Paket, Zustimmung und Paketwahl sowie Ermäßigungen.
+
+| Filter | Werte |
+|---|---|
+| Zahlungsstatus | Bezahlt, Unbezahlt |
+| Akzeptanz | Akzeptiert, Nicht akzeptiert |
+| Befreiung | SGB, Kein SGB |
+| Geschwister | Geschwisterrabatt ja / nein |
+| Digitalpaket | Digital unbezahlt, Digital bezahlt, Digitalpaket gewählt, Kein Digitalpaket |
+| Klassenstufe | Einschränkung auf einen Jahrgang |
+
+Die Filter wirken sofort bei der Auswahl. Kacheln oben zeigen Gesamtanzahl, **Bezahlt (analog)**, **Bezahlt (digital)** und **Digital offen**; ein Klick auf **Digital offen** setzt den passenden Filter.
+
+:::note Analog- und Digitalpaket
+Beide Pakete werden getrennt abgebucht. Bei einem Digitalschüler kann „bezahlt" für das analoge Paket schon gesetzt sein, während die Digital-Differenz noch offen ist – solche Fälle findet der Filter **Digitalpaket → Digital unbezahlt**.
+:::
+
+### Zustimmung und Paket
+
+Die Spalte **Zustimmung | Paket** zeigt, ob im Lernmittel-Assistenten des Elternportals zugestimmt wurde (**Akzeptiert** / **Nicht akzeptiert**) und welches Paket gewählt ist (**Analog** / **Digital**). Solange im Elternportal nichts gewählt wurde, steht dort **Keine Wahl**.
+
+- Das Paket lässt sich nur umschalten, wenn die Zustimmung gesetzt ist. Von Hand vergebene Pakete werden mit Zeitpunkt und Benutzer vermerkt und vom Abgleich mit dem Elternportal nicht überschrieben.
+- Ein Digitalpaket ohne Zustimmung wird zur Prüfung mit einem Rahmen markiert.
+- **Mit Elternportal abgleichen** (nur mit Lernmittel-Adminrecht) holt Zustimmungen und Paketwahl sofort ab und meldet den Zahlungsstatus zurück, statt auf den nächtlichen Lauf zu warten.
+
+### Digitalpaket buchen
+
+Ist für die Schülerin bzw. den Schüler kein Klassenpreis hinterlegt, fragt Scholar den Betrag beim Buchen von Hand ab; der Dialog nennt im Titel, ob analog oder digital gebucht wird. Ein bereits bezahltes Paket wird nicht ein zweites Mal abgebucht. Bei SGB-befreiten Schülerinnen und Schülern mit einem Digitalanteil von 0 € wird auch der digitale Status auf „bezahlt" gesetzt.
+
 ## Zahlungseingänge importieren
 
 Kontoumsätze werden als Datei aus dem Online-Banking eingelesen:
@@ -42,6 +75,18 @@ Unter **Guthaben** sehen Sie alle Konten mit Überzahlungen oder offenen Beträg
 - Abgleich der Lernmittel-Annahme mit den Zahlungen anstoßen
 
 Der aktuelle Kontostand einer Schülerin / eines Schülers ist außerdem im [Schülerprofil](./schueler) und in der [Ausgabestation](./ausgabe) sichtbar.
+
+Über **EP-Akzeptanz sync** im Menü der Zahlungsseite wird der Abgleich der Lernmittel-Zustimmungen mit dem Elternportal angestoßen.
+
+## Schülerkonto
+
+Die Registerkarte **Buchungen** im [Schülerprofil](./schueler) zeigt den Saldo, die **letzten Buchungen** sowie offene Klassengeld-Forderungen und Klassengeld-Buchungen. Administratorinnen und Administratoren können das Konto korrigieren:
+
+| Funktion | Beschreibung |
+|---|---|
+| Kontostand korrigieren | Den Wert „aktuell verfügbar" auf einen Zielwert setzen; die Differenz entsteht als nachvollziehbare Korrekturbuchung. Eine Begründung ist Pflicht |
+| Buchung löschen | Einzelne Buchung mit Pflicht-Begründung entfernen, wahlweise mit automatischer Saldo-Korrektur. Gelöschte Buchungen werden nur ausgeblendet und bleiben mit Grund und Bearbeiter erhalten |
+| Änderungsprotokoll | Das Uhr-Symbol unter dem Saldo zeigt alle Kontoänderungen mit Zeitpunkt, Benutzer, Vorgang und Begründung – auch gelöschte Buchungen |
 
 ## Kassenbuch
 

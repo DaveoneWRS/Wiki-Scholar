@@ -14,11 +14,12 @@ Dieses Handbuch beschreibt den vollständigen Funktionsumfang der Schulverwaltun
 
 **Funktionsbereiche:**
 
-- **Schülerverwaltung** – Stammdaten, Klassenzuordnung und Laufbahnverfolgung
+- **Schülerverwaltung** – Stammdaten, Klassenzuordnung, Laufbahnverfolgung, Sorgerechtsvermerke und Auslandsaufenthalte
 - **Zeugnisse & Noten** – Erstellung und Verwaltung von Zeugnissen und Zertifikaten
-- **Lernmittel** – Katalog, Bestellungen und Ausgabe an der Ausgabestation
+- **Fachkonferenzen** – Einladungen mit Genehmigung, FK-Teilnehmer und Fachschaften
+- **Lernmittel** – Katalog, Bestellungen, digitale Lizenzen und Ausgabe an der Ausgabestation
 - **Bibliothek** – Ausleihe und Rückgabe von Büchern und Medien
-- **Geräteverwaltung** – Verwaltung und Zuweisung von Schulgeräten
+- **Geräteverwaltung** – Verwaltung, Ausleihe, Wartung und Inventur von Schulgeräten
 - **WLAN-Zugang** – Verwaltung von Schüler- und Mitarbeiterzugängen über RADIUS
 - **Finanzen** – Zahlungseingänge, Guthaben, Kassenbuch und Belege
 - **Klassengeld** – Projekte, Forderungen, Auszahlungen und Klassenkassen
@@ -32,20 +33,22 @@ Dieses Handbuch beschreibt den vollständigen Funktionsumfang der Schulverwaltun
 
 ### Planora – Arbeitsmanagement
 
-**Planora** ist eine moderne Arbeitsmanagement-Plattform für Teams und Mitarbeitende. Sie vereint Aufgaben- und Projektverwaltung, Zeiterfassung und Teamkoordination in einer einzigen Anwendung.
+**Planora** ist eine moderne Arbeitsmanagement-Plattform für Teams und Mitarbeitende. Sie vereint Aufgaben- und Projektverwaltung, Zeiterfassung, Teamkoordination und die IT-Dokumentation der Schule in einer einzigen Anwendung.
 
 **Funktionsbereiche:**
 
-- **Dashboard** – Tagesübersicht mit offenen und überfälligen Aufgaben sowie Schnellstatistiken
-- **Aufgaben** – Erstellen, Zuweisen und Verwalten von Aufgaben mit Prioritäten, Labels und Unteraufgaben
-- **Projekte** – Hierarchische Projektstruktur mit Freigabe-Funktion für Teammitglieder
-- **Kalender** – Planung von Terminen und Ereignissen mit Projektverknüpfung
-- **Terminbuchung** – Öffentliche Kalender, Buchungslinks und Terminvorschläge
-- **Notizzettel** – Kurznotizen, Telefonnotizen und kleine ToDos
-- **Zeiterfassung** – Arbeitszeitprotokoll, Stempeluhr, Urlaubs- und Überstundenverwaltung
-- **Schilder** – Digitale Türschilder und Kiosk-Anzeigen für Statusmeldungen
+- **Dashboard** – Tagesübersicht mit frei anordenbaren Kacheln, Tagesvorschau und Schnellaufgabe
+- **Aufgaben** – Board, Liste und Planungsraster mit Prioritäten, Labels, Unteraufgaben und Serien
+- **Projekte** – Hierarchische Projektstruktur mit Freigabe für einzelne Personen oder für alle
+- **Kalender** – Planung von Terminen und Ereignissen in mehreren Kalendern
+- **Terminbuchung** – Öffentliche Kalender, Buchungslinks mit Bestätigungsmails und Terminvorschläge
+- **Notizzettel** – Kurznotizen, Telefonnotizen und kleine ToDos, auch geteilt
+- **Zeiterfassung** – Stechuhr, Stundenkonto und Urlaub nach TV-L bzw. TV-H
+- **Schilder** – Digitale Türschilder mit eigenen Displays je Tür
+- **IT-Dokumentation** – Geräte, Netze, Dienste, Verträge, Wartung, Logbuch und Zugänge
+- **Datenschutz** – Verarbeitungsverzeichnis, TOM und Datenpannen
 - **Statistiken** – Auswertungen zu Aufgaben, Produktivität und Arbeitszeit
-- **Einstellungen** – Module, API-Token und persönliche Konfiguration
+- **Einstellungen** – Module, Rollen, API-Token, Datenbank-Backup und persönliche Konfiguration
 
 [→ Zum Planora Benutzerhandbuch](/docs/planora/start)
 

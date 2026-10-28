@@ -22,7 +22,9 @@ Das Sekretariat findet unter **Sekretariat → Mitarbeiter** eine Übersicht all
 | Fächer zuordnen | Unterrichtsfächer einer Lehrkraft pflegen |
 | Klassenzuweisung | Klassenleitungen und Zuständigkeiten setzen |
 
-Offene On- und Offboardings erscheinen als Kennzahl auf dem [Dashboard](./dashboard).
+Die Listen erreichen Sie auch über **Sekretariat → On/Off-Boarding → Mitarbeiter**. Onboarding- und Offboarding-Liste führen jeweils einen eigenen Bearbeitungsstand, sodass eine Person nicht gleichzeitig in beiden Listen offen steht. Sobald ein Vorgang auf **Erledigt** steht, wird die zugehörige Aufgabe in Planora automatisch abgehakt.
+
+Lehrerdaten werden über den [Magellan-Import](./administration#magellan-import-vorschau) übernommen; die Vorschau zeigt vor dem Speichern genau, welche Angaben neu hinzukommen, überschrieben oder geleert würden.
 
 ## Onboarding durchführen
 
@@ -35,10 +37,17 @@ Offene On- und Offboardings erscheinen als Kennzahl auf dem [Dashboard](./dashbo
 | Office-Account | Microsoft-365-Konto |
 | Untis-Account | Zugang zum Stundenplansystem |
 | VPN-Zugang | Benutzername und Passwort für den Fernzugriff |
-| Kopiercode | Code für die Kopierer und Drucker |
-| WLAN-Zugang | RADIUS-Zugang, direkt aus dem Onboarding anlegbar |
+| Kopiercode | Code für die Kopierer und Drucker (siehe [Kopiercodes](./administration#kopiercodes)) |
+| WLAN-Zugang | RADIUS-Zugang, direkt aus dem Onboarding anlegbar; ein neues Master-Passwort setzt das WLAN-Kennwort mit |
+| Bildungslogin | Zugangsdaten für digitale Lernmittel (siehe unten) |
 
-Ergänzend lassen sich **zusätzliche Notizen** hinterlegen, etwa zu Ausgabeterminen oder Sonderabsprachen.
+Ergänzend lassen sich **zusätzliche Notizen** hinterlegen, etwa zu Ausgabeterminen oder Sonderabsprachen. Wiederkehrende Hinweise werden als **Textvorlagen** einmal hinterlegt und per Haken angehängt; gepflegt werden sie über **Vorlagen bearbeiten** direkt am Notizfeld.
+
+Passwort-Zurücksetzungen (IServ, Office 365, WLAN, Master-Passwort) laufen im Hintergrund; Fortschritt, Ergebnis und das neue Passwort erscheinen in einer Anzeige unten rechts, die auf jeder Seite mitläuft.
+
+### Bildungslogin für Lehrkräfte
+
+Für digitale Lernmittel werden die aktiven Lehrkräfte als CSV exportiert. Die Rückmeldedatei mit Benutzername und Passwort wird wieder eingelesen und verschlüsselt am Onboarding-Datensatz gespeichert; die Zugangsdaten lassen sich anschließend per E-Mail versenden.
 
 ### Zugangsdatenblatt
 
