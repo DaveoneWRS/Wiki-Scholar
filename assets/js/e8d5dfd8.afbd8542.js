@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkmy_website=globalThis.webpackChunkmy_website||[]).push([[1847],{31745(a){a.exports=JSON.parse('{"metadata":{"permalink":"/changelogplanora","page":1,"postsPerPage":10,"totalPages":2,"totalCount":11,"nextPage":"/changelogplanora/page/2","blogDescription":"Blog","blogTitle":"Planora Changelog"}}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkmy_website=globalThis.webpackChunkmy_website||[]).push([[3440],{70875(e){e.exports=JSON.parse('{"authors":[{"name":"David Schomburg","title":"Developer","page":{"permalink":"/changelogscholar/authors/all-david-schomburg-articles"},"key":"david","count":87}]}')}}]);

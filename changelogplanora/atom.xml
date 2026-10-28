@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://wiki.scholar.schule/changelogplanora</id>
+    <title>Scholar - Dokumentation Blog</title>
+    <updated>2026-10-28T18:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://wiki.scholar.schule/changelogplanora"/>
+    <subtitle>Scholar - Dokumentation Blog</subtitle>
+    <icon>https://wiki.scholar.schule/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[v1.68.0 – IT-Dokumentation, Datenschutz, Zeiterfassung nach TV-L & Backup]]></title>
+        <id>https://wiki.scholar.schule/changelogplanora/v1-68-0</id>
+        <link href="https://wiki.scholar.schule/changelogplanora/v1-68-0"/>
+        <updated>2026-10-28T18:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Sammel-Release für alles seit v1.19.0 – die Versionen 1.20.0 bis 1.68.0 (16.08. – 28.10.2026). Zusammengefasst nach Themen statt nach Einzelversionen.]]></summary>
+        <content type="html"><![CDATA[<p>Sammel-Release für alles seit v1.19.0 – die Versionen <code>1.20.0</code> bis <code>1.68.0</code> (16.08. – 28.10.2026). Zusammengefasst nach Themen statt nach Einzelversionen.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="it-dokumentation">IT-Dokumentation<a href="https://wiki.scholar.schule/changelogplanora/v1-68-0#it-dokumentation" class="hash-link" aria-label="Direkter Link zur IT-Dokumentation" title="Direkter Link zur IT-Dokumentation" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Neues Modul nach dem Vorbild von NetBox</strong> (v1.37.0) – Ersetzt das bisherige Server-Modul, das nur Name, URL, Version und Freitext kannte und jeden Server an genau ein Konto band. Jetzt werden Standorte, Räume, Geräte, Netze, IP-Adressen, Dienste, Zertifikate, Domains, Verträge und Lizenzen organisationsweit an einer Stelle geführt. Geräte tragen Rolle, Typ und Hersteller samt rollenabhängigen Zusatzfeldern; Verbünde bilden Proxmox-Cluster ab. Der Bestand wandert verlustfrei mit (Server, Logbuch, Tags; Standort-Tags werden zu Räumen), die alten Server-Adressen leiten weiter</li>
+<li class=""><strong>Prüfungen und Logbuch</strong> (v1.37.0) – Das Modul meldet, was in gewachsener Dokumentation untergeht: feste Adressen im DHCP-Pool, randomisierte MAC-Adressen, doppelte Namen, abgelaufene Zertifikate, verstrichene Kündigungsfristen. Das Logbuch kennt Wartung, Störung, Änderung und Notiz, hängt an beliebigen Objekten und trägt Anhänge. Importer übernehmen OPNsense-Exporte, Wiki-Tabellen und CSV-Listen. Zugangsdaten speichert das Modul bewusst nicht – nur einen Verweis auf den Passwortmanager</li>
+<li class=""><strong>Änderungsprotokoll</strong> (v1.38.0) – Hält fest, wer wann was geändert hat; vom System geschrieben, weder änderbar noch löschbar. Geheime Felder wie <code>secret_ref</code> oder <code>license_key</code> werden nur als „geändert“ vermerkt, nie mit Wert. Ausdünnen per <code>php artisan audits:prune</code>, bewusst nur von Hand</li>
+<li class=""><strong>Selbsterfassung der Geräte</strong> (v1.44.0) – Unter <code>/it/reports</code> liefert ein Erfassungslink ein PowerShell- oder Shell-Skript, das Hostname, Betriebssystem, Seriennummer, Hardware, Anschlüsse und installierte Software zurückmeldet. Meldungen landen in einem Posteingang, nie direkt im Bestand; der Schlüssel im Link lässt sich erneuern</li>
+<li class=""><strong>Software-Bestand</strong> (v1.44.0) – Unter <code>/it/software</code> geräteübergreifend: welches Programm liegt auf wie vielen Geräten in welchen Versionen. Dazu Monitore samt Endpunkt für Monitoring-Ergebnisse, Flags und Tags mit Schnellmarkierung, Kategorien an Diensten und die <code>vmid</code> virtueller Maschinen</li>
+<li class=""><strong>Gemeinsames Notizbrett mit Wiedervorlagen</strong> (v1.45.0) – Unter <code>/it/notes</code> Zettel und Telefonnotizen für die ganze IT, farbig, anheftbar, in Kategorien. Wiedervorlagen auch als Serie; Abhaken rückt eine Serie auf den nächsten Termin. Ein Zettel kann sich auf Gerät, Dienst, Zertifikat, Vertrag oder Lizenz beziehen und erscheint dann in dessen Detailansicht</li>
+<li class=""><strong>Zugänge für Externe</strong> (v1.45.0) – Unter <code>/it/access</code> je Person und Zugangsart eine Zeile mit eigenem Ablaufdatum (z. B. WLAN, Office 365, IServ – die Arten sind frei pflegbar). Ablaufende Zugänge erscheinen in der Wartungsliste des Dashboards und in der täglichen Push-Zusammenfassung. Passwörter nimmt der Bereich nicht entgegen</li>
+<li class=""><strong>Gastzugänge per QR-Code</strong> (v1.47.0) – Z. B. für den Schulträger: ein Gastpass nennt Gültigkeitsfenster, Sitzungsdauer und freigegebene Bereiche. Gäste schreiben nicht direkt, sondern legen Änderungsvorschläge ab, die in einem Freigabepostfach feldweise übernommen werden; Logbuch und Notizbrett dürfen sie direkt kommentieren. Seit v1.51.3 sind alle Rubriken von <code>/it</code> einzeln freigebbar, seit v1.59.0 lassen sich gesperrte Pässe löschen (automatisch spätestens 7 Tage nach dem Sperren)</li>
+<li class=""><strong>Ansprechpartner am Objekt</strong> (v1.53.1) – Kontakte mit Rolle direkt an Gerät und Dienst; die Kontaktliste zeigt, woran ein Kontakt hängt. Bei Backup und Monitoring eines Dienstes werden die häufigsten Einträge als Vorschläge angeboten</li>
+<li class=""><strong>Dateien an Lizenzen</strong> (v1.53.9) – Lizenzzertifikat, Rechnung, Lizenzvertrag; beliebig viele Dateien je Lizenz, abgelegt auf nicht öffentlichem Speicher</li>
+<li class=""><strong>Dienstmaske mit Reitern</strong> (v1.53.5) – Dienst, Technik, Verantwortung, Dokumentation, Wartung; ein beanstandetes Feld meldet sich als roter Punkt am Reiter. Der Freitext „Update-Cycle“ ist in die Wartung umgezogen (v1.53.6). Der Dienst-Steckbrief zeigt die zugehörigen Zertifikate und DNS-Einträge (v1.49.0), Dienste zeigen die IP-Adressen ihres Hosts und sind darüber suchbar (v1.46.1)</li>
+<li class=""><strong>Geräteliste und -formular</strong> (v1.53.0 – v1.58.2) – Doppelte Gerätenamen führen zu einer Rückfrage („Trotzdem anlegen“) statt zu einer Sperre; Hersteller und Modelle richten sich nach der gewählten Rolle. Die Liste zeigt physisch/virtuell, die Suche hält mehrere Begriffe als Chips fest, das Feld „Node“ ist durchsuchbar. Ereigniszeitpunkte ohne Uhrzeit stehen als reines Datum da</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="netzwerk-räume--ipam">Netzwerk, Räume &amp; IPAM<a href="https://wiki.scholar.schule/changelogplanora/v1-68-0#netzwerk-r%C3%A4ume--ipam" class="hash-link" aria-label="Direkter Link zur Netzwerk, Räume &amp; IPAM" title="Direkter Link zur Netzwerk, Räume &amp; IPAM" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>IPAM</strong> (v1.37.0) – Präfixe und Bereiche werden numerisch gerechnet und sortiert (.9 vor .10), mit Auslastung und hinterlegter Vergaberegel. Bereiche lassen sich aufklappen und zeigen ihre vergebenen Adressen (v1.53.0). Die Suche findet auch Gerätenamen, der Suchbegriff steht in der URL, und IP-Adressen auf der Geräteseite führen direkt ins IPAM (v1.67.3)</li>
+<li class=""><strong>Netzwerkliste mit Dialogen</strong> (v1.48.0) – <code>/it/network</code> zeigt lesbare Werte (Raum, Schrank, Uplink samt Port, Status); „Bearbeiten“ öffnet das Gerät im Dialog. Hersteller und Modell lassen sich dort setzen (v1.51.1), Netzwerkgeräte wandern beim Löschen in einen Papierkorb (v1.53.0)</li>
+<li class=""><strong>Datenschränke</strong> (v1.48.0 / v1.48.1) – Neue Ebene Standort → Raum → Schrank → Gerät (Serverschrank, Wandverteiler, Netzwerkschrank), auch in der Geräteliste mit Filter und Plakette</li>
+<li class=""><strong>Räume und Flure direkt beim Gerät anlegen</strong> (v1.47.1 / v1.51.2) – „+ Neuer Raum“ bzw. „+ Neuer Flur“ neben der Raumauswahl; Access Points und Wandverteiler können im Flur hängen</li>
+<li class=""><strong>Patchfelder, Ports und Patchkabel</strong> (v1.53.10 – v1.53.13) – Neue Geräterolle „Patchfeld“, Ports von Patchfeldern und Switchen einzeln beschriftbar. Patchkabel verbinden Port mit Port, Endgeräte hängen an Ports. Die Geräteseite zeigt eine Frontansicht der Portbelegung (grün verbunden, blau beschriftet, grau frei); Endgeräte zeigen „Angeschlossen an“ bis zum Switch</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="wartung">Wartung<a href="https://wiki.scholar.schule/changelogplanora/v1-68-0#wartung" class="hash-link" aria-label="Direkter Link zur Wartung" title="Direkter Link zur Wartung" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Wartungspläne mit Nachweis</strong> (v1.46.0) – Für alles, was turnusmäßig anfällt (Restore-Test, USV-Akkutausch, Firewall-Review, DGUV-V3-Prüfung, Inventur). Ein Plan hängt an Gerät, Dienst, Verbund, Standort, Raum, Vertrag, Zertifikat, Domain, Lizenz – oder an nichts. Starrer Rhythmus hält den Stichtag, gleitender zählt ab dem Wartungstag. Jede Durchführung schreibt einen Nachweis mit eingefrorener Checkliste und einen Logbucheintrag. Dazu ein Katalog von 40 vorgedachten Wartungen einer Schul-IT, sieben davon als Pflichtprüfung mit Rechtsgrundlage</li>
+<li class=""><strong>Wartungsampel in Geräte- und Dienstliste</strong> (v1.52.1) – Grün: Wartung hinterlegt, orange blinkend: Termin verpasst, rot: gar keine Wartung dokumentiert</li>
+<li class=""><strong>Wartung in den Bearbeitungsmasken</strong> (v1.53.2 / v1.53.3) – Dienst, Gerät und Netzwerkgerät zeigen ihre Wartungspläne direkt beim Bearbeiten; Escape schließt dabei nur das oberste Fenster (v1.53.4)</li>
+<li class=""><strong>Wartungsliste verbessert</strong> (v1.53.7 – v1.57.4) – Die Suche findet auch das Objekt (z. B. „PVE1“), „Heute fällig“ als eigenes Etikett, Objektart und -name stehen vor dem Titel. Vom Dashboard führt ein Klick direkt zum richtigen Plan; Pläne gelöschter Objekte wandern mit in den Papierkorb (v1.53.8)</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="datenschutz--notfallhandbuch">Datenschutz &amp; Notfallhandbuch<a href="https://wiki.scholar.schule/changelogplanora/v1-68-0#datenschutz--notfallhandbuch" class="hash-link" aria-label="Direkter Link zur Datenschutz &amp; Notfallhandbuch" title="Direkter Link zur Datenschutz &amp; Notfallhandbuch" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Verzeichnis der Verarbeitungstätigkeiten</strong> (v1.50.0) – Nach Art. 30 DSGVO unter <code>/it/privacy</code> mit Druckansicht; Verfahren hängen an Diensten und Verträgen, fehlende Pflichtangaben werden als Lücke gemeldet. Verträge tragen den Stand der Auftragsverarbeitung (Art. 28)</li>
+<li class=""><strong>Datenschutzverletzungen</strong> (v1.50.0) – Als Kennzeichen an Störungen im Logbuch, mit 72-Stunden-Frist, Risikobewertung, Meldung und Benachrichtigung (Art. 33/34) sowie eigener Druckansicht</li>
+<li class=""><strong>Löschkonzept für Planora selbst</strong> (v1.50.0) – <code>itdoc:prune-personal-data</code> entfernt täglich personenbezogene Daten nach einstellbaren Fristen (Selbsterfassung, beendete Zugänge, erledigte Telefonnotizen, ausgemusterte Geräte, alte Protokolle)</li>
+<li class=""><strong>TOM, Schutzbedarf und Löschnachweis</strong> (v1.51.0) – Technische und organisatorische Maßnahmen (Art. 32) mit Überprüfungsnachweis über Wartungspläne; Dienste tragen Schutzbedarf je Grundwert (BSI 200-2) und RTO/RPO, entsorgte Geräte einen Löschnachweis</li>
+<li class=""><strong>Notfallhandbuch</strong> (v1.51.0) – Druckseite unter <code>/it/emergency</code> mit Ansprechpartnern und Vertragsnummern, Startreihenfolge aus den Dienst-Abhängigkeiten und Vorgehen bei Störung</li>
+<li class=""><strong>Datenschutz als eigenes Modul</strong> (v1.52.0) – Eine Rolle für die oder den Datenschutzbeauftragten bekommt nur dieses Modul samt eigenem Menüpunkt, ohne Geräte, Netze und Zugänge zu sehen. Neue Befugnis „Verarbeitungsverzeichnis ändern“, eigenes Änderungsprotokoll auf der Datenschutzseite</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="aufgaben--dashboard">Aufgaben &amp; Dashboard<a href="https://wiki.scholar.schule/changelogplanora/v1-68-0#aufgaben--dashboard" class="hash-link" aria-label="Direkter Link zur Aufgaben &amp; Dashboard" title="Direkter Link zur Aufgaben &amp; Dashboard" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Planungsraster für den Tag</strong> (v1.28.0 – v1.30.0) – Neuer Anzeigemodus <code>/tasks?display=grid</code>: der Tag als Viertelstunden-Raster über der Arbeitszeit, daneben fällige und undatierte Aufgaben. Ziehen oder Antippen legt eine Aufgabe auf eine Uhrzeit, „Automatisch verteilen“ füllt die Lücken nach Label-Gewicht und Priorität. Serien- und Kalendertermine liegen fest; vergangene Viertelstunden fallen am heutigen Tag heraus, eine orange Jetzt-Marke zeigt den Übergang</li>
+<li class=""><strong>Schnellaufgabe als aufklappbares Fenster</strong> (v1.33.0) – Auf dem Dashboard steht nur noch eine Zeile, der Rest klappt beim Überfahren auf. Eingaben bleiben über Seitenwechsel erhalten, Entwürfe lassen sich zwischenspeichern (bis zu zehn). Der Knopf „Details…“ legt die Aufgabe an und öffnet sie direkt im Bearbeiten-Fenster (v1.20.0)</li>
+<li class=""><strong>Schneller Datum und Uhrzeit setzen</strong> (v1.30.0 / v1.31.0) – Knöpfe „Heute“ und „Morgen“ unter dem Datumsfeld; die Uhrzeit wählt man aus einem aufklappbaren Raster (Stunde, dann Viertelstunde) statt aus einer langen Scrollliste</li>
+<li class=""><strong>Dashboard frei anordnen</strong> (v1.64.0) – Kacheln wie auf einer Pinnwand zwischen zwei oder drei Spalten ziehen, ausblenden und einklappen. Neue Karte „Tagesvorschau“ mit den offenen Aufgaben eines frei gewählten künftigen Tages, inklusive künftiger Serientermine (v1.63.0)</li>
+<li class=""><strong>Serienaufgaben im Dashboard</strong> (v1.67.2) – Der Bearbeiten-Dialog zeigt und ändert die Wiederholung; Serien sind in den Listen mit 🔁 markiert</li>
+<li class=""><strong>Label-Farben in den Dialogen</strong> (v1.34.0) – Ausgewählte Labels erscheinen sofort komplett in ihrer Farbe, einheitlich in Board, Liste, Schnellaufgabe und Dashboard</li>
+<li class=""><strong>Board-Schnelleintrag übernimmt das gewählte Projekt</strong> (v1.30.0) – Neue Aufgaben verschwinden nicht mehr sofort aus der Spalte; neue Projekte erben die aktive Ansicht (Beruflich/Privat), und die Projektauswahl im Dashboard folgt ihr (v1.28.0)</li>
+<li class=""><strong>Aufgaben mit Dauer</strong> (v1.22.0) – Fällige Aufgaben mit Zeitbedarf belegen Zeit im Tag und nehmen sie aus den buchbaren Slots heraus</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="projekte--freigaben">Projekte &amp; Freigaben<a href="https://wiki.scholar.schule/changelogplanora/v1-68-0#projekte--freigaben" class="hash-link" aria-label="Direkter Link zur Projekte &amp; Freigaben" title="Direkter Link zur Projekte &amp; Freigaben" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Projekte für alle freigeben</strong> (v1.53.15) – Alle Benutzer sehen die Aufträge und dürfen neue anlegen, bearbeiten aber nur ihre eigenen; Besitzer sehen und bearbeiten Aufträge, die andere in ihren Projekten angelegt haben. Neue Aufträge gibt es nur noch mit entsprechendem Recht im Projekt, auch über die API (v1.53.17)</li>
+<li class=""><strong>Geteilte Projekte nutzbar</strong> (v1.53.14 – v1.53.20) – Geteilte Unterprojekte erscheinen beim Empfänger auch ohne geteiltes Oberprojekt; das Badge „Aufträge anlegen“ führt direkt zur Aufgabenliste des Projekts, und die Dashboard-Schnellaufgabe bietet fremde Projekte an, in die man Aufträge legen darf</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="kalender--terminbuchung">Kalender &amp; Terminbuchung<a href="https://wiki.scholar.schule/changelogplanora/v1-68-0#kalender--terminbuchung" class="hash-link" aria-label="Direkter Link zur Kalender &amp; Terminbuchung" title="Direkter Link zur Kalender &amp; Terminbuchung" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Buchungs-Mails und Selbstverwaltung für Gäste</strong> (v1.22.0) – SMTP-Postfach in den Einstellungen; Anlage, Bestätigung, Verschiebung und Absage gehen mit ICS-Anhang an Gast und Kalenderbesitzer, Gäste können ihren Termin ohne Konto verschieben oder absagen. Die Mails an Gäste stehen in der Sie-Form (v1.23.0). Buchungsanfragen lassen sich direkt auf dem Dashboard annehmen oder ablehnen</li>
+<li class=""><strong>Erneuerbarer Buchungs-Link</strong> (v1.22.0) – „Erneuern“ macht den alten Link sofort ungültig, iCal-Abos und der öffentliche Kalender-Link bleiben bestehen</li>
+<li class=""><strong>Serientermine sperren Buchungszeit</strong> (v1.24.0) – Künftige Termine von Serienaufgaben waren für die Verfügbarkeit unsichtbar und damit buchbar. Sie werden jetzt berechnet, sperren ihren Zeitraum und erscheinen im Kalender blass und schreibgeschützt</li>
+<li class=""><strong>Buchungsformular</strong> (v1.23.0) – Einzelne Wochentage im Zeitslot-Formular sind wieder anklickbar, Buchungsfelder per Drag-and-drop sortierbar</li>
+<li class=""><strong>Informative Kalender</strong> (v1.29.0) – Neue Einstellung, damit Termine z. B. abonnierter Feeds oder Geburtstage im Planungsraster keine Zeit sperren</li>
+<li class=""><strong>Arbeitswoche als Kalenderansicht</strong> (v1.28.0) – Wochenansicht ohne Samstag und Sonntag</li>
+<li class=""><strong>Aufgaben in der Projektfarbe</strong> (v1.62.0) – Aufgaben im Kalender sind in der Farbe ihres Projekts gefüllt, die Schrift passt sich automatisch an</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="notizen">Notizen<a href="https://wiki.scholar.schule/changelogplanora/v1-68-0#notizen" class="hash-link" aria-label="Direkter Link zur Notizen" title="Direkter Link zur Notizen" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Lange Zettel kürzen</strong> (v1.21.0) – Lange Texte zeigen sechs Zeilen und darunter „mehr“, statt die Spalte in die Länge zu ziehen</li>
+<li class=""><strong>Formatierung und freie Anordnung</strong> (v1.53.11) – WYSIWYG mit fett, kursiv und Links (Strg+B/I/K), URLs werden automatisch verlinkt; Post-its per Drag-and-drop frei anordnen</li>
+<li class=""><strong>Notizen teilen, als Kopie senden, Verlauf</strong> (v1.53.18) – Geteilte Notizen bearbeiten alle gemeinsam, mit Rückfrage bei gleichzeitiger Änderung; „Als Kopie senden“ legt eine unabhängige Notiz an. Ein Änderungsverlauf hält 90 Tage lang jeden Stand samt Bearbeiter fest und kann ihn wiederherstellen</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="türschild">Türschild<a href="https://wiki.scholar.schule/changelogplanora/v1-68-0#t%C3%BCrschild" class="hash-link" aria-label="Direkter Link zur Türschild" title="Direkter Link zur Türschild" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Eigene Displays mit eigenem Link</strong> (v1.54.0) – Statt einer offenen Türanzeige gibt es Türschild-Displays je Benutzer mit geheimem, erneuerbarem Link (<code>/door/{token}</code>), optionaler IP-Sperre und eigener Darstellung (Größen-Presets für 7"/10"/24", Schriftfaktor, Theme, Uhr u. a.) samt Live-Vorschau. Schilder wählen, auf welchen Displays sie erscheinen. Die offenen Endpunkte <code>/door-view/start</code>, <code>GET/PUT /api/v1/signs/doorview</code> und <code>GET /api/v1/signs/active</code> sind entfallen</li>
+<li class=""><strong>Zeitgesteuert aktivieren</strong> (v1.25.0) – Vorlagen lassen sich zu einem Startzeitpunkt mit optionalem Ende einplanen, laufende Schilder auf Wunsch punktgenau beenden; neuer Abschnitt „Geplant“</li>
+<li class=""><strong>Türschild an Aufgaben hängen</strong> (v1.26.0 / v1.27.0) – Eine Vorlage an der Aufgabe erzeugt ein Schild für deren Zeitraum, das Verschieben, Abhaken und Löschen automatisch folgt. Ein einstellbarer Vorlauf hängt es vorher auf, abgenommen wird es erst beim Erledigen. Geplante Schilder werden durch „Aktivieren“ oder „Alle deaktivieren“ nicht mehr versehentlich abgeschaltet (v1.49.1)</li>
+<li class=""><strong>Zeilenumbrüche in der Überschrift</strong> (v1.32.0) – Enter setzt einen Umbruch; die Überschrift wird verkleinert, bis das längste Wort in eine Zeile passt</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="zeiterfassung">Zeiterfassung<a href="https://wiki.scholar.schule/changelogplanora/v1-68-0#zeiterfassung" class="hash-link" aria-label="Direkter Link zur Zeiterfassung" title="Direkter Link zur Zeiterfassung" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Regelwerk nach TV-L</strong> (v1.57.0) – Vorlagen für TV-L je Land, TV-H Hessen und Sonderfälle, jeder Wert anpassbar. Feiertage je Bundesland werden selbst berechnet, 24.12./31.12. sind freigestellt; Pausen nach § 4 ArbZG werden ergänzt, ab 10 Stunden gibt es eine Warnung. „Gültig ab“ legt einen neuen Plan an, das Stundenkonto rechnet jeden Tag mit dem damals gültigen. Korrigiert: Abwesenheiten zählten zusätzlich zum abgesenkten Soll als Plusstunden</li>
+<li class=""><strong>Keine Überschneidungen mehr</strong> (v1.57.1) – Web, API und Stechuhr lehnen sich überschneidende Arbeitszeit ab, bestehende Überschneidungen werden markiert</li>
+<li class=""><strong>Stechuhr mit Tagesstand</strong> (v1.58.0) – Erfüllte Zeit, Tagessoll, fehlende Zeit und die Uhrzeit, zu der das Soll erreicht ist, inklusive Pflichtpausen</li>
+<li class=""><strong>Jahresübersicht und neue Kacheln</strong> (v1.65.0 – v1.66.0) – Je Monat Soll, Ist, Plus/Minus und Saldo samt Übertrag; die Urlaubskachel zeigt Gesamt, Verbraucht und Verfügbar, die Kacheln nennen ihre Differenz zum Soll und den Saldo-Verlauf</li>
+<li class=""><strong>Statistik rechnet wie das Stundenkonto</strong> (v1.67.0) – Ist gegen Soll im Zeitraum, Diagramme mit Soll-Markierung, Arbeitszeit nach Projekt; Urlaub und Krankheit zählen nicht mehr als Arbeit. Manuelle Einträge nur noch an eigenen Projekten (v1.67.1)</li>
+<li class=""><strong>Monatserster fehlt nicht mehr</strong> (v1.64.1) – Einträge vom 1. eines Monats ohne Uhrzeit fielen aus Übersicht und Report heraus</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="datensicherung">Datensicherung<a href="https://wiki.scholar.schule/changelogplanora/v1-68-0#datensicherung" class="hash-link" aria-label="Direkter Link zur Datensicherung" title="Direkter Link zur Datensicherung" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Verschlüsseltes Datenbank-Backup</strong> (v1.60.0 / v1.61.0) – Unter Einstellungen → Datenbank-Backup (nur Administratoren) als verschlüsseltes <code>tar.gz</code> mit Datenbank und optional allen Dateianhängen. AES-256 mit eigenem Passwort, auch ohne Planora mit <code>openssl</code> und <code>tar</code> zu öffnen; dazu <code>planora:backup-decrypt</code>. Downloads werden protokolliert</li>
+<li class=""><strong>Backup wieder einspielen</strong> (v1.68.0) – Eine Sicherung hochladen und mit dem aktuellen Stand zusammenführen: vorhandene Einträge wahlweise ignorieren oder überschreiben (Bestätigung durch Eintippen von <code>UEBERSCHREIBEN</code>), gelöscht wird nie. Dateianhänge optional, alles in einer Transaktion, Sicherungen neuerer Versionen werden abgelehnt; danach gibt es eine Zusammenfassung je Tabelle</li>
+<li class=""><strong>Datenexport der IT-Dokumentation</strong> (v1.44.0) – Sicherung und Wiederherstellung als Datei, eine Prüfung erzwingt, dass jede neue Tabelle mitgesichert wird</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="rollen--einstellungen">Rollen &amp; Einstellungen<a href="https://wiki.scholar.schule/changelogplanora/v1-68-0#rollen--einstellungen" class="hash-link" aria-label="Direkter Link zur Rollen &amp; Einstellungen" title="Direkter Link zur Rollen &amp; Einstellungen" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Rollenverwaltung</strong> (v1.35.0) – Rollen bündeln Adminrechte und Modulfreigaben; was die Rolle nicht freigibt, kann auch der persönliche Schalter nicht öffnen. Statistiken und Benutzerverwaltung sind in die Einstellungen gewandert (alte Adressen leiten weiter), das Modul Open Claude ist entfallen</li>
+<li class=""><strong>Besondere Befugnisse</strong> (v1.49.0) – Z. B. „Auf der Statusseite veröffentlichen“: nicht mehr jeder, der Aufgaben pflegen darf, spricht öffentlich im Namen der Schule. Die API prüft dieselbe Befugnis (403)</li>
+<li class=""><strong>Benutzerliste ohne horizontales Scrollen</strong> (v1.53.16)</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="api--android-app">API &amp; Android-App<a href="https://wiki.scholar.schule/changelogplanora/v1-68-0#api--android-app" class="hash-link" aria-label="Direkter Link zur API &amp; Android-App" title="Direkter Link zur API &amp; Android-App" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>REST-API der IT-Dokumentation</strong> (v1.38.0) – Vollständig unter <code>/api/v1/it/</code>, mit Massenoperationen und neuem Token-Scope <code>itdoc:read</code> für reinen Lesezugriff, etwa für ein Monitoring. Seit v1.37.0 liefert <code>/api/v1/servers</code> organisationsweit statt nur eigene Objekte. Ein Fehler, bei dem <code>PATCH</code> auf mehrere IT-Endpunkte mit 500 endete, ist behoben (v1.58.3)</li>
+<li class=""><strong>Offline-Abgleich für die Android-App</strong> (v1.54.1 – v1.57.2) – Neuer Endpunkt <code>GET /api/v1/sync</code> mit Delta und ID-Listen; er liefert nach und nach Module, Zeiteinträge, Stundenkonto, Feiertage und Urlaubskonto, persönliche Notizen sowie Kennzeichen für IT-Modus und Adminrechte. Dazu Türschild-Endpunkte (Board, Vorlage aufhängen, umschalten), Notizen-CRUD und mehr Details an Geräten, Ports und Projekten. Behoben: Projekte, Kalender und Termine ließen sich über die API nicht abrufen, bearbeiten oder löschen</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="technik">Technik<a href="https://wiki.scholar.schule/changelogplanora/v1-68-0#technik" class="hash-link" aria-label="Direkter Link zur Technik" title="Direkter Link zur Technik" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>CSS-Bundle neu gebaut</strong> (v1.22.1, v1.29.0) – Fehlende Utility-Klassen hatten u. a. die Seitennavigation der Einstellungen und das Planungsraster zerlegt</li>
+<li class=""><strong>Tests und Formatierung</strong> (v1.38.1, v1.53.1) – Beispieltest durch einen echten Test der Wurzelweiterleitung ersetzt; Pint meldet über den ganzen Baum keine Verstöße mehr</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Planora" term="Planora"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v1.19.0 – Kalender-Arbeitsplatz, Notiz-Board, Türschilder & API]]></title>
+        <id>https://wiki.scholar.schule/changelogplanora/v1-19-0</id>
+        <link href="https://wiki.scholar.schule/changelogplanora/v1-19-0"/>
+        <updated>2026-08-14T18:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Sammel-Release für alles seit v1.2.2 – die Versionen 1.3.0 bis 1.19.0 (26.04. – 14.08.2026). Zusammengefasst nach Themen statt nach Einzelversionen.]]></summary>
+        <content type="html"><![CDATA[<p>Sammel-Release für alles seit v1.2.2 – die Versionen <code>1.3.0</code> bis <code>1.19.0</code> (26.04. – 14.08.2026). Zusammengefasst nach Themen statt nach Einzelversionen.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="aufgaben--board">Aufgaben &amp; Board<a href="https://wiki.scholar.schule/changelogplanora/v1-19-0#aufgaben--board" class="hash-link" aria-label="Direkter Link zur Aufgaben &amp; Board" title="Direkter Link zur Aufgaben &amp; Board" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Trello-Board für Aufgaben</strong> (v1.3.0) – Drei Spalten (Geplante, Serien, Ungeplante) mit Drag-and-drop. Projekte, Labels und Kalender sind als Tabs in die Aufgabenseite gewandert, die eigenen Routen <code>/projects</code>, <code>/labels</code> und <code>/calendar</code> entfallen</li>
+<li class=""><strong>Schnellanlage auf dem Dashboard</strong> (v1.3.0) – QuickAdd-Formular; Listen zeigen Labels und Projekt, „Letzte Aufgaben“ auch erledigte, Abhaken funktioniert als Umschalter</li>
+<li class=""><strong>Öffentliche Aufgabenseite für Kunden</strong> (v1.5.19 / v1.5.21) – Einzelne Aufgaben lassen sich per nicht erratbarem Token teilen (<code>/task/{token}</code>), ohne Anmeldung einsehbar: Titel, Fälligkeit und Status. Die Seite wurde neu gestaltet (Status-Badges, deutsches Datumsformat, Hinweisbox); Unteraufgaben erscheinen anonym als Fortschrittsbalken, der externe Tailwind-CDN ist einem lokalen Build gewichen</li>
+<li class=""><strong>Anhänge, interne Notiz und Unteraufgaben</strong> (v1.5.20) – Dateianhänge mit MIME-Whitelist, ein nie öffentliches Notizfeld, optional öffentliche Beschreibung, Unteraufgaben direkt im Dialog. Der Bearbeiten-Dialog ist zweispaltig, Karten tragen Badges für öffentlich / Anhänge / Unteraufgaben-Fortschritt</li>
+<li class=""><strong>Export und Import der eigenen Daten</strong> (v1.6.4) – Aufgaben inkl. Unteraufgaben und Labels sowie Kalendertermine als JSON, mit Dublettenerkennung beim Import. Dazu einheitliche Dialog-Fußzeilen und korrekte Sortierung geplanter Aufgaben nach Fälligkeit</li>
+<li class=""><strong>Serienaufgaben zählen als erledigt</strong> (v1.16.6) – Beim Abhaken springt eine Serie auf den nächsten Termin und leerte dabei <code>completed_at</code>, wodurch die Erledigung für alle Zähler unsichtbar blieb. Jede Erledigung wird jetzt protokolliert, Dashboard und Statistik zählen darüber</li>
+<li class=""><strong>Serientermine mit Konfliktprüfung</strong> (v1.16.9) – Vor dem Anlegen bzw. Umwandeln einer Serie wird auf Konflikte geprüft und rückgefragt; die Schnellaufgabe kann Serien anlegen, Serienaufgaben tragen optional eine Uhrzeit</li>
+<li class=""><strong>Ortsfeld mit Route-Knopf</strong> (v1.10.0) – Aufgaben haben wie Termine ein Ortsfeld; daneben ein Knopf, der die Navigation öffnet (auf Android direkt die Maps-App). Der Link entsteht schon beim Tippen, also vor dem Speichern</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="kalender">Kalender<a href="https://wiki.scholar.schule/changelogplanora/v1-19-0#kalender" class="hash-link" aria-label="Direkter Link zur Kalender" title="Direkter Link zur Kalender" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Vollständiger Kalender-Arbeitsplatz</strong> (v1.5.0) – CalDAV, iCal-Import (<code>.ics</code>) mit UID-Deduplizierung, Terminbuchung und Terminvorschläge. Buchungen mit Mindest-Vorlauf und maximalem Horizont je Kalender, mehrtägige Slots (Mo–Fr, Sa+So, beliebige Kombination), kalenderübergreifende Blockierung, Inbox für offene Buchungen und Vorschläge, sprechende Kalender-URLs, Aufgabenfälligkeiten als blockierende Termine</li>
+<li class=""><strong>CalDAV stabilisiert</strong> (v1.5.1 – v1.5.18) – Reihe von Korrekturen an der Sabre-Anbindung: PROPFIND-Routing, Antwort-Bridging zu Laravel, Basis-URL, HTTP-Exceptions, CTag (damit DAVx5 Änderungen von selbst holt), Termine ohne UID sowie von Clients verworfene Termine durch doppelte UID. Aufgaben werden als schreibgeschützte ganztägige Termine exportiert</li>
+<li class=""><strong>ICS-Abonnements</strong> (v1.7.0) – Fremde Kalender per URL abonnieren, stündliche Synchronisation über <code>calendar:sync-ics</code>, Sync-Knopf und Zeitpunkt der letzten Synchronisation in den Einstellungen. Das Dashboard zeigt die heutigen Termine mit Uhrzeit, Ort und Kalenderfarbe</li>
+<li class=""><strong>Termine und Aufgaben direkt im Kalender bearbeiten</strong> (v1.9.1 / v1.10.0) – Ein Klick öffnet den Bearbeiten-Dialog, Details erscheinen beim Überfahren. Über <code>sync_tasks</code> eingeblendete Aufgaben waren bisher unantastbar; sie lassen sich jetzt öffnen, abhaken und per Ziehen umdatieren (in den Monat gezogen entfällt die Uhrzeit, in einen Zeitslot gezogen wird sie gesetzt)</li>
+<li class=""><strong>Vergangene Termine auf dem Dashboard ausblenden</strong> (v1.16.7); der Kalender startet beim Öffnen wieder auf dem heutigen Tag (v1.16.9)</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="notizen">Notizen<a href="https://wiki.scholar.schule/changelogplanora/v1-19-0#notizen" class="hash-link" aria-label="Direkter Link zur Notizen" title="Direkter Link zur Notizen" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Notiz-Board als Post-it-Wand</strong> (v1.11.0) – Eigenes, abschaltbares Modul: farbige Zettel mit eigenen Kategorien, optional als ToDo mit Fälligkeit und Uhrzeit inkl. Überfällig-Kennzeichnung, Telefonnotizen mit Rückrufnummer, Betreff und „Weiterleiten an“, dazu ein Tag-Pool je Benutzer zum Filtern</li>
+<li class=""><strong>Papierkorb und Verzahnung mit Kalender/Dashboard</strong> (v1.12.0) – Gelöschte Notizen sind wiederherstellbar; Notiz-ToDos erscheinen wahlweise im Kalender (Ziehen ändert die Fälligkeit) und auf dem Dashboard zum Abhaken</li>
+<li class=""><strong>Kopier-Knopf</strong> (v1.16.4 / v1.16.5) – Notizinhalt in die Zwischenablage, ohne umgebende Beschriftungen</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="projekte-server--zeiterfassung">Projekte, Server &amp; Zeiterfassung<a href="https://wiki.scholar.schule/changelogplanora/v1-19-0#projekte-server--zeiterfassung" class="hash-link" aria-label="Direkter Link zur Projekte, Server &amp; Zeiterfassung" title="Direkter Link zur Projekte, Server &amp; Zeiterfassung" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Projekte sortieren, Icons und sichtbare Unterprojekte</strong> (v1.14.0 / v1.14.1) – Der Projektbaum erscheint überall eingerückt mit <code>↳</code>, Unterprojekte tragen ein Badge, Sortierung per Drag-and-drop innerhalb der Ebene, Icon-Auswahl im Projekt-Dialog. Ein Projekt kann nicht mehr unter sich selbst gehängt werden</li>
+<li class=""><strong>Tags für Server</strong> (v1.13.0) – Standort-Tags und allgemeine Tags aus einem gemeinsamen Pool, Filterleiste über der Liste, Suche findet Server auch über ihre Tags. Das wirkungslose Freitextfeld „Standort“ wurde in Tags überführt und entfernt</li>
+<li class=""><strong>Server-Prüfung mit Rückfrage</strong> (v1.15.0) – Beschrifteter Knopf „✅ Geprüft“, der vor dem Setzen das neue Prüfdatum nennt; der Server-/Log-Dialog scrollt jetzt korrekt statt nach oben aus dem Bild zu wachsen (v1.16.6)</li>
+<li class=""><strong>Art der Zeiteinträge sichtbar</strong> (v1.15.0) – Alle sechs Eintragsarten mit Symbol und Badge in Tagesliste und Monatstabelle (Arbeit, Urlaub, Krank, Feiertag, Stundenausgleich, Sonstiges); die API kennt dieselben Typen wie die Oberfläche</li>
+<li class=""><strong>Stundenausgleich belastet das Stundenkonto korrekt</strong> (v1.7.1) – Solche Einträge zählten als geleistete Arbeitszeit und glichen sich mit dem unveränderten Tages-Soll aus. Zusätzlich bleibt das zuletzt gewählte Projekt bei der Schnellaufgabe rund 3 Minuten vorausgewählt</li>
+<li class=""><strong>Datums- und Uhrzeitfelder im deutschen Format</strong> (v1.9.2)</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="türschild-door-view">Türschild (Door-View)<a href="https://wiki.scholar.schule/changelogplanora/v1-19-0#t%C3%BCrschild-door-view" class="hash-link" aria-label="Direkter Link zur Türschild (Door-View)" title="Direkter Link zur Türschild (Door-View)" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Mehrzeilige Schilder mit Lauftext</strong> (v1.17.0) – Überschrift plus mehrzeiliges Textfeld (Limit von 2.000 auf 5.000 Zeichen). Zu langer Text scrollt langsam nach unten, hält an und beginnt von vorn; auf 10-Zoll-Displays schrumpft die Überschrift zugunsten des Fließtexts. Statt eines starren Reloads alle 10 Sekunden – der jeden längeren Durchlauf abschnitt – fragt die Anzeige <code>/door-view/state</code> ab und lädt nur bei echten Änderungen neu</li>
+<li class=""><strong>Fett, kursiv und unterstrichen</strong> (v1.18.0) – Der Schild-Text ist ein kleines WYSIWYG-Feld; mehr als diese drei Auszeichnungen gibt es bewusst nicht. Beim Speichern fällt alles andere weg. Die API liefert <code>description</code> als reinen Text und zusätzlich <code>descriptionHtml</code> mit den Auszeichnungen – von dort holt Scholar das Türschild ab</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="api--anbindungen">API &amp; Anbindungen<a href="https://wiki.scholar.schule/changelogplanora/v1-19-0#api--anbindungen" class="hash-link" aria-label="Direkter Link zur API &amp; Anbindungen" title="Direkter Link zur API &amp; Anbindungen" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Aufgaben auf der ITSM-Statusseite veröffentlichen</strong> (v1.8.0) – Aufgaben lassen sich als Meldung freigeben (Störung / Geplante Arbeiten / Information) mit eigenem öffentlichem Titel, Text und betroffenem Dienst. Der Feed <code>GET /api/v1/status-page</code> ist immer vollständig, damit die Gegenseite ihn spiegeln kann. Beschreibung und interne Notiz werden nie veröffentlicht</li>
+<li class=""><strong>API-Tokens auf einen Zweck einschränkbar</strong> (v1.9.0) – Wahl zwischen Vollzugriff und „Nur Statusseite lesen“; ein eingeschränktes Token erhält auf allen anderen Endpunkten 403. Bestehende Tokens dürfen unverändert alles</li>
+<li class=""><strong>Fremdschlüssel für Aufgaben</strong> (v1.16.8) – Aufgaben können einen Schlüssel des anlegenden Systems tragen (<code>external_ref</code>, z. B. <code>scholar:onboarding:user:42</code>). Existiert dazu bereits eine offene Aufgabe desselben Tokens, gibt <code>POST /api/v1/tasks</code> sie zurück, statt ein Duplikat anzulegen – ein wiederkehrender Sync legt dieselbe Aufgabe damit nicht bei jedem Lauf erneut an. Gesucht wird über <code>?external_ref=</code> bzw. <code>?external_ref_prefix=</code></li>
+<li class=""><strong>Gemeinsamer Textvorrat für den Antwort-Assistenten</strong> (v1.19.0) – Das Add-on gibt es für Betterbird und für Firefox an Zammad; beide legen Bausteine, Footer, Platzhalter und gemerkte Anreden unter <code>GET|PUT|DELETE /api/v1/assistant/library</code> in Planora ab. Planora verwahrt den Inhalt nur, zusammengeführt wird im Add-on. Eine Revisionszählung verhindert, dass ein Gerät die Arbeit des anderen stillschweigend überschreibt (409 mit aktuellem Stand); Obergrenze 4 MB</li>
+<li class=""><strong>API für Anhänge, öffentliches Teilen und Unteraufgaben</strong> (v1.6.2)</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="benachrichtigungen">Benachrichtigungen<a href="https://wiki.scholar.schule/changelogplanora/v1-19-0#benachrichtigungen" class="hash-link" aria-label="Direkter Link zur Benachrichtigungen" title="Direkter Link zur Benachrichtigungen" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Push aufs Handy über ntfy</strong> (v1.16.0) – Fällige Aufgaben, Notiz-ToDos, Termine und Server-Prüfungen kommen als Push an, auch wenn Planora nicht geöffnet ist. <code>planora:send-reminders</code> läuft alle fünf Minuten, jede Meldung geht genau einmal raus, Zustellfehler werden erneut versucht. Server-Prüfungen kommen als Tagesübersicht ab 7 Uhr. Einstellbar sind Topic, Vorlaufzeit und vier Kategorie-Schalter, dazu ein Test-Knopf</li>
+<li class=""><strong>ntfy-Server und Token über die Einstellungen</strong> statt über die <code>.env</code> (v1.16.1)</li>
+<li class=""><strong>Wartungsanzeige im Dashboard</strong> (v1.16.0) – Server mit überfälliger oder in sieben Tagen fälliger Wartung; die Server-Statistik zählte zuvor jeden nicht überfälligen Server als „bald fällig“, „OK“ stand deshalb immer auf 0</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="bedienung-auf-dem-handy">Bedienung auf dem Handy<a href="https://wiki.scholar.schule/changelogplanora/v1-19-0#bedienung-auf-dem-handy" class="hash-link" aria-label="Direkter Link zur Bedienung auf dem Handy" title="Direkter Link zur Bedienung auf dem Handy" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Dashboard und Kalender brauchbar gemacht</strong> (v1.10.1) – Das Dashboard war breiter als der Bildschirm und ließ sich seitlich verschieben; der Bearbeiten-Dialog lief mit Ortsfeld und Speichern-Knopf aus dem Bild und ist jetzt unterhalb von <code>md</code> einspaltig als Sheet von unten. Die Knöpfe zum Bearbeiten und Abhaken sind auf Touchscreens dauerhaft sichtbar statt nur bei Maus-Hover. Banner lassen sich ausblenden</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="update--release">Update &amp; Release<a href="https://wiki.scholar.schule/changelogplanora/v1-19-0#update--release" class="hash-link" aria-label="Direkter Link zur Update &amp; Release" title="Direkter Link zur Update &amp; Release" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Update meldet keinen Erfolg mehr, wenn Dateien fehlschlagen</strong> (v1.16.3)</li>
+<li class=""><strong>Update-Installer prüft die Version des Archivs</strong> gegen die angeforderte Version (v1.5.18)</li>
+<li class=""><strong>Automatischer GitHub-Release-Workflow</strong> (v1.6.5 – v1.6.8, repariert in v1.16.2)</li>
+<li class=""><strong>Migrationen</strong> – Rückfallmechanismus (v1.5.13) und Admin-Berechtigung für <code>runMigrations</code> (v1.5.14); Knopf zum Leeren des Caches in den Einstellungen (v1.10.0)</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Planora" term="Planora"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v1.2.2 – TimeEntry API & Asset-Tracking]]></title>
+        <id>https://wiki.scholar.schule/changelogplanora/v1-2-2</id>
+        <link href="https://wiki.scholar.schule/changelogplanora/v1-2-2"/>
+        <updated>2026-04-10T10:47:00.000Z</updated>
+        <summary type="html"><![CDATA[Version 1.2.2 verbessert die TimeEntry API und stellt sicher, dass vorgebaute Assets im Repository versioniert werden.]]></summary>
+        <content type="html"><![CDATA[<p>Version 1.2.2 verbessert die TimeEntry API und stellt sicher, dass vorgebaute Assets im Repository versioniert werden.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixes">Fixes<a href="https://wiki.scholar.schule/changelogplanora/v1-2-2#fixes" class="hash-link" aria-label="Direkter Link zur Fixes" title="Direkter Link zur Fixes" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>TimeEntry API – Validierung</strong> – Eingaben für <code>index()</code>-Filter werden geprüft; <code>project_id</code> wird auf Eigentümerschaft validiert.</li>
+<li class=""><strong>Datumsformate</strong> – <code>date_format:Y-m-d</code> und <code>after:start_time</code>-Constraints in <code>store</code>/<code>update</code> erzwungen; <code>date</code>-Cast auf <code>date:Y-m-d</code> für konsistente API-Ausgabe korrigiert.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="sonstiges">Sonstiges<a href="https://wiki.scholar.schule/changelogplanora/v1-2-2#sonstiges" class="hash-link" aria-label="Direkter Link zur Sonstiges" title="Direkter Link zur Sonstiges" translate="no">​</a></h2>
+<ul>
+<li class=""><code>public/build</code> wird nicht mehr aus dem Repository ausgeschlossen – vorgebaute Assets werden jetzt versioniert.</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Planora" term="Planora"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v1.2.1 – Morgen-Vorschau im Dashboard]]></title>
+        <id>https://wiki.scholar.schule/changelogplanora/v1-2-1</id>
+        <link href="https://wiki.scholar.schule/changelogplanora/v1-2-1"/>
+        <updated>2026-04-08T18:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Version 1.2.1 zeigt ab einer konfigurierbaren Uhrzeit die Aufgaben von morgen direkt im Dashboard an.]]></summary>
+        <content type="html"><![CDATA[<p>Version 1.2.1 zeigt ab einer konfigurierbaren Uhrzeit die Aufgaben von morgen direkt im Dashboard an.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="neu">Neu<a href="https://wiki.scholar.schule/changelogplanora/v1-2-1#neu" class="hash-link" aria-label="Direkter Link zur Neu" title="Direkter Link zur Neu" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Morgen-Vorschau im Dashboard</strong> – Zeigt ab einer konfigurierbaren Uhrzeit (Standard: 12:00) die Aufgaben des nächsten Tages an; berücksichtigt den View-Mode-Filter.</li>
+<li class=""><strong>Modul-Einstellungen</strong> – Toggle und Stunden-Einstellung für die Morgen-Vorschau unter den Modul-Settings.</li>
+<li class=""><strong><code>User::getSetting()</code> Helper</strong> – Neue Methode für nutzerspezifische Einstellungen.</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Planora" term="Planora"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v1.2.0 – View-Mode & Pre-built Assets]]></title>
+        <id>https://wiki.scholar.schule/changelogplanora/v1-2-0</id>
+        <link href="https://wiki.scholar.schule/changelogplanora/v1-2-0"/>
+        <updated>2026-04-08T12:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Version 1.2.0 bringt einen persistenten View-Mode-Toggle und vereinfacht die Serverinstallation durch vorgebaute Assets.]]></summary>
+        <content type="html"><![CDATA[<p>Version 1.2.0 bringt einen persistenten View-Mode-Toggle und vereinfacht die Serverinstallation durch vorgebaute Assets.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="neu">Neu<a href="https://wiki.scholar.schule/changelogplanora/v1-2-0#neu" class="hash-link" aria-label="Direkter Link zur Neu" title="Direkter Link zur Neu" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>View-Mode-Toggle</strong> (beruflich/privat/alles) – bleibt über Seitenwechsel und Page-Refreshes erhalten via Session-Storage.</li>
+<li class=""><strong>Pre-built Frontend-Assets</strong> – CSS/JS wird direkt im Repository mitgeliefert, kein Node.js mehr auf Kundenservern nötig.</li>
+<li class=""><strong>Composer install im Update-Prozess</strong> – PHP-Abhängigkeiten werden beim Update automatisch aktualisiert.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixes">Fixes<a href="https://wiki.scholar.schule/changelogplanora/v1-2-0#fixes" class="hash-link" aria-label="Direkter Link zur Fixes" title="Direkter Link zur Fixes" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Dark Mode Task-Edit-Dialog</strong> – Input-Felder im Dashboard werden im Dark Mode korrekt gestylt.</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Planora" term="Planora"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v1.1.11 – Migrations-Fix]]></title>
+        <id>https://wiki.scholar.schule/changelogplanora/v1-1-11</id>
+        <link href="https://wiki.scholar.schule/changelogplanora/v1-1-11"/>
+        <updated>2026-04-06T20:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Version 1.1.11 behebt einen Fehler bei der Migration der servers-Tabelle.]]></summary>
+        <content type="html"><![CDATA[<p>Version 1.1.11 behebt einen Fehler bei der Migration der <code>servers</code>-Tabelle.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixes">Fixes<a href="https://wiki.scholar.schule/changelogplanora/v1-1-11#fixes" class="hash-link" aria-label="Direkter Link zur Fixes" title="Direkter Link zur Fixes" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Migration <code>servers</code>-Tabelle</strong> – Die Migration überspringt die Tabellenerstellung, wenn die Tabelle bereits existiert, um Fehler bei Updates zu vermeiden.</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Planora" term="Planora"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v1.1.10 – Neues Login-Design & Changelog-Verlinkung]]></title>
+        <id>https://wiki.scholar.schule/changelogplanora/v1-1-10</id>
+        <link href="https://wiki.scholar.schule/changelogplanora/v1-1-10"/>
+        <updated>2026-04-06T19:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Version 1.1.10 bringt ein komplett überarbeitetes Login-Design und verlinkt die Versionsnummer in der Seitenleiste direkt auf das Changelog.]]></summary>
+        <content type="html"><![CDATA[<p>Version 1.1.10 bringt ein komplett überarbeitetes Login-Design und verlinkt die Versionsnummer in der Seitenleiste direkt auf das Changelog.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="neu">Neu<a href="https://wiki.scholar.schule/changelogplanora/v1-1-10#neu" class="hash-link" aria-label="Direkter Link zur Neu" title="Direkter Link zur Neu" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Changelog-Verlinkung</strong> – Die Versionsnummer in der Seitenleiste verlinkt nun direkt auf das Changelog-Wiki.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="verbesserungen">Verbesserungen<a href="https://wiki.scholar.schule/changelogplanora/v1-1-10#verbesserungen" class="hash-link" aria-label="Direkter Link zur Verbesserungen" title="Direkter Link zur Verbesserungen" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Login-Seite neu gestaltet</strong> – Dark Glassmorphism-Design mit Glow-Orbs und Hexagon-Logo für ein modernes Erscheinungsbild.</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Planora" term="Planora"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v1.1.9 – Verbesserungen der Benutzerfreundlichkeit]]></title>
+        <id>https://wiki.scholar.schule/changelogplanora/v1-1-9</id>
+        <link href="https://wiki.scholar.schule/changelogplanora/v1-1-9"/>
+        <updated>2026-04-03T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Version 1.1.9 bringt zwei Verbesserungen der Benutzerfreundlichkeit sowie eine aktualisierte Wiki-URL.]]></summary>
+        <content type="html"><![CDATA[<p>Version 1.1.9 bringt zwei Verbesserungen der Benutzerfreundlichkeit sowie eine aktualisierte Wiki-URL.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="änderungen">Änderungen<a href="https://wiki.scholar.schule/changelogplanora/v1-1-9#%C3%A4nderungen" class="hash-link" aria-label="Direkter Link zur Änderungen" title="Direkter Link zur Änderungen" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Projekt-Vorauswahl im Aufgaben-Formular</strong> – Wenn ein Projekt-Filter aktiv ist, wird das entsprechende Projekt beim Erstellen einer neuen Aufgabe automatisch vorausgewählt.</li>
+<li class=""><strong>Wiki-URL aktualisiert</strong> – Der Link in der Seitenleiste zeigt nun auf <code>https://wiki.scholar.schule/</code>.</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Planora" term="Planora"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Start der Planora-Dokumentation]]></title>
+        <id>https://wiki.scholar.schule/changelogplanora/welcome</id>
+        <link href="https://wiki.scholar.schule/changelogplanora/welcome"/>
+        <updated>2026-04-03T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Heute, am 3. April 2026, haben wir offiziell mit der Dokumentation von Planora begonnen. Planora ist das Planungs- und Organisationswerkzeug der Wilhelm-Raabe-Schule und unterstützt das Team bei der strukturierten Verwaltung von Abläufen und Prozessen.]]></summary>
+        <content type="html"><![CDATA[<p>Heute, am 3. April 2026, haben wir offiziell mit der Dokumentation von <strong>Planora</strong> begonnen. Planora ist das Planungs- und Organisationswerkzeug der Wilhelm-Raabe-Schule und unterstützt das Team bei der strukturierten Verwaltung von Abläufen und Prozessen.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="was-ist-planora">Was ist Planora?<a href="https://wiki.scholar.schule/changelogplanora/welcome#was-ist-planora" class="hash-link" aria-label="Direkter Link zur Was ist Planora?" title="Direkter Link zur Was ist Planora?" translate="no">​</a></h2>
+<p>Planora ist eine moderne Webanwendung, die Planungs- und Organisationsprozesse an der Wilhelm-Raabe-Schule digital abbildet und vereinfacht.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="was-dokumentieren-wir">Was dokumentieren wir?<a href="https://wiki.scholar.schule/changelogplanora/welcome#was-dokumentieren-wir" class="hash-link" aria-label="Direkter Link zur Was dokumentieren wir?" title="Direkter Link zur Was dokumentieren wir?" translate="no">​</a></h2>
+<p>In dieser Dokumentation werden wir schrittweise alle Bereiche von Planora erfassen:</p>
+<ul>
+<li class=""><strong>Grundfunktionen</strong> – Überblick und Einstieg</li>
+<li class=""><strong>Benutzerverwaltung</strong> – Rollen und Berechtigungen</li>
+<li class=""><strong>Planung &amp; Organisation</strong> – Kernfunktionen der Anwendung</li>
+<li class=""><strong>Schnittstellen</strong> – Integration mit anderen Systemen</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="warum-eine-dokumentation">Warum eine Dokumentation?<a href="https://wiki.scholar.schule/changelogplanora/welcome#warum-eine-dokumentation" class="hash-link" aria-label="Direkter Link zur Warum eine Dokumentation?" title="Direkter Link zur Warum eine Dokumentation?" translate="no">​</a></h2>
+<p>Eine klare und gepflegte Dokumentation hilft dem Team, neue Funktionen konsistent umzusetzen, Einarbeitungszeiten zu verkürzen und das System langfristig wartbar zu halten.</p>
+<p>Wir freuen uns auf diesen Prozess und werden die Dokumentation kontinuierlich erweitern.</p>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Planora" term="Planora"/>
+        <category label="Dokumentation" term="Dokumentation"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v1.1.8 – API-Token-Verwaltung & Signs-API]]></title>
+        <id>https://wiki.scholar.schule/changelogplanora/v1-1-8</id>
+        <link href="https://wiki.scholar.schule/changelogplanora/v1-1-8"/>
+        <updated>2026-04-01T23:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Version 1.1.8 führt die API-Token-Verwaltung und eine vollständige REST-API für Schilder ein.]]></summary>
+        <content type="html"><![CDATA[<p>Version 1.1.8 führt die API-Token-Verwaltung und eine vollständige REST-API für Schilder ein.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="neu">Neu<a href="https://wiki.scholar.schule/changelogplanora/v1-1-8#neu" class="hash-link" aria-label="Direkter Link zur Neu" title="Direkter Link zur Neu" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>API-Token-Verwaltung</strong> – Neue Sektion unter <code>/settings</code> zum Generieren, Anzeigen und Widerrufen von API-Tokens (Livewire-Komponente <code>ApiTokenSettings</code>).</li>
+<li class=""><strong>Signs-API (v1)</strong> – Vollständige CRUD-API unter <code>/api/v1/signs</code> inkl. Aktivierungs-/Deaktivierungsendpunkte (<code>POST /api/v1/signs/{id}/activate</code> und <code>deactivate</code>). Der Zugriff ist per API-Token geschützt.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixes">Fixes<a href="https://wiki.scholar.schule/changelogplanora/v1-1-8#fixes" class="hash-link" aria-label="Direkter Link zur Fixes" title="Direkter Link zur Fixes" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Hardcodierte Asset-URLs</strong> – Asset-Pfade im Frontend wurden durch <code>@vite</code>-Direktiven ersetzt, sodass sie in allen Umgebungen korrekt aufgelöst werden.</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Planora" term="Planora"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v1.1.6 – Door-View, Installer-Verbesserungen]]></title>
+        <id>https://wiki.scholar.schule/changelogplanora/v1-1-6</id>
+        <link href="https://wiki.scholar.schule/changelogplanora/v1-1-6"/>
+        <updated>2026-04-01T21:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Version 1.1.6 bringt die neue Door-View-Funktion für Türschilder, Verbesserungen am Installer sowie einen Layout-Fix für die Seitenleiste.]]></summary>
+        <content type="html"><![CDATA[<p>Version 1.1.6 bringt die neue Door-View-Funktion für Türschilder, Verbesserungen am Installer sowie einen Layout-Fix für die Seitenleiste.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="neu">Neu<a href="https://wiki.scholar.schule/changelogplanora/v1-1-6#neu" class="hash-link" aria-label="Direkter Link zur Neu" title="Direkter Link zur Neu" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Door-View</strong> – Neue öffentliche Anzeigeseite unter <code>/door-view/start</code> (ohne Authentifizierung, iframe-einbettbar für Kiosk-Displays). Zeigt aktive Schilder inkl. konfigurierbarem Fallback-Screen.</li>
+<li class=""><strong>Door-View-Einstellungen</strong> – Neue Konfigurationssektion auf der <code>/signs</code>-Seite zur Verwaltung der Door-View-Optionen (Livewire-Komponente <code>DoorViewSettings</code>).</li>
+<li class=""><strong><code>AllowIframe</code>-Middleware</strong> – Entfernt <code>X-Frame-Options</code>-Header für eingebettete Kiosk-Verwendung.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="verbesserungen">Verbesserungen<a href="https://wiki.scholar.schule/changelogplanora/v1-1-6#verbesserungen" class="hash-link" aria-label="Direkter Link zur Verbesserungen" title="Direkter Link zur Verbesserungen" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Sicherheitshinweis in <code>install.php</code></strong> – Nach der Installation wird ein deutlicher Hinweis angezeigt, die Datei zu löschen.</li>
+<li class=""><strong>Installer: npm-Build</strong> – Der Installer führt jetzt automatisch einen npm-Build durch (<code>node_modules/.bin/vite</code>).</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixes">Fixes<a href="https://wiki.scholar.schule/changelogplanora/v1-1-6#fixes" class="hash-link" aria-label="Direkter Link zur Fixes" title="Direkter Link zur Fixes" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Sidebar-Layout</strong> – Der Inhaltsbereich passt sich beim Einklappen der Seitenleiste nun korrekt an (Alpine.js-Event-Dispatch).</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Planora" term="Planora"/>
+    </entry>
+</feed>

@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkmy_website=globalThis.webpackChunkmy_website||[]).push([[8947],{56600(e){e.exports=JSON.parse('{"authors":[{"name":"DashTec - Services","title":"Entwicklung & Administration","url":"https://dashtec.de","key":"dashtec","page":null,"count":1}]}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkmy_website=globalThis.webpackChunkmy_website||[]).push([[8121],{68070(e){e.exports=JSON.parse('{"tags":[{"label":"allgemein","permalink":"/blog/tags/allgemein","count":1},{"label":"ank\xfcndigung","permalink":"/blog/tags/ankundigung","count":1}]}')}}]);

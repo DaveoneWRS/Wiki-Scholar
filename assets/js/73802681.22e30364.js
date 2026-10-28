@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkmy_website=globalThis.webpackChunkmy_website||[]).push([[96],{46324(e){e.exports=JSON.parse('{"metadata":{"permalink":"/changelogscholar/page/2","page":2,"postsPerPage":10,"totalPages":9,"totalCount":87,"previousPage":"/changelogscholar","nextPage":"/changelogscholar/page/3","blogDescription":"Blog","blogTitle":"Scholar Changelog"}}')}}]);

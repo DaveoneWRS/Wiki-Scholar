@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkmy_website=globalThis.webpackChunkmy_website||[]).push([[7472],{55513(e){e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Willkommen im Scholar Blog","permalink":"/blog/willkommen","unlisted":false,"date":"2026-04-03T00:00:00.000Z"}]}')}}]);

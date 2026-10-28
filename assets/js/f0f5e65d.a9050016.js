@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkmy_website=globalThis.webpackChunkmy_website||[]).push([[124],{87602(a){a.exports=JSON.parse('{"blogBasePath":"/changelogplanora","blogTitle":"Planora Changelog","authorsListPath":"/changelogplanora/authors"}')}}]);

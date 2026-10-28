@@ -1,0 +1,972 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://wiki.scholar.schule/changelogscholar</id>
+    <title>Scholar - Dokumentation Blog</title>
+    <updated>2026-10-27T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://wiki.scholar.schule/changelogscholar"/>
+    <subtitle>Scholar - Dokumentation Blog</subtitle>
+    <icon>https://wiki.scholar.schule/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[v2026.10.27 – Lernmittel-Ausgabe, Schülerakte, Schnittstellen & Laravel 13]]></title>
+        <id>https://wiki.scholar.schule/changelogscholar/2026-10-27</id>
+        <link href="https://wiki.scholar.schule/changelogscholar/2026-10-27"/>
+        <updated>2026-10-27T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Sammel-Release für alles seit dem letzten Eintrag – Scholar-Versionen 2026.08.16-001 bis 2026.10.27-007 und Elternportal-Versionen 2026.08.17-001 bis 2026.10.21-002 (16.08. – 27.10.2026). Zusammengefasst nach Themen statt nach Einzelversionen.]]></summary>
+        <content type="html"><![CDATA[<p>Sammel-Release für alles seit dem letzten Eintrag – Scholar-Versionen <code>2026.08.16-001</code> bis <code>2026.10.27-007</code> und Elternportal-Versionen <code>2026.08.17-001</code> bis <code>2026.10.21-002</code> (16.08. – 27.10.2026). Zusammengefasst nach Themen statt nach Einzelversionen.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="scholar-v20261027-007">Scholar (v2026.10.27-007)<a href="https://wiki.scholar.schule/changelogscholar/2026-10-27#scholar-v20261027-007" class="hash-link" aria-label="Direkter Link zur Scholar (v2026.10.27-007)" title="Direkter Link zur Scholar (v2026.10.27-007)" translate="no">​</a></h2>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="lernmittel-ausgabe-picken--lager">Lernmittel-Ausgabe, Picken &amp; Lager<a href="https://wiki.scholar.schule/changelogscholar/2026-10-27#lernmittel-ausgabe-picken--lager" class="hash-link" aria-label="Direkter Link zur Lernmittel-Ausgabe, Picken &amp; Lager" title="Direkter Link zur Lernmittel-Ausgabe, Picken &amp; Lager" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Eine gemeinsame Liste „Fehlende Lernmittel“</strong> – Bei der Ausgabe erfasste Fehlmeldungen und noch offene Self-Service-Anforderungen (Bücher und digitale Lernmittel) stehen zusammen, gruppiert nach Buch. Schüler-Hilfe und Self-Service-Übersicht zeigen denselben Bestand und sind gegenseitig verlinkt; Einträge lassen sich einzeln oder je Buch entfernen. Bei „SB Buch“-Einträgen löst der Papierkorb denselben Pick-Vorgang aus wie der Pick-Button. Der Tab in der Schüler-Hilfe listet nur noch physische Bücher, digitale Anforderungen werden unter „Self-Service-Ereignisse“ bearbeitet</li>
+<li class=""><strong>Pick-Übersicht mit Lagerabgleich</strong> – Je Bestellung steht, wie viele offene Positionen laut Bestands-Scanner im Lager liegen und wie viele fehlen. Der Bestand wird nach Bestellalter verteilt, bereits älteren Bestellungen zugeteilte Exemplare gelten nicht mehr als verfügbar und werden gesondert ausgewiesen. Neue Sortierung „wenigste fehlende Exemplare zuerst“, kompaktere Tabelle</li>
+<li class=""><strong>Pick-Maske markiert Fehlendes rot</strong> – mit fehlender Menge am Buchtitel, Gesamtzahl über der Tabelle und Hinweis beim aktuellen Pick. Unterschieden wird zwischen „fehlt im Lager“ und „ohne Bestandsdaten“, damit nie inventarisierte Titel nicht fälschlich rot erscheinen. Neben dem Jahrgang steht der Klassenbuchstabe (9a statt 9)</li>
+<li class=""><strong>Vollständig gepickte Bestellungen</strong> stehen am Listenende, sind als „vollständig gepickt“ markiert und lassen sich über „Öffnen / zurücksetzen“ samt Lagerbuchung zurücksetzen; die Sprachsteuerung („weiter“) überspringt sie. Wird eine Bestellung von Hand auf „bestellt“ zurückgesetzt, taucht sie wieder auf</li>
+<li class=""><strong>Neue Seite „Abholkontrolle“</strong> – Das Büro erfasst die Bestellnummern der noch im Raum liegenden Pakete (einzeln oder als Liste), die Seite gleicht sie mit allen „gepackt“-Bestellungen ab und zeigt vorhanden / fehlt (vermutlich abgeholt) / nicht zuordenbar. Fehlende Pakete lassen sich einzeln oder gesammelt auf „geliefert“ setzen</li>
+<li class=""><strong>Lagerbestand und Lagerort gehören zur ISBN</strong> statt zum einzelnen Buch-Datensatz – derselbe Titel steht je Jahrgang mehrfach in der Buchliste, liegt aber als ein Stapel im Regal. Bestände wurden verlustfrei je ISBN zusammengefasst; auch der Bedarfsbericht rechnet jetzt je ISBN</li>
+<li class=""><strong>Bestands-Scanner in zwei Bereiche geteilt</strong> – links Zurückbuchen, rechts Bestandspflege über die ISBN; der inaktive Bereich wird abgeblendet, bei ISBNs mehrerer Jahrgänge erscheint ein Hinweis</li>
+<li class=""><strong>Bestellsuche über die interne ID</strong> – rein numerische Eingaben werden zusätzlich gegen die ID geprüft, auch im Filter der Sammelabbuchung</li>
+<li class=""><strong>Abhol-Benachrichtigung</strong> verweist auf den IT-Service in Raum 132, nennt Kontaktdaten in der Fußzeile und hat <a href="mailto:itsm@wilhelm-raabe-schule.de" target="_blank" rel="noopener noreferrer" class="">itsm@wilhelm-raabe-schule.de</a> als Antwortadresse</li>
+<li class=""><strong>Fix: Lagerbestand wurde doppelt abgezogen</strong> – Abgebucht wird jetzt beim Picken Exemplar für Exemplar statt zusätzlich beim Sammel-Setzen auf „bestellt“. Zurückgesetzte und gelöschte Positionen schreiben genau die abgezogene Menge wieder gut, der Bestand läuft nicht ins Minus</li>
+<li class=""><strong>Fix: Pick-Übersicht zeigte Bestellungen ohne zu pickende Positionen</strong> („Gesamt Positionen 0“), die nie aus der Liste verschwanden; die Überschrift nannte fälschlich den Status „gezahlt“</li>
+<li class=""><strong>Fix: Versand der Abholbenachrichtigungen brach mit Datenbankfehler ab</strong> (<code>pickup_notification_sent_at</code> fehlte) – die Mails gingen trotzdem raus, wurden aber nicht ausgewiesen</li>
+<li class=""><strong>Fix: Verlagspflege</strong> ist jetzt tatsächlich nach Fächern sortiert, Titel mit Verlagsvorschlag zuerst</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="digitale-lernmittel--zahlungen">Digitale Lernmittel &amp; Zahlungen<a href="https://wiki.scholar.schule/changelogscholar/2026-10-27#digitale-lernmittel--zahlungen" class="hash-link" aria-label="Direkter Link zur Digitale Lernmittel &amp; Zahlungen" title="Direkter Link zur Digitale Lernmittel &amp; Zahlungen" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Neue Seite „Lizenzzuweisung“</strong> in der E-Book-Verwaltung – Bestellungen „In Bearbeitung“ filterbar nach Schuljahr, Jahrgang und Name, Nach- und Vorname als Kopierknöpfe fürs Bildungsportal. Je Fach lässt sich die Lizenzvergabe abhaken (auch spaltenweise oder für alle Fächer eines Schülers); vollständige Zeilen werden einzeln oder gesammelt abgeschlossen</li>
+<li class=""><strong>Verlagsbestellung abhakbar</strong> – Titel mehrerer Jahrgänge („Unsere Erde 7|8“) stehen nur noch einmal mit addiertem Bedarf. Zeilen oder ganze Verlage lassen sich als „bestellt“ markieren (mit Zeitpunkt, Benutzer und offener Menge); spätere Nachbestellungen werden als Differenz ausgewiesen, eine Fortschrittsleiste zeigt den Stand</li>
+<li class=""><strong>Klarer Ablauf für Online-Buchbestellungen</strong> – Neu → nach Zahlungsbuchung automatisch In Bearbeitung → Abgeschlossen ausschließlich durch den E-Mail-Versand der Zugangsdaten. Jede Bestellung merkt sich das Versanddatum, ein zweiter Sammelversand schreibt niemanden doppelt an, „Alle E-Mails senden“ zeigt die Anzahl versandbereiter Bestellungen</li>
+<li class=""><strong>Verlags-Export</strong> enthält auch Bestellungen im Status „Neu“ (das Portal deaktiviert jedes fehlende Konto) und zusätzlich die Klasse mit Buchstaben (<code>9a</code>), damit der Verlag Konten klassenweise zuordnen kann</li>
+<li class=""><strong>Statistik je Jahrgang</strong> – Gesamtübersicht aller Online-Bestellungen unabhängig vom Status, Bestellungen ohne Jahrgang getrennt ausgewiesen</li>
+<li class=""><strong>Zahlungsübersicht: Filter „Digitalpaket“ und Kachel „Digital offen“</strong> – Analog- und Digitalpaket werden getrennt abgebucht, offene Digital-Differenzen fand der Filter „Unbezahlt“ bisher nie</li>
+<li class=""><strong>Knopf „Mit Elternportal abgleichen“</strong> (nur mit Lernmittel-Adminrecht) holt Zustimmungen und Paketwahl sofort. Der Abgleich nimmt ein Digitalpaket zurück, wenn die Bestellung im Elternportal abgemeldet wurde – von Hand vergebene und bereits bezahlte Pakete bleiben stehen und werden zur Prüfung gemeldet</li>
+<li class=""><strong>Spalte „Zustimmung | Paket“</strong> statt „Status A | D“ – Zustimmung als „Akzeptiert/Nicht akzeptiert“, Paket als „Analog/Digital“. Ohne Wahl im Elternportal steht „Keine Wahl“ statt „Analog“; umschalten lässt sich das Paket nur bei gesetzter Zustimmung, manuelle Änderungen werden mit Zeitpunkt und Benutzer vermerkt</li>
+<li class=""><strong>Fix: Digitale Lernmittel am SelfService nur noch nach Buchung und Zahlung</strong> – bisher genügte ein Schülerausweis, um ein Bildungslogin-Passwort oder eine Freischaltung auszulösen. Eine LM-SGB-Befreiung gilt weiterhin nur für das analoge Paket</li>
+<li class=""><strong>Fix: Manuelle Digitalbuchung landete als Analogbuchung</strong> – das Digitalpaket blieb „Unbezahlt“ und ließ sich endlos erneut buchen. Bei SGB-befreiten Schülern mit 0 € Digitalanteil springt jetzt auch der Digitalstatus auf „bezahlt“</li>
+<li class=""><strong>Fix: Abgemeldete Schüler</strong> bekommen keine Zugangsdaten für Online-Bücher mehr, und für sie entstehen keine neuen Bestellungen</li>
+<li class=""><strong>Fix: Versandknopf für Zugangsdaten war bei allen Bestellungen gesperrt</strong> („Schüler ist nicht mehr aktiv“), weil die Aktivitätsangabe beim Laden fehlte</li>
+<li class=""><strong>Fix: Filter der Zahlungsübersicht</strong> wirken wieder sofort bei der Auswahl; die Medien-Auswahl der Lizenzübersicht ist breit genug, um Titel zu unterscheiden</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="self-service-kiosk--passwort-resets">Self-Service, Kiosk &amp; Passwort-Resets<a href="https://wiki.scholar.schule/changelogscholar/2026-10-27#self-service-kiosk--passwort-resets" class="hash-link" aria-label="Direkter Link zur Self-Service, Kiosk &amp; Passwort-Resets" title="Direkter Link zur Self-Service, Kiosk &amp; Passwort-Resets" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Passwort sofort gesetzt</strong> – Wer sich am Terminal mit Barcode und Geburtsdatum ausweist, bekommt das neue IServ- bzw. Office-365-Passwort direkt (über die Warteschlange, bis zu drei Versuche), die Erfolgsmeldung nennt Benutzername bzw. Adresse. Bisher blieb die Anfrage liegen, bis jemand die Übersicht öffnete</li>
+<li class=""><strong>Klare Angabe, wann ein neues Passwort gilt</strong> – automatisch nach ca. 5 Minuten (WLAN, Office 365), von Hand nach ca. 3 Stunden (Untis, digitale Lernmittel) oder per Mail ins IServ-Postfach (moin.schule)</li>
+<li class=""><strong>Jede Passwort-Zurücksetzung wird für die Auswertung festgehalten</strong> – IServ, Office 365 und WLAN automatisch, sobald das Zielsystem das Passwort übernommen hat. Externe Resets lassen sich in der Schülerakte unter „Weitere Dienste“ erfassen; die MagicCard-Statistik wertet alles aus (Summen je Dienst, Rangliste der Schüler)</li>
+<li class=""><strong>Buchauswahl im Self-Service</strong> zeigt wieder alle Bücher des Jahrgangs (zuletzt fehlten 35 Titel) und filtert wie die Schüler-Hilfe inklusive Sprach- und Religionswahl</li>
+<li class=""><strong>Self-Service-Übersicht</strong> – Nachname per Klick in die Zwischenablage kopieren</li>
+<li class=""><strong>Fix: Kiosk-Passwortanzeige lief in eine Sperre</strong>, weil der Zähler mit allen anderen Seitenaufrufen geteilt war; bei Erreichen einer Grenze zeigt der Knopf jetzt einen Countdown. Die Kiosk-Nachricht nennt den tatsächlichen Login-Benutzernamen statt des Schülernamens</li>
+<li class=""><strong>Fix: MagicCard-Statistik zählte falsch</strong> – am Kiosk aktivierte Karten fehlten, Einlösungen und Rücknahmen zählten als Aktivierung („deaktiviert“ enthält „aktiviert“). Altbestände werden beim Update nachgetragen; Statistiken lassen sich von Admins protokolliert zurücksetzen</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="geräte-wartung--verwarnungen">Geräte, Wartung &amp; Verwarnungen<a href="https://wiki.scholar.schule/changelogscholar/2026-10-27#ger%C3%A4te-wartung--verwarnungen" class="hash-link" aria-label="Direkter Link zur Geräte, Wartung &amp; Verwarnungen" title="Direkter Link zur Geräte, Wartung &amp; Verwarnungen" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Gerätewartung erkennt ausgeliehene Geräte</strong> – Statt ein noch ausgeliehenes Gerät still auf „verfügbar“ zu setzen, erscheint ein Hinweis mit Ausleiher und Ausleihdatum: zurückbuchen und warten, Ausleihe behalten und nur die Wartung erfassen, oder abbrechen</li>
+<li class=""><strong>Töne in der Gerätewartung</strong> – eigener Warnton für ausgeliehene Geräte, unterscheidbare Töne für Erfolg und Fehler (unbekannter Barcode, Netzwerkfehler)</li>
+<li class=""><strong>Warnmodus im Lagerscanner mit Bestätigung</strong> – Vor dem Versand einer Verwarnung („Akku“, „Ausschalten“) zeigt die Oberfläche Gerät, Klasse, letzten Ausleihzeitraum und bisherige Verwarnungen und lässt fünf Sekunden zum Abbrechen. Die beiden Warnmodi schließen sich gegenseitig aus</li>
+<li class=""><strong>Verwarnung erreicht den Schüler auch ohne Mail</strong> – beim nächsten Ausweis-Scan am Geräte-Scanner einmalig als Vollbild-Hinweis mit Sprachausgabe; ohne Office-365-Adresse bricht der Vorgang nicht mehr ab. Neue Verwarnungsstatistik auf der MagicCard-Seite</li>
+<li class=""><strong>Verwarnung am Geräte-Scanner steht feste 5 Sekunden</strong> und lässt sich nicht mehr durch einen weiteren Scan wegdrücken; in dieser Zeit gescannte Codes verfallen</li>
+<li class=""><strong>Sprachausgabe überall mit der konfigurierten ElevenLabs-Stimme</strong>, auch an der nicht angemeldeten Scan-Station. „Fach gesperrt/freigegeben“ im Lagerscanner folgt jetzt dem Sprachausgabe-Schalter im Benutzer-Menü</li>
+<li class=""><strong>Scan-Monitor</strong> meldet Geburtstage von gestern, heute und morgen</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="notensystem--zeugnisse">Notensystem &amp; Zeugnisse<a href="https://wiki.scholar.schule/changelogscholar/2026-10-27#notensystem--zeugnisse" class="hash-link" aria-label="Direkter Link zur Notensystem &amp; Zeugnisse" title="Direkter Link zur Notensystem &amp; Zeugnisse" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Offene Benotungen auf der Startseite</strong> – hinter „Fachlehrer: Noteneintrag“ stehen Klassen und Fächer mit fehlenden Noten samt Anzahl, zugeordnet über das Untis-Kürzel; ein Klick öffnet die Noteneingabe mit vorgewählter Klasse und Fach</li>
+<li class=""><strong>Vorherige Halbjahresnote zur Kontrolle</strong> neben dem Notenfeld. Bei einem Sprung um zwei oder mehr Notenstufen ist eine Begründung Pflicht; sie ist nur in der Zeugniskonferenz hinter einem Infosymbol sichtbar und landet nie auf dem Zeugnis</li>
+<li class=""><strong>AV/SV an einer Stelle</strong> – Note und Text werden nur noch in der AV/SV-Übersicht gepflegt (mit Floskel-Dialog); „Fehltage“ erfasst nur noch Fehltage. In der Noteneingabe (FL) ist AV/SV mit „C“ vorbelegt</li>
+<li class=""><strong>Nur noch ein Fach „Religion“</strong> in der Noteneingabe (FL) – das Zeugnis kennt nur eine Religionsnote; Lehrkräfte für Religion katholisch tragen dort mit ein</li>
+<li class=""><strong>„Meine Klasse“ heißt „Meine Klassen“</strong></li>
+<li class=""><strong>Fix: Unnötige „Seite verlassen?“-Warnung</strong> beim Speichern der Noteneingabe (FL) entfällt</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="schülerakte-sekretariat--eltern">Schülerakte, Sekretariat &amp; Eltern<a href="https://wiki.scholar.schule/changelogscholar/2026-10-27#sch%C3%BClerakte-sekretariat--eltern" class="hash-link" aria-label="Direkter Link zur Schülerakte, Sekretariat &amp; Eltern" title="Direkter Link zur Schülerakte, Sekretariat &amp; Eltern" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Neue Übersicht „Schüler im Ausland“</strong> unter Sekretariat – löst die Excel-Liste ab: Schuljahr, Klasse, Zeitraum, Zielland, Antrag, Beratung, Haken für Wiederholung, Anerkennung, Q-Phase und WebUntis, Bemerkungen als Einzeleinträge. In der Schülerakte erscheint während des Aufenthalts ein oranger Hinweis</li>
+<li class=""><strong>Vermerke zur elterlichen Sorge</strong> – Teilbereiche (u. a. Personensorge, Aufenthaltsbestimmung, Abholberechtigung) mit Rechtsgrundlage, Einstufung, Inhaber, Aktenzeichen und Gültigkeit. Aktive Vermerke stehen als farbiger Reiter im Aktenkopf (rot / gelb / grün). Lesen darf jeder mit Aktenzugriff, eintragen nur Sekretariat, Schulleitung, Koordination und Admin; Vermerke werden nie gelöscht, sondern aufgehoben</li>
+<li class=""><strong>Nachteilsausgleiche aus ILE/Förderung</strong> erscheinen in der Schülerakte mit lesender Detailansicht; die Klassenlehrer-Übersicht zeigt allen Lehrkräften ihre zugeordneten Klassen und markiert Schüler mit gültigem Nachteilsausgleich</li>
+<li class=""><strong>Persönliches Dashboard</strong> – Boxen lassen sich je Benutzer anordnen und ausblenden; bei freigeschalteter Noteneingabe erscheint das Notensystem-Menü direkt dort</li>
+<li class=""><strong>E-Mail-Export der Eltern</strong> – Auswahl nach Jahrgängen oder Klassen mit Adressanzahl je Klasse, als Outlook-Kontaktliste, Verteilerliste (Semikolon-getrennt) oder Excel-Liste für Serienbriefe. Eltern mehrerer Kinder stehen nur einmal; eigenes Recht für Admin, Schulleitung, Koordination und Verwaltung</li>
+<li class=""><strong>Fix: Elternvertretung</strong> – Klasse und Fach lassen sich bei jedem Typ ändern, eine nicht mehr aktive Klasse bleibt mit „(nicht mehr aktiv)“ erhalten statt beim Speichern zu verschwinden. Das Menü „Erziehungsberechtigte“ erscheint nur mit <code>listParents</code></li>
+<li class=""><strong>Fix: Speichern eines Nachteilsausgleichs</strong> brach bei leerem Zählfeld (Ja/Nein/Enthaltung) mit Datenbankfehler ab</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="ags">AGs<a href="https://wiki.scholar.schule/changelogscholar/2026-10-27#ags" class="hash-link" aria-label="Direkter Link zur AGs" title="Direkter Link zur AGs" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Alle AG-Teilnehmer auf einmal</strong> – als CSV (eine Zeile je Teilnehmer) und als Sammel-PDF (eine AG je Seite mit Deckblatt), wahlweise alle, bestätigte oder vorläufige Zuweisungen</li>
+<li class=""><strong>AG-Leitungen sehen und drucken die Bewerbungen ihrer AG</strong>, auch ohne Zuteilungsrecht; neue Druckansicht für Bewerber- und Teilnehmerliste</li>
+<li class=""><strong>Rechte für AG-Zuweisungen</strong> – Lehrkräfte können Bewerbungen ab Werk nicht mehr übernehmen oder ablehnen (<code>ags_assignment</code> für die Rolle Lehrer gesperrt, freischaltbar). Die Seiten hängen jetzt allein an diesem Recht – bisher brach „Übernehmen“ mit Fehlerseite ab, während „Alle übernehmen“ funktionierte</li>
+<li class=""><strong>AG-Import-Vorschau als eigene Seite</strong> – Neuladen und Zurück führen nicht mehr zur Fehlermeldung, Korrekturen bleiben erhalten. Das Stundenraster kennt die 9. und 10. Stunde</li>
+<li class=""><strong>AG-Export ans Elternportal</strong> prüft vorab mit denselben Regeln, ergänzt fehlende Sekunden und nennt bei Fehlern alle betroffenen AGs mit Name, Leitung und Bearbeiten-Link</li>
+<li class=""><strong>Fix: Gelöschte AGs tauchten im Elternportal wieder auf</strong> – der stündliche Schüler-Abgleich übertrug auch gelöschte AGs und Zuordnungen aus dem Vorjahr</li>
+<li class=""><strong>Fix: AG-Bewerbungsübersicht</strong> – „Anzeigen“ und „Alle übernehmen“ sind bei langen Namen wieder erreichbar</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="druckansicht--listen">Druckansicht &amp; Listen<a href="https://wiki.scholar.schule/changelogscholar/2026-10-27#druckansicht--listen" class="hash-link" aria-label="Direkter Link zur Druckansicht &amp; Listen" title="Direkter Link zur Druckansicht &amp; Listen" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Neuer Reiter „Klassenfotos“</strong> – alle Fotos einer Klasse alphabetisch auf einer A4-Seite, als Vorschau oder PDF, mit Hinweis auf fehlende Fotos</li>
+<li class=""><strong>Fremdsprachenliste ausgebaut</strong> – auch für einzelne Klassen und die Jahrgänge 11 und 12, 2. und 3. Fremdsprache werden gemeinsam ausgewertet (wer zwei belegt, steht in beiden Gruppen), zusätzlich als CSV. Nur für Schulleitung, Koordination, Verwaltung und Administration sichtbar</li>
+<li class=""><strong>Fix: Latein-Liste</strong> zeigt aktuelle Klasse, Zeugnisklasse und Schuljahr des Zeugnisses statt immer des laufenden Jahres, sortiert nach aktueller Klasse</li>
+<li class=""><strong>Fix: CSV-Export-Knopf</strong> saß im falschen Reiter und brach mit Fehlerseite ab</li>
+<li class=""><strong>Fix: Bibliotheks-Etikett</strong> – lange Interessenskreise werden kleiner gesetzt statt abgeschnitten</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="pdf-unterschriften--fälle">PDF-Unterschriften &amp; Fälle<a href="https://wiki.scholar.schule/changelogscholar/2026-10-27#pdf-unterschriften--f%C3%A4lle" class="hash-link" aria-label="Direkter Link zur PDF-Unterschriften &amp; Fälle" title="Direkter Link zur PDF-Unterschriften &amp; Fälle" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Eine Vorlagen-Auswahl beim Anlegen eines Falls</strong> – PDF-Unterschriften-, PDF-Layout- und Formular-Vorlagen sowie „Eigenes PDF hochladen“; bei eigenem PDF öffnet sich direkt der Feld-Editor</li>
+<li class=""><strong>E-Mail-Einstellungen einer PDF-Vorlage nachträglich änderbar</strong> – bisher schaltete jedes Speichern im Editor den Versand ab. Der Kiosk fragt die Adresse nur noch ab, wenn die Vorlage es verlangt</li>
+<li class=""><strong>Einladung per E-Mail zu einer Elternportal-Freigabe</strong> (Briefumschlag-Symbol) mit Link, Zugangscode und Ablaufdatum; Freigaben lassen sich endgültig löschen, bereits eingegangene Einreichungen bleiben erhalten</li>
+<li class=""><strong>Fix: Rückmeldungen auf der Fall-Bearbeitungsseite</strong> werden angezeigt; die Fall-Übersicht passt wieder ins Fenster</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="api--schnittstellen">API &amp; Schnittstellen<a href="https://wiki.scholar.schule/changelogscholar/2026-10-27#api--schnittstellen" class="hash-link" aria-label="Direkter Link zur API &amp; Schnittstellen" title="Direkter Link zur API &amp; Schnittstellen" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>API-Schlüssel</strong> in den AdminTools – nur einmal angezeigt, als Hash gespeichert, nachträglich bearbeitbar und auf IP-Adressen oder Netze beschränkbar. Freigaben für Stundenpläne (<code>/api/timetable</code>), Schülersuche (<code>students</code>), Geburtstage (<code>birthdays</code>) und die Schüler-Hilfe (<code>schueler_hilfe</code>, <code>device_rentals</code>, <code>schueler_hilfe_write</code>) im Umfang der Handy-App. Abfragen von Schülerdaten werden je Schlüssel protokolliert (180 Tage)</li>
+<li class=""><strong>PaperPrintScan-Anbindung</strong> – Kopiercodes, Personal und Schüler werden an die neue Druck-, Kopier- und Scanverwaltung übertragen, Lehrkräfte werden automatisch zugeordnet, in Scholar Gelöschtes wird dort deaktiviert. Schüler melden sich an der Freigabestation mit ihrem Ausweis an. Adresse und Token stehen unter „Konfigurationen › PaperPrintScan“ (setzt eine aktuelle PaperPrintScan-Version voraus)</li>
+<li class=""><strong>Fix: Vertretungsplan wird wieder von WebUntis abgeholt</strong> (der Abgleich brach seit Beginn mit „Method not found“ ab). Original und Vertretung für Lehrkraft, Fach und Raum kommen getrennt an, der Typ wird direkt übernommen, zurückgenommene Vertretungen verschwinden</li>
+<li class=""><strong>Fix: Magellan-Schülerimport</strong> setzte Schüler im Auslandsjahr in ihre alte 5. Klasse; sie kommen jetzt in die Sammelklasse 100 („Ausland“) und automatisch in die Übersicht „Schüler im Ausland“ – bereits falsch einsortierte Schüler bitte dort korrigieren</li>
+<li class=""><strong>Fix: Magellan-Lehrerimport</strong> – leere Felder löschen keine gepflegten Angaben mehr (ein Export ohne Geburtsdatum leerte bisher alle Geburtsdaten), außer man hakt es ausdrücklich an. Die Vorschau zeigt echte Altwerte, kennzeichnet „neu / überschreibt / wird geleert“, vergleicht alle Felder und nennt die gefundenen Spalten. Doppelte Platzhalter-Adressen werden durchgezählt statt den ganzen Import abzubrechen</li>
+<li class=""><strong>Übertragungen ans Elternportal</strong> melden eine Ablehnung jetzt als Fehlschlag statt als Erfolg</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="administration">Administration<a href="https://wiki.scholar.schule/changelogscholar/2026-10-27#administration" class="hash-link" aria-label="Direkter Link zur Administration" title="Direkter Link zur Administration" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Kachel „API-Status“</strong> in der Adminübersicht – Ampel für Elternportal, Microsoft 365, RADIUS, OPNsense, PaperPrintScan, WebUntis, moin.schule, IServ, Planora, Scholar-CRM, Ferien-API, isbn.de, DeepL/Google, ElevenLabs, Zammad und Mailserver (nur aktive Schnittstellen). Gelb bei langsamer Antwort, Drosselung, knappem Kontingent oder fehlgeschlagenem Sync, rot bei fehlender Verbindung oder Anmeldung. Geprüft wird alle 15 Minuten, die Ferien-API nur wöchentlich</li>
+<li class=""><strong>Kachel „Schülerakte“</strong> – pflegt die Auswahl unter „Weitere Dienste“: ein-/ausblenden, aktivieren, umbenennen, sortieren, neu anlegen (Recht <code>manage_services</code>)</li>
+<li class=""><strong>Fehlgeschlagene Cronjobs melden sich per E-Mail</strong> – mit Befehl, Exit-Code und Ausgabe, Entwarnung bei Erfolg, höchstens eine Meldung pro Task und Stunde. „Geplante Tasks verwalten“ zeigt jetzt auch automatische Läufe und die Meldeadresse</li>
+<li class=""><strong>„EP Synchronisation“ in den Admin-Tools entfällt</strong> – alle Elternportal-Befehle stehen unter den geplanten Aufgaben, neuer Zeitplan „Nur manuell“. „Jetzt ausführen“ meldet Fehlschläge nicht mehr als Erfolg</li>
+<li class=""><strong>Eigene Rubrik „Statistiken“</strong> für Self-Service, MagicCard und Support</li>
+<li class=""><strong>Rollenverwaltung ist maßgeblich</strong> – „Aktiv/Inaktiv“ sperrt eine Berechtigung jetzt wirklich für die ganze Rolle; bisher hoben der nächtliche Abgleich und Einzelrechte am Benutzer die Sperre wieder auf. Neuer Befehl <code>permissions:strip-redundant-direct</code> räumt Altbestände auf</li>
+<li class=""><strong>Permanente WLAN-Zugänge brauchen einen Grund</strong> – Übersicht als durchsuchbare Tabelle mit Grund, Anlagedatum und Gültigkeit, abgelaufene Zugänge rot markiert. Fix: Das Präfix wurde bei gecachter Konfiguration ignoriert</li>
+<li class=""><strong>Revisionsprotokoll</strong> – der Log-Kanal war nicht konfiguriert; Backups, Sicherheits-Wochenbericht und Statistik-Resets werden jetzt festgehalten</li>
+<li class=""><strong>Fix: Die tägliche Log-Mail</strong> verschickt das Log des abgeschlossenen Vortags statt des gerade begonnenen Tages</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="update-system">Update-System<a href="https://wiki.scholar.schule/changelogscholar/2026-10-27#update-system" class="hash-link" aria-label="Direkter Link zur Update-System" title="Direkter Link zur Update-System" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Schreibrechte-Prüfung vor dem Update</strong> – Sind Zielverzeichnisse nicht beschreibbar (typisch nach einem Update als root), bricht das Update ab, bevor etwas verändert wird. Neues Reparaturskript <code>setup/repair_installation.sh</code> analysiert und repariert halb aktualisierte Installationen</li>
+<li class=""><strong>Fix: Updates mit neuer Laravel-Version brachen nach <code>composer install</code> ab</strong> – Migrationen, Seeder und Cache-Befehle laufen jetzt in einem eigenen PHP-Prozess. Ein abgebrochenes Update holt seine Migrationen beim nächsten Lauf nach</li>
+<li class=""><strong>Fix: „Update in 00:00“ blieb im Header stehen</strong> – geplante Updates für eine bereits installierte Version werden abgebrochen, überfällige verschwinden nach 10 Minuten aus dem Header</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="türschild">Türschild<a href="https://wiki.scholar.schule/changelogscholar/2026-10-27#t%C3%BCrschild" class="hash-link" aria-label="Direkter Link zur Türschild" title="Direkter Link zur Türschild" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Türschild-Anzeige aus Scholar entfernt</strong> (<code>/door-view/…</code> samt Outlook-Kalenderansicht) – Türschilder werden vollständig in Planora verwaltet, jedes Display hat dort einen eigenen geschützten Link. Zuvor gab es noch Verbesserungen an der Schriftgröße, an Zeilenumbrüchen aus Planora und an langen Wörtern</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="technik--sicherheit">Technik &amp; Sicherheit<a href="https://wiki.scholar.schule/changelogscholar/2026-10-27#technik--sicherheit" class="hash-link" aria-label="Direkter Link zur Technik &amp; Sicherheit" title="Direkter Link zur Technik &amp; Sicherheit" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Laravel 13, Livewire 4, PHPUnit 13, Tailwind CSS 4</strong> sowie neue Hauptversionen von Laravel Excel, spatie/laravel-permission, activitylog, authentication-log und backup; alle bekannten Sicherheitslücken geschlossen. Tailwind 4 braucht aktuelle Browser (Safari/iOS 16.4+, Chrome/Edge 111+, Firefox 128+). Nach dem Update <code>php artisan migrate</code> ausführen; Livewire liefert seine Skripte unter <code>/livewire-&lt;hash&gt;/</code> aus – Firewall- oder Webserver-Regeln ggf. anpassen</li>
+<li class=""><strong>Keine externen CDNs mehr</strong> – JavaScript, CSS und Schriften kommen vom eigenen Server (betraf u. a. die Self-Service-Seiten, die Alpine.js unversioniert von unpkg luden). Barcode-Scanner nutzen den gepflegten Quagga2-Fork</li>
+<li class=""><strong>Livewire 3.8.8</strong> schloss vorab eine XSS-Lücke (CVE-2026-81887)</li>
+<li class=""><strong>Cache deserialisiert keine Objekte mehr</strong>; das Datenbank-Passwort für Backups steht nicht mehr auf der Kommandozeile</li>
+<li class=""><strong>Ungenutzte Abhängigkeiten entfernt</strong> (u. a. <code>microsoft/microsoft-graph</code> mit 20 Folgepaketen, Headless UI, Heroicons, Flowbite); Reste der Todoist-Anbindung samt gespeicherter Zugangsdaten gelöscht</li>
+<li class=""><strong>Fix: Jeder Login wurde doppelt protokolliert</strong>; die Seite WebUntis-Synchronisation lädt wieder; Drag &amp; Drop im Checklisten-Editor und die AG-Leitung als Freitext funktionieren wieder</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="sonstiges">Sonstiges<a href="https://wiki.scholar.schule/changelogscholar/2026-10-27#sonstiges" class="hash-link" aria-label="Direkter Link zur Sonstiges" title="Direkter Link zur Sonstiges" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Quicksearch-Verlauf an jedem Suchfeld</strong> – ein Uhr-Symbol zeigt die letzten 15 ausgewählten Personen (lokal im Browser gespeichert), u. a. in Navigation, Schüler-Hilfe, Zahlungen und Bestellungen</li>
+<li class=""><strong>Ricoh-Adressbuch</strong> zeigt freie Kopiercodes als „frei 01“, „frei 02“ statt im Klartext</li>
+<li class=""><strong>Fix: Onboarding-PDF</strong> nennt den IServ-Benutzernamen ohne Domain; die IT-Service-Nummer lautet überall 04131 309 7219</li>
+<li class=""><strong>Fix: Frischinstallation</strong> – Barcode-Erzeugung und Rollen-Abgleich brachen ab; Self-Service-Übersicht stürzte bei Büchern ohne Autor ab</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="elternportal-v20261021-002">Elternportal (v2026.10.21-002)<a href="https://wiki.scholar.schule/changelogscholar/2026-10-27#elternportal-v20261021-002" class="hash-link" aria-label="Direkter Link zur Elternportal (v2026.10.21-002)" title="Direkter Link zur Elternportal (v2026.10.21-002)" translate="no">​</a></h2>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="neu">Neu<a href="https://wiki.scholar.schule/changelogscholar/2026-10-27#neu" class="hash-link" aria-label="Direkter Link zur Neu" title="Direkter Link zur Neu" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>AG-Wahl übersichtlicher</strong> – gewählte AGs als farbige Karte mit Markierung „Ausgewählt“, Übersicht aller gewählten AGs mit Anzahl, große Bestätigung nach dem Speichern samt Zeitpunkt. Ein Hinweis erklärt, dass die Auswahl ein Wunsch ist und erst nach der Zuordnung durch die Schule unter „AG – Ausgewählt“ erscheint</li>
+<li class=""><strong>Lernmittel-Assistent als Einstieg</strong> in den Lernmittelbereich – die alte Anmeldeseite ist entfernt, Altlinks werden umgeleitet. Bankverbindung und Verwendungszweck für Arbeitshefte stehen direkt auf der Infoseite</li>
+<li class=""><strong>WLAN-Seite zweispaltig</strong> – links Informationstexte, rechts die mitlaufende Freigabe je Kind; auf Smartphone und Tablet untereinander</li>
+<li class=""><strong>Lernmittel-Navigation</strong> – unter 1024 Pixeln erscheint das Menü-Symbol, Schadensfälle, WLAN und Kontakt liegen im „Mehr“-Menü</li>
+<li class=""><strong>Update-Prozess prüft vorab die Dateirechte</strong> und bricht sonst ab, bevor etwas verändert wird; die Meldung nennt Dateien und Korrekturbefehl</li>
+<li class=""><strong>Technik</strong> – Laravel 13, Livewire 4, Vite 8, Tailwind CSS 4; der Server braucht jetzt PHP 8.4 oder neuer</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="sicherheit">Sicherheit<a href="https://wiki.scholar.schule/changelogscholar/2026-10-27#sicherheit" class="hash-link" aria-label="Direkter Link zur Sicherheit" title="Direkter Link zur Sicherheit" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>PDF einer Schulanmeldung</strong> nur noch über den persönlichen, 24 Stunden gültigen Link abrufbar – vorher ließen sich fremde Anmeldungen über die Adresse aufrufen</li>
+<li class=""><strong>Abhängigkeiten aktualisiert</strong>, rund 30 ungenutzte Pakete entfernt, API-Token wird nicht mehr protokolliert und zeitkonstant geprüft, TLS-Zertifikat des Update-Servers wird wieder geprüft, Font Awesome lokal ausgeliefert. Zuvor bereits <code>league/commonmark</code> 2.10.0 und <code>nanoid</code> 3.3.18</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixes">Fixes<a href="https://wiki.scholar.schule/changelogscholar/2026-10-27#fixes" class="hash-link" aria-label="Direkter Link zur Fixes" title="Direkter Link zur Fixes" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>AG-Übernahme aus Scholar</strong> – ein leerer AG-Bestand wird korrekt übernommen statt abgelehnt; Anfragen ohne <code>ags</code>-Schlüssel löschen weiterhin nichts</li>
+<li class=""><strong>AG-Wahl</strong> – die Bestätigung verschwand sofort durch ein Neuladen; der Speichern-Knopf verhindert Doppelklicks</li>
+<li class=""><strong>Fußbereich</strong> überdeckt auf Mobilgeräten und auf der WLAN-Seite keine Schaltflächen mehr; Klick auf den Text neben der Checkbox schaltet das richtige Kind</li>
+<li class=""><strong>Livewire wurde doppelt geladen</strong>, was unter Livewire 4 zu Skriptfehlern führte</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Scholar" term="Scholar"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v2026.08.14 – Schüler-Hilfe-App, On-/Offboarding, digitale Lernmittel & Inventur]]></title>
+        <id>https://wiki.scholar.schule/changelogscholar/2026-08-14</id>
+        <link href="https://wiki.scholar.schule/changelogscholar/2026-08-14"/>
+        <updated>2026-08-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Sammel-Release für alles seit dem letzten Eintrag – Scholar-Versionen 2026.04.24-002 bis 2026.08.14-002 und Elternportal-Versionen 2026.05.28-001 bis 2026.08.06-001 (24.04. – 14.08.2026). Zusammengefasst nach Themen statt nach Einzelversionen.]]></summary>
+        <content type="html"><![CDATA[<p>Sammel-Release für alles seit dem letzten Eintrag – Scholar-Versionen <code>2026.04.24-002</code> bis <code>2026.08.14-002</code> und Elternportal-Versionen <code>2026.05.28-001</code> bis <code>2026.08.06-001</code> (24.04. – 14.08.2026). Zusammengefasst nach Themen statt nach Einzelversionen.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="scholar-v20260814-002">Scholar (v2026.08.14-002)<a href="https://wiki.scholar.schule/changelogscholar/2026-08-14#scholar-v20260814-002" class="hash-link" aria-label="Direkter Link zur Scholar (v2026.08.14-002)" title="Direkter Link zur Scholar (v2026.08.14-002)" translate="no">​</a></h2>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="schüler-hilfe--android-begleit-app">Schüler-Hilfe &amp; Android-Begleit-App<a href="https://wiki.scholar.schule/changelogscholar/2026-08-14#sch%C3%BCler-hilfe--android-begleit-app" class="hash-link" aria-label="Direkter Link zur Schüler-Hilfe &amp; Android-Begleit-App" title="Direkter Link zur Schüler-Hilfe &amp; Android-Begleit-App" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Android-App zur Schüler-Hilfe-Seite</strong> – Kopplung per QR-Code, die App zeigt automatisch den im Browser geöffneten Schüler an. Sprachausgabe über ElevenLabs mit Geräte-Fallback, eigene Lautstärke- und Tempo-Einstellung, Bestellungen direkt als geliefert markieren. Dazu eine eigene Mobile-API (<code>routes/mobile-api.php</code>) mit Sanctum-Token, unabhängig von der IP-Whitelist</li>
+<li class=""><strong>Fernsteuerung des Bücher-Pickens</strong> aus der App: Picker starten, Fach wechseln, überspringen, beenden. Fernbefehle werden auch auf der Übersichtsseite ausgewertet, nicht nur bei geöffnetem Schüler</li>
+<li class=""><strong>Schülersuche am Handy</strong> – Über Geburtsdatum oder Ausweis-Scan; der Browser springt automatisch auf dieselbe Seite. Die Geburtsdatum-Eingabe wurde überarbeitet (keine springende Formatierung, Vorschlagsliste ab Tag und Monat inkl. Geburtsjahr und Klasse)</li>
+<li class=""><strong>Verlauf der letzten 15 bzw. 25 aufgerufenen Schüler</strong> – in der Weboberfläche neben „Bücher picken“ und in der App unter „Zuletzt“</li>
+<li class=""><strong>Bücher picken mit Auswahl-Stationen</strong> – Mehrbändige Lehrwerke (z. B. À plus! Band 1–3) erscheinen als gemeinsame Station mit der Ansage „Bitte Auswahl treffen“; gescannt wird eines davon, der Rest bleibt sichtbar und lässt sich überspringen</li>
+<li class=""><strong>Cover und Zustandsabfragen deutlich schneller</strong> – Buch-Cover werden dauerhaft auf dem Gerät zwischengespeichert und vorab geladen; aktiver Schüler und Picken-Status kommen über einen einzigen Poll-Endpunkt (<code>/api/mobile/state</code>) statt bisher bis zu drei Anfragen</li>
+<li class=""><strong>Zahlungsstatus als Symbol</strong>, Knopf „FF“ liest Geburtsdatum, Anschrift und Vornamen der verknüpften Eltern vor, Anmerkungen zur Lernmittelausleihe direkt am Handy erfassen, Einstellungen-Dialog inkl. Versionsanzeige (App-Version 1.2)</li>
+<li class=""><strong>Knopf „Ausweis“ heißt jetzt „Barcode“</strong> und erkennt selbst, was gescannt wurde – Schülerausweis öffnet den Schüler, eine Lernmittel-Inventarnummer oder ein Geräte-Barcode zeigt den Leihverlauf mit den letzten 25 Leihnehmern (setzt „Geräteverleih anzeigen“ voraus)</li>
+<li class=""><strong>Sprachansage nennt den tatsächlichen Bestellstatus</strong> („bezahlt und bestellt“, „abholbereit“, „bereits geliefert“) statt alles außer geliefert pauschal als „noch offen“. Die Bestellnummer wird nur bei abholbereiten Bestellungen gesprochen, dafür zusammen mit der Klasse und ein zweites Mal am Ende</li>
+<li class=""><strong>Gepackte Bestellungen direkt dort umstellen, wo sie auffallen</strong> – neben dem orangenen Bestell-Hinweis und auf der Bestell-Detailseite; die Detailseite bietet zusätzlich ein Auswahlfeld für alle übrigen Status. Bestellungen tragen überall dieselbe Nummer</li>
+<li class=""><strong>Fix: Religionsbücher wurden evangelischen und katholischen Schülern gar nicht angezeigt</strong> – der Religionsschlüssel ist groß geschrieben (<code>RE</code>, <code>RK</code>), die Buchfächer gemischt (<code>Re</code>, <code>Rk</code>), der Vergleich war damit immer falsch</li>
+<li class=""><strong>Fix: Anfragelimit der App-Schnittstelle</strong> – 60 Anfragen pro Minute und pro IP-Adresse ließen die App beim Picken dauerhaft ins Limit laufen; sie hat jetzt ein eigenes Limit je gekoppeltem Gerät. Bei Überschreitung kommt ein Fehlercode statt einer HTML-Umleitung (in der App bisher als „Use JsonReader.setLenient(true)“ sichtbar)</li>
+<li class=""><strong>Fix: Beim Zuordnen eines Buchexemplars</strong> wird eine noch offene Ausleihe eines Vorbesitzers automatisch zurückgebucht, statt den Vorgang abzubrechen – an der Ausgabe liegt das Buch physisch vor. Die Rückmeldung nennt den Vorbesitzer, der Vorgang wird protokolliert</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="on--und-offboarding">On- und Offboarding<a href="https://wiki.scholar.schule/changelogscholar/2026-08-14#on--und-offboarding" class="hash-link" aria-label="Direkter Link zur On- und Offboarding" title="Direkter Link zur On- und Offboarding" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Startseite als Arbeitsverlauf</strong> – Die zuletzt bearbeiteten 30 Fälle zuerst, Schüler und Gastschüler gemeinsam, mit Zeitpunkt der letzten Bearbeitung. Dazu eine Suche über den gesamten Bestand, auch über abgeschlossene Fälle und solche, die nie über den Magellan-Import kamen. Ein Klick auf „Ausstehend“ öffnet einen abgeschlossenen Fall wieder</li>
+<li class=""><strong>Übersicht klassenweise statt nach Datum</strong> – passend dazu, dass Ausweise, Zugänge und Material klassenweise abgearbeitet werden. Schüler und Gastschüler stehen gemeinsam unter ihrer Klasse, alphabetisch mit korrekt einsortierten Umlauten und Zähler je Klasse; der Status wird über eine Schaltflächenleiste mit einem Klick gesetzt. Nach dem Setzen kehrt die Seite an die Stelle zurück, an der man war</li>
+<li class=""><strong>Bearbeitungsstand direkt auf der OnBoarding-Seite</strong> eines Schülers oder Gastschülers umstellbar, ohne Neuladen. Wer die Checkliste speichert, setzt den Vorgang automatisch auf „In Bearbeitung“; ein gesetztes „Erledigt“ bleibt erhalten</li>
+<li class=""><strong>Zugangsdaten sind vorbelegt</strong> – IServ, Office 365, Untis und moin.schule aus dem Schülerdatensatz, der Bildungslogin aus der Online-Buchbestellung. Vorbelegte Felder sind gekennzeichnet und werden erst durch Absenden dauerhaft gespeichert. Die Zugangsdaten sind jetzt auch direkt aus der Schülerakte erreichbar</li>
+<li class=""><strong>Schülerausweis im OnBoarding-PDF</strong> – Unten rechts zum Selbstausschneiden: Barcode (Code 128), darüber Name, Klasse und Schuljahr, ringsum eine gestrichelte Schnittlinie. Der Ausweis trägt das Ausstellungsdatum und ist ein halbes Jahr gültig. Die PDFs sind kompakter gesetzt und passen wieder auf eine Seite; die Adressen unter „Deine Zugänge im Überblick“ stehen schwarz und fett statt in der kaum lesbaren Akzentfarbe</li>
+<li class=""><strong>Textvorlagen für die Notizen</strong> – Wiederkehrende Hinweise werden einmal hinterlegt und per Haken angehängt; der Haken richtet sich nach dem tatsächlichen Feldinhalt. Angelegt, umsortiert und ausgeblendet werden sie über „Vorlagen bearbeiten“ direkt am Notizfeld</li>
+<li class=""><strong>Fix: Checkliste und Notizen wurden nie gespeichert</strong> – Ursache war ein verschachteltes Formular („Server-seitig neu generieren“ brachte ein eigenes Formular mitten im OnBoarding-Formular mit); dadurch fehlten sie im PDF immer</li>
+<li class=""><strong>Fix: Der Magellan-Import überschrieb bei jedem Durchlauf den Bearbeitungsstand</strong> – die CSV-Spalte „Status“ (Aktiv/Inaktiv) und <code>students.status</code> (Ausstehend/In Bearbeitung/Erledigt) landeten in derselben Spalte. Der Import schreibt jetzt nur noch bei echten Übergängen, der Altbestand wurde einmalig geradegezogen</li>
+<li class=""><strong>Fix: Benutzer standen gleichzeitig in Onboarding- und Offboarding-Tabelle</strong> – beide Listen teilten sich ein einziges Statusfeld; sie haben jetzt je einen eigenen Status. Damit sind auch die Folgefehler behoben (Offboarding fiel unter den Tisch, abgeschlossenes Onboarding wurde zurückgesetzt, Referendare tauchten nach Vertragsende erneut auf)</li>
+<li class=""><strong>Passwort-Rücksetzungen laufen sichtbar im Hintergrund</strong> – Fortschritt, Ergebnis und das neue Passwort stehen in einer Anzeige unten rechts, die auf jeder Seite mitläuft; bisher hingen sie am Formular und waren beim Verlassen der Seite verloren. Antwortet ein Job binnen 60 Sekunden nicht, wird das als Fehler gemeldet („Läuft der Queue-Worker?“). Gilt für IServ, Office 365, WLAN und das Masterkennwort</li>
+<li class=""><strong>Planora-Aufgaben werden automatisch abgehakt</strong>, sobald der Vorgang in Scholar auf „Erledigt“ steht – bei Schülern, Gastschülern und Mitarbeitern</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="lernmittel-digitale-medien--bibliothek">Lernmittel, digitale Medien &amp; Bibliothek<a href="https://wiki.scholar.schule/changelogscholar/2026-08-14#lernmittel-digitale-medien--bibliothek" class="hash-link" aria-label="Direkter Link zur Lernmittel, digitale Medien &amp; Bibliothek" title="Direkter Link zur Lernmittel, digitale Medien &amp; Bibliothek" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Online-Buchbestellungen entstehen von selbst</strong> – Wer digitale Lernmittel bestellt und bezahlt hat, erscheint automatisch in der Bestellübersicht: beim Buchen der Zahlung, beim Aufruf der Übersicht und stündlich im Hintergrund. Der Knopf „Sync online“ und die Seite „Digitale Zahlungen ohne Bestellung“ entfallen</li>
+<li class=""><strong>Titelgenauer Bedarf</strong> – Die Statistik zeigt je Titel Bedarf, vorhandene Lizenzen, zu bestellende Menge und Kosten, inklusive CSV-Export als Grundlage der Verlagsbestellung</li>
+<li class=""><strong>Neuer Bereich „Lizenzbestand“</strong> – Der CSV-Export aus dem Lizenz-Manager des Bildungsportals wird eingelesen und je Medium zusammengefasst; nicht über die ISBN auflösbare Titel lassen sich von Hand zuordnen oder als „ohne Lizenz“ markieren</li>
+<li class=""><strong>Fix: Lizenzbestand wurde je Jahrgang statt je Medium gegengerechnet</strong> – Titel in mehreren Jahrgängen (etwa „Leben leben 1“ in 5 und 6) haben denselben Bestand mehrfach abgezogen. Im laufenden Schuljahr betraf das 25 von 55 zugeordneten Medien und 413 zu wenig bestellte Lizenzen. Die Spalte „Vorhanden“ zeigt jetzt den zugeteilten Anteil, der CSV-Export die neue Spalte „Bestand gesamt“</li>
+<li class=""><strong>Filter „Unvollständige Angaben“</strong> mit Zähler – zeigt Bestellungen, bei denen Fremdsprache, Religion, Oberstufenfächer oder der Schülerdatensatz fehlen; nachtragen lässt sich direkt in der Zeile, Fremdsprache und Religion werden am Schüler gespeichert</li>
+<li class=""><strong>Sammelaktion für Bestellstatus</strong> eines ganzen Schuljahres, wahlweise eingeschränkt auf bestimmte Ausgangsstatus, mit Rückfrage und Angabe der betroffenen Anzahl. Von Hand gesetzte Status bleiben jetzt stehen; die Status heißen auf Deutsch (Neu, In Bearbeitung, Abgeschlossen, Storniert)</li>
+<li class=""><strong>„Zugangsdaten aus Vorjahr“</strong> – Verlagskonten bleiben über die Schuljahre bestehen und müssen nach dem Wechsel nur wieder zugeordnet statt neu importiert werden</li>
+<li class=""><strong>Neue Seite „Fehlende Verlage“</strong> – Titel ohne Verlag mit einem Vorschlag aus der ISBN: aus dem Verlagsverzeichnis, aus bereits zugeordneten Büchern derselben Verlagsnummer und auf Wunsch über eine Online-Abfrage</li>
+<li class=""><strong>Bildungslogin für Lehrkräfte</strong> – Export der aktiven Lehrkräfte als CSV, Einlesen der Rückmeldedatei mit Benutzername und Passwort (verschlüsselt am OnBoarding-Datensatz), Versand der Zugangsdaten per E-Mail</li>
+<li class=""><strong>Schuljahreswechsel: „Lernmittel-Status zurücksetzen“</strong> – Zahlungs- und Akzeptanzkennzeichen, SGB-Ermäßigung und Geschwisterrabatt werden geleert, anschließend läuft die Geschwistererkennung neu. Transaktionen und Kontostände bleiben unverändert</li>
+<li class=""><strong>Kopiercodes automatisch erzeugen</strong> – Muster wählen, Anzahl angeben, Vorschlag prüfen und erst dann anlegen; angezeigt wird, wie viele Nummern im Muster noch frei sind</li>
+<li class=""><strong>Aus dem Elternportal werden nur noch Lernmittel-Klasse und Oberstufen-Fächerwahl übernommen</strong> – Fremdsprache und Religion liest die Bedarfsermittlung live aus dem Schülerdatensatz</li>
+<li class=""><strong>Bibliothek</strong> – Ein Ausleih-Eintrag kann gelöscht werden; ist die Ausleihe noch offen, wird das Exemplar zurückgebucht. Die Detailseite lässt sich wieder öffnen, wenn das Exemplar nach der Rückgabe aus dem Bestand entfernt wurde</li>
+<li class=""><strong>Übersicht deutlich schneller</strong> – Die Tabelle einer Klassenstufe lädt erst beim Aufklappen, offene Änderungen eines Buches erst beim Öffnen der Zeile. Der Buchtyp-Filter erlaubt mehrere Typen gleichzeitig, das Menü der Lernmittelverwaltung ist nach Themen gruppiert</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="geräte-inventur-lager--wartung">Geräte, Inventur, Lager &amp; Wartung<a href="https://wiki.scholar.schule/changelogscholar/2026-08-14#ger%C3%A4te-inventur-lager--wartung" class="hash-link" aria-label="Direkter Link zur Geräte, Inventur, Lager &amp; Wartung" title="Direkter Link zur Geräte, Inventur, Lager &amp; Wartung" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Neue Inventarisierung</strong> (Geräteverwaltung › Inventur) – Ein Inventurlauf setzt alle Geräte mit Status „verfügbar“ auf offen. Ein Gerät verschwindet aus der Liste, sobald es am Geräte-Scanner, in der Wartungsübersicht oder im Lager-Scanner gescannt wurde; nichts muss doppelt erfasst werden</li>
+<li class=""><strong>Inventurseite mit Fortschritt</strong> (erfasst von gesamt), offenen Geräten nach Typ und Filtern nach Typ, Lagerort und Suchbegriff. Wartungsübersicht und Lager-Scanner tragen einen Zähler der noch offenen Geräte. Der Status lässt sich direkt in der Zeile ändern (z. B. auf „defekt“ oder „ausgemustert“), das Gerät gilt damit zugleich als inventarisiert</li>
+<li class=""><strong>Statistik-Karte in der Wartungsübersicht</strong> – Gesamtzahl wartungsfälliger Geräte plus klickbare Pills je Gerätetyp, unabhängig von den aktiven Filtern berechnet und nach Anzahl sortiert</li>
+<li class=""><strong>Neue Navigationsgruppe „Lager“</strong> mit Lagerorteverwaltung und Lager-Scanner; „Küche“ ist aus der Reservierungen-Gruppe verschwunden, der Modul-Schalter bleibt funktional</li>
+<li class=""><strong>Neuer Filter „Reservierung“</strong> in der Geräteübersicht, bleibt beim Bearbeiten und Löschen erhalten</li>
+<li class=""><strong>Fix: Zähler hingen bis zu 5 Minuten am Cache</strong> – Badges für Wartungsübersicht und Standard-Ausleihen aktualisieren sich jetzt live aus jeder Scan-Antwort; die Caches werden beim Rückbuchen und nach dem Bestätigen einer Wartung gezielt geleert</li>
+<li class=""><strong>Fix: Geräte-Scanner</strong> – Wird ein nicht ausgeliehenes Gerät ohne vorherigen Ausweis-Scan gescannt, erscheint eine Vollbild-Meldung „Bitte zuerst den Ausweis scannen!“ statt das Gerät kommentarlos in die Liste zu legen</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="kiosk--scan-monitor">Kiosk &amp; Scan-Monitor<a href="https://wiki.scholar.schule/changelogscholar/2026-08-14#kiosk--scan-monitor" class="hash-link" aria-label="Direkter Link zur Kiosk &amp; Scan-Monitor" title="Direkter Link zur Kiosk &amp; Scan-Monitor" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Scan-Monitor</strong> (<code>/adminTools/device-scan-monitor</code>) – Live-Übersicht aktiver Scan-Stationen mit Profilbild, Klasse, gescannten Geräten, Geburtstags-Banner (±3 Tage) und Service-Chip; zurückliegende Vorgänge bleiben 3 Stunden als gedämpfte Historie sichtbar. Eine Middleware spiegelt den Zustand von Geräteausgabe, Buch-Ausleihe und allen Self-Service-Abläufen, damit der Monitor serviceübergreifend mitliest</li>
+<li class=""><strong>MagicCard-Selbstaktivierung am Kiosk</strong> – Öffentliche Kachel <code>/kiosk/magiccard</code> mit Assistent (Geburtsdatum → Klasse → nur bei Mehrdeutigkeit Nachname → nur bei Zwillingen Vorname), tolerantes Namens-Matching für mehrteilige Vornamen und Adelspartikel, Rate-Limit 10 pro 5 Minuten und IP. Bei Erfolg wird der Universal-Barcode aktiviert und eine Notiz in der Schülerakte angelegt</li>
+<li class=""><strong>Tap-Picker statt Tastatur</strong> – Geburtsdatum in drei Schritten (Tag → Monat → Jahr) und Klassenstufe/Buchstabe als Buttons; die Stufen-Buttons zeigen nur tatsächlich existierende Klassen, Stufen ohne Buchstaben (Q1/Q2) springen direkt weiter. Client-seitige Prüfung erkennt unmögliche Daten, serverseitig wurde <code>birthdate</code> auf <code>date_format:Y-m-d</code> verschärft</li>
+<li class=""><strong>Erfolgsseite springt nach 15 Sekunden zurück</strong> auf <code>/kiosk</code>, damit die Station nicht offen bleibt</li>
+<li class=""><strong>Kiosk-IP-Schutz und Besucher-Tracking</strong> – Kiosk-Routen nur noch von freigegebenen IPs erreichbar (<code>allow_kiosk</code>), erfolgreiche Barcode-Scans werden gespeichert und die Besuche der letzten 8 Stunden im Scan-Monitor angezeigt. Die Kachel „Ausweis vergessen“ wird pro Display freigegeben statt über einen globalen Schalter</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fachkonferenzen--schulorganisation">Fachkonferenzen &amp; Schulorganisation<a href="https://wiki.scholar.schule/changelogscholar/2026-08-14#fachkonferenzen--schulorganisation" class="hash-link" aria-label="Direkter Link zur Fachkonferenzen &amp; Schulorganisation" title="Direkter Link zur Fachkonferenzen &amp; Schulorganisation" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>FK-Einladungen</strong> (FKL-Verwaltung) – Fachleitungen legen eine Einladung mit Termin, Ort, Teilnehmerkreis und frei formulierter E-Mail an. Der Mailtext entsteht im WYSIWYG-Editor mit Platzhaltern für Name, Fach, Datum, Uhrzeit und Ort sowie Live-Vorschau; beliebige Dateien lassen sich anhängen</li>
+<li class=""><strong>Genehmigung durch die Schulleitung</strong> – Die Einladung geht nicht direkt raus, sondern wird vorgelegt; bei Ablehnung mit Begründung wird die einladende Person per Mail informiert und kann überarbeiten. Nach der Genehmigung geht die Mail an jeden Empfänger einzeln, der Versandstatus wird pro Empfänger protokolliert. Jeder Einladung liegt eine Kalenderdatei (.ics) bei. Neue Berechtigung „Fachkonferenz-Einladungen genehmigen“</li>
+<li class=""><strong>Neuer Bereich „Schuljahreswechsel“</strong> in den Admin-Tools – AG-Angebote entfernen, Fachkonferenz-Vertreter entfernen und Schülerrollen von ihren Zuweisungen befreien, jeweils mit Rückfrage</li>
+<li class=""><strong>Neue Fremdsprachenliste</strong> unter Druckansicht – für einen Jahrgang alle Schülerinnen und Schüler nach 2. bzw. 3. Fremdsprache gruppiert, als Vorschau oder PDF inklusive Anzahl je Gruppe</li>
+<li class=""><strong>Schulbescheinigung (DE + EN)</strong> direkt aus dem Schülerprofil – zweiseitiges PDF mit Schuldaten aus der Konfiguration und automatisch berechnetem Schuljahr (Stichtag 1. August)</li>
+<li class=""><strong>Abgangszeugnis</strong> – Der Knopf erscheint nur noch in den Jahrgängen 8 bis 10 und nur, wenn eine Vorlage hinterlegt ist; fehlt sie, erklärt eine Meldung den Grund statt den Druck wortlos abbrechen zu lassen</li>
+<li class=""><strong>Druckfunktion (A4 Querformat) für die AV/SV-Übersicht</strong></li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fremdsprachenwahl">Fremdsprachenwahl<a href="https://wiki.scholar.schule/changelogscholar/2026-08-14#fremdsprachenwahl" class="hash-link" aria-label="Direkter Link zur Fremdsprachenwahl" title="Direkter Link zur Fremdsprachenwahl" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Übersicht „Noch nicht gewählt“</strong> mit Zähler-Badge und Knopf „Wahl eintragen“; Standardfokus liegt auf der aktuellen 5. Klasse</li>
+<li class=""><strong>Manuell editierbare Einträge</strong> – Änderungen werden als „manuell bearbeitet“ markiert und vom Elternportal-Sync nicht überschrieben</li>
+<li class=""><strong>Sync löscht nicht mehr</strong> – Im Portal fehlende Einträge werden als „im Portal entfernt“ markiert (roter Hintergrund + Badge) statt gelöscht; tauchen sie wieder auf, verschwindet die Markierung automatisch. Der CSV-Export hat eine neue Spalte „Status“</li>
+<li class=""><strong>Fix: Gesamt-Statistik zählte Scholar-Codes (fr/sn/la) und EP-Codes (Fra/Spa/La) getrennt</strong> – jetzt wird nach Sprach-Label aggregiert; das Edit-Modal bietet nur noch Scholar-interne Codes an und kanonisiert bestehende EP-Codes</li>
+<li class=""><strong>Fehlermeldungen des Syncs</strong> zeigen URL und gekürzten, von HTML bereinigten Body statt der kompletten Laravel-Fehlerseite; der Exit-Code wird ausgewertet, ein leeres Ziel vorab geprüft</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="schülerkonto--buchungen">Schülerkonto &amp; Buchungen<a href="https://wiki.scholar.schule/changelogscholar/2026-08-14#sch%C3%BClerkonto--buchungen" class="hash-link" aria-label="Direkter Link zur Schülerkonto &amp; Buchungen" title="Direkter Link zur Schülerkonto &amp; Buchungen" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Buchungen löschen</strong> – Admins können einzelne Buchungen aus „Letzte Buchungen“ entfernen, mit Pflicht-Begründung und wahlweise automatischer Saldo-Korrektur. Gelöschte Buchungen werden nur ausgeblendet und bleiben mit Grund und Bearbeiter erhalten</li>
+<li class=""><strong>Saldo korrigieren</strong> – Der Wert „aktuell verfügbar“ lässt sich auf einen Zielwert setzen, die Differenz entsteht als nachvollziehbare Korrektur-Buchung</li>
+<li class=""><strong>Protokoll</strong> – Neues Uhr-Symbol unter dem Saldo öffnet alle Kontoänderungen mit Zeitpunkt, Benutzer, Vorgang und Begründung, inklusive gelöschter Buchungen</li>
+<li class=""><strong>Fix: Der Storno-Zeitpunkt wurde nie gespeichert</strong> (<code>reversed_at</code> fehlte in den massenzuweisbaren Feldern), der Storno-Knopf blieb dadurch nach dem Stornieren sichtbar</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="import-schnittstellen">Import-Schnittstellen<a href="https://wiki.scholar.schule/changelogscholar/2026-08-14#import-schnittstellen" class="hash-link" aria-label="Direkter Link zur Import-Schnittstellen" title="Direkter Link zur Import-Schnittstellen" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Untis-Benutzerimport</strong> unter Admin-Tools – Der Benutzerexport aus WebUntis trägt die Anmeldenamen bei Schülern, Gastschülern und Personal ein und markiert Elternkonten als in Untis vorhanden. Zuordnung über Office-365-Mail, ersatzweise IServ-Mail und zuletzt die Magellan-ID. Der Anmeldename bekommt eine eigene Spalte, damit der laufende WebUntis-Sync ihn nicht mit dem Kürzel überschreibt. Der bisherige Untis-Import in den Artisan-Tools entfällt</li>
+<li class=""><strong>Untis-Abgleich-Export</strong> – Die Klasse wird als ein Feld ausgegeben (z. B. <code>5a</code>) statt getrennt, dazu die neue Spalte „Iserv-Benutzername“</li>
+<li class=""><strong>moin.schule-Anmeldenamen</strong> – Der Anmeldename ist systemgeneriert (z. B. <code>dabopi3040</code>) und war bisher nur über das Portal zu erfahren. Der Abgleich holt ihn über die Schnittstelle und schreibt ihn zu Schülern, Gastschülern und Benutzern; der Schülersync übernimmt ihn gleich mit, der Einzellauf bleibt erhalten. Die Auswertungen verändern nichts mehr an den Daten – geschrieben wird ausschließlich beim ausdrücklich angestoßenen Sync</li>
+<li class=""><strong>IServ-Mail-Import meldet, was er getan hat</strong> – gelesene Zeilen, aktualisierte und bereits aktuelle Schüler, Treffer ohne Gegenstück, unvollständige Zeilen; das Ergebnis überlebt ein Neuladen. Lehrkräfte und Funktionsaccounts werden übersprungen, CSV-Dateien nicht mehr fälschlich abgelehnt</li>
+<li class=""><strong>Neuer Eltern-Import</strong> mit Matching-Service, dazu ein Knopf „Eltern aus EP synchronisieren“ in der Eltern-Übersicht (nur mit <code>editParents</code>-Recht), der den Artisan-Command per Klick startet und die Zahl neuer und aktualisierter Eltern zurückmeldet</li>
+<li class=""><strong>Lehrer- und Magellan-Import</strong> in eigene Service-Klassen ausgelagert; <code>class_id</code> wird per Lookup gesetzt</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="türschild--planora-kopplung">Türschild &amp; Planora-Kopplung<a href="https://wiki.scholar.schule/changelogscholar/2026-08-14#t%C3%BCrschild--planora-kopplung" class="hash-link" aria-label="Direkter Link zur Türschild &amp; Planora-Kopplung" title="Direkter Link zur Türschild &amp; Planora-Kopplung" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Mehrzeilige Türschilder</strong> – <code>/door-view/start</code> zeigt jetzt auch den Fließtext eines Planora-Schilds; bisher kam nur die Überschrift an. Zeilenumbrüche bleiben erhalten, zu langer Text scrollt langsam nach unten und beginnt wieder von oben. Sobald Fließtext da ist, schrumpft die Überschrift und alle Größen richten sich nach der Displayhöhe (setzt Planora ab 1.17.0 voraus)</li>
+<li class=""><strong>Fett, kursiv und unterstrichen</strong> – Scholar nimmt die Auszeichnungen über das API-Feld <code>descriptionHtml</code> entgegen und filtert sie sicherheitshalber selbst noch einmal; erlaubt sind ausschließlich diese drei (setzt Planora ab 1.18.0 voraus)</li>
+<li class=""><strong>Fix: Das Türschild lud sich stur alle 10 Sekunden neu</strong> und schnitt damit jeden längeren Lauftext ab. Es fragt jetzt nur den Schild-Status ab und lädt nur bei echten Änderungen neu; die Kalenderansichten behalten ihren festen Reload</li>
+<li class=""><strong>Fix: Der Planora-Abgleich legte On-/Offboarding-Aufgaben bei jedem Lauf erneut an</strong> – also sechsmal täglich dieselbe Aufgabe. Scholar prüft jetzt an der Antwort, ob die eindeutige Kennung angekommen ist, und bricht sonst mit klarer Meldung ab (setzt Planora ab 1.16.8 voraus)</li>
+<li class=""><strong>Fix: Beim Abschluss eines Vorgangs konnten in Planora fremde Aufgaben abgehakt werden</strong> – eine Planora-Version ohne die Kennungssuche lieferte alle offenen Aufgaben zurück. Scholar prüft die Treffer jetzt selbst. Self-Service-Anfragen und Formular-Einreichungen erscheinen nur noch einmal und werden automatisch abgehakt, sobald sie bearbeitet sind</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="benutzer-rechte--verwaltung">Benutzer, Rechte &amp; Verwaltung<a href="https://wiki.scholar.schule/changelogscholar/2026-08-14#benutzer-rechte--verwaltung" class="hash-link" aria-label="Direkter Link zur Benutzer, Rechte &amp; Verwaltung" title="Direkter Link zur Benutzer, Rechte &amp; Verwaltung" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Impersonation</strong> – Admins können sich als beliebiger anderer Nutzer einloggen (Bestätigungsdialog vorab, gelber Banner während der Sitzung, Knopf zurück zum eigenen Konto). Admins selbst und inaktive Konten sind ausgenommen; jeder Take/Leave-Vorgang landet als Audit-Eintrag mit Tag <code>impersonation</code></li>
+<li class=""><strong>Read-only-Ansicht „Rechte aus Sicht des Nutzers“</strong> – zugewiesene Rollen, Berechtigungen pro Rolle, direkte Permissions und eine effektive Gesamtliste mit Quellenangabe (direkt / via Rolle X)</li>
+<li class=""><strong>Verwaltungskräfte bekommen ihre Rechte über die Rolle</strong> statt als Einzelzuweisung – neue Verwaltungskräfte hatten dadurch bisher nur einen Bruchteil davon, unter anderem fehlte die Schülersuche in der Kopfzeile</li>
+<li class=""><strong>WLAN-Kennwort einzeln neu setzbar</strong>, ohne den Scholar-Login anzutasten; ein neues Master-Passwort im OnBoarding zieht den WLAN-Zugang automatisch mit</li>
+<li class=""><strong>Fix: Suchleiste und zahlreiche Menüpunkte waren für alle Benutzer unsichtbar</strong> – auch für Admins. Routen hinter <code>auth:sanctum</code> schalten den Standard-Guard zur Laufzeit um, die Berechtigungen liegen aber unter <code>web</code>, wodurch alle Rechteprüfungen fehlschlugen. Der Guard ist am User-Model jetzt fest auf <code>web</code> gesetzt</li>
+<li class=""><strong>Fix: Deaktivierte Benutzer tauchten weiter als aktiv auf</strong> – etwa bei den Geburtstagen auf dem Dashboard, in der Benutzerliste und in der AG-Leitung. Zwei Aktiv-Kennzeichen (<code>status</code> und das später hinzugekommene <code>is_active</code>) liefen auseinander; <code>status</code> ist jetzt führend, der Bestand wurde einmalig abgeglichen</li>
+<li class=""><strong>Erlaubte IP-Adressen</strong> – Sortierbare Spalten (Status, IP, Kommentar, zuletzt gesehen), Standard „zuletzt gesehen“ absteigend mit nie genutzten Einträgen am Ende, Sort-Parameter gegen eine Whitelist validiert</li>
+<li class=""><strong>Geplante Aufgaben</strong> – Info-Symbol je Aufgabe zeigt den tatsächlich ausgeführten Befehl inkl. Task-Key und Kopieren-Knopf</li>
+<li class=""><strong>Adminübersicht</strong> – Statuskarte für Updates mit installierter Version, Zeitpunkt der letzten Prüfung und einem Knopf „Jetzt prüfen“, der den Update-Server tatsächlich abfragt. Der Changelog lädt nicht mehr dauerhaft mit, sondern erst auf Klick</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="schülerprofil--klassen">Schülerprofil &amp; Klassen<a href="https://wiki.scholar.schule/changelogscholar/2026-08-14#sch%C3%BClerprofil--klassen" class="hash-link" aria-label="Direkter Link zur Schülerprofil &amp; Klassen" title="Direkter Link zur Schülerprofil &amp; Klassen" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Eingeschränkte Ansicht statt Fehlerseite</strong> – Ein Schülerprofil ohne passende Klassenzuordnung öffnet die eingeschränkte Ansicht; ILE-Einträge sind dort nur mit Berechtigung sichtbar</li>
+<li class=""><strong>Zwischennoten zeigen nur das aktive Schuljahr</strong>, mit Schuljahr und Halbjahr in der Überschrift – bisher standen dort alle je erfassten Noten aus allen Jahrgängen untereinander</li>
+<li class=""><strong>Gastschüler-Übersicht</strong> – Nur noch laufende und vor höchstens 14 Tagen beendete Aufenthalte, ältere auf Knopfdruck; die Suche geht über den gesamten Bestand, CSV- und Excel-Export folgen dem Filter</li>
+<li class=""><strong>Elternansicht</strong> – Kopier-Knöpfe für E-Mail-Adresse und Anschrift, mit Fallback für Browser ohne Zwischenablage-Zugriff über HTTP</li>
+<li class=""><strong>Case-Management</strong> – Vergleichs-Einstellungen, Auto-Deaktivierung von Freigaben nach Abgabe, Excel-Exporte für Case-Vergleich und -Submissions</li>
+<li class=""><strong>Fix: Fachschaft-Ansichten</strong> zeigen keine deaktivierten Benutzer mehr; die Trefferliste der Mitarbeitersuche erscheint wieder unter dem Suchfeld statt am Seitenende</li>
+<li class=""><strong>Fix: Zwischennoten ohne Fächer</strong> – die <code>subjects</code>-Tabelle war leer, die Auswahl dadurch ohne Inhalt; per Migration befüllt, mit Nachlauf für den Fall, dass die erste Migration bereits als gelaufen galt</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="update-system">Update-System<a href="https://wiki.scholar.schule/changelogscholar/2026-08-14#update-system" class="hash-link" aria-label="Direkter Link zur Update-System" title="Direkter Link zur Update-System" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Fix: Ein Update meldete Erfolg, obwohl es Dateien nicht schreiben konnte</strong> – Weil eine neue Datei nur in einem beschreibbaren Verzeichnis entsteht, eine bestehende aber auch in einem schreibgeschützten ersetzt wird, blieb ein Update auf halbem Weg stehen: geänderte Dateien kamen an, neu hinzugekommene nicht. Der Updater macht Zielverzeichnisse jetzt vorab beschreibbar und weist alles Nicht-Geschriebene mit Pfad und Grund aus</li>
+<li class=""><strong>Fix: Kompilierte Frontend-Dateien wurden nicht mitgeliefert</strong> – Änderungen an der Oberfläche kamen dadurch nie auf den Installationen an; sie sind jetzt Bestandteil jedes Updates</li>
+<li class=""><strong>Fix: HTTP 403 beim ZIP-Download vom CRM</strong> – Der Download sendet jetzt zusätzlich zum Bearer-Token den <code>X-Scholar-Domain</code>-Header, den die CRM-Middleware zur Domain-Bindung erwartet. Bisher schlug das automatische Update fehl und Admins mussten das Notfall-Skript nutzen; 403/401-Meldungen nennen jetzt URL und Domain</li>
+<li class=""><strong>Speicherplatz-Vorabprüfung</strong> – Unter 1,5 GB frei bricht das Update sofort mit Aufräum-Anweisung ab, statt 20 Minuten in den Composer-Timeout zu laufen. Backup-Verzeichnisse älter als 30 Tage werden beim Update gelöscht, mindestens die 5 jüngsten bleiben erhalten</li>
+<li class=""><strong>Updates direkt aus den Lizenzeinstellungen einplanen</strong>, Zielversion wird übernommen; der Verbindungstest meldet jetzt Erfolg bzw. Fehler statt gar nichts, eine fehlgeschlagene Prüfung gilt nicht mehr als „System ist aktuell“</li>
+<li class=""><strong>Fix: Die Update-Benachrichtigung konnte die Anwendung abstürzen lassen</strong> (<code>fopen(...): No such file or directory</code>) – das Anfragelimit legte für jeden Treffer eine Datei im Cache-Verzeichnis an, das ein gleichzeitiges Leeren des Caches entfernte. Die beiden Status-Routen laufen jetzt ohne Anfragelimit</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="sicherheit">Sicherheit<a href="https://wiki.scholar.schule/changelogscholar/2026-08-14#sicherheit" class="hash-link" aria-label="Direkter Link zur Sicherheit" title="Direkter Link zur Sicherheit" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Abhängigkeiten aktualisiert</strong> – <code>league/commonmark</code> 2.8.2 → 2.10.0 und <code>guzzlehttp/guzzle</code> 7.15.1 → 7.15.2 schließen acht gemeldete Lücken (fünf hoch, drei mittel), unter anderem mehrere Wege, den Markdown-Parser lahmzulegen, einen Filter-Bypass bei Links in Markdown-Attributen und zwei Fälle falsch bewerteter Hostnamen und Cookie-Domains. Keine Funktionsänderung</li>
+<li class=""><strong>Fix: Beim Anlegen von Benutzern wurde das Passwort nie gespeichert</strong> – <code>password</code> ist aus Sicherheitsgründen nicht massenzuweisbar und wurde von <code>User::create()</code> stillschweigend verworfen. Betraf Registrierung, Benutzer anlegen, Onboarding, Admin-Seeder und die ILE-Importbefehle</li>
+<li class=""><strong>Zufallspasswörter statt fest hinterlegter</strong> – für den System-Benutzer der ILE-Importe und für neu angelegte Onboarding-Benutzer (die Anmeldung läuft ohnehin über Office 365)</li>
+<li class=""><strong>Größeres Sicherheitspaket (v2026.06.25-002)</strong> – <code>adminer.php</code> und <code>install.php</code> aus <code>public/</code> entfernt, hardcodierte Secrets in die <code>.env</code> ausgelagert, Default-Admin-Seeder mit Zufallspasswort, IDOR auf die Schüleransicht über eine <code>StudentPolicy</code> behoben, Mass-Assignment-Schutz für Passwort- und Barcode-Felder, Credential-Felder verschlüsselt gespeichert, Impersonation abgesichert, TLS-Verifikation für externe Dienste aktiviert, 2FA-Pflicht für Admin-Rollen, Session-Verschlüsselung und Secure-Cookie, PII aus der Kiosk-Barcode-Antwort entfernt samt Rate-Limiting, CSPRNG für Barcode- und Passwort-Erzeugung. Die Todoist-Integration wurde vollständig entfernt</li>
+<li class=""><strong>Altbestände verschlüsselt</strong> – Gespeicherte Passwortfelder aus der Zeit vor der Verschlüsselung machten einzelne Seiten unbenutzbar; sie werden nachträglich verschlüsselt, unlesbare Werte erscheinen leer statt die Seite abzubrechen</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="sonstiges">Sonstiges<a href="https://wiki.scholar.schule/changelogscholar/2026-08-14#sonstiges" class="hash-link" aria-label="Direkter Link zur Sonstiges" title="Direkter Link zur Sonstiges" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Fix: Der Link aus der Bestätigungsmail lief ins Leere</strong> – hinter dem Reverse-Proxy passte die Signatur nie zur aufgerufenen Adresse. Der Link funktioniert jetzt auch ohne bestehende Anmeldung und ist 7 statt 60 Minuten gültig</li>
+<li class=""><strong>Fehlerseite zeigt eine wiederfindbare Fehlerkennung</strong> – dieselbe Nummer steht im Log und in der Benachrichtigungsmail; vorher war die angezeigte Nummer bei jedem Aufruf eine andere</li>
+<li class=""><strong>Fix: Scan-Monitor schrieb keine Einträge</strong> – Die Tracking-Middleware legte den Service-Namen in einer Instanzvariable ab, Laravel löst für <code>terminate()</code> aber eine neue Instanz auf; zusätzlich hatte eine doppelte Routendefinition die Middleware überschrieben</li>
+<li class=""><strong>Fix: Selbstbedienungsseite nannte für WebUntis noch die alte Portaladresse</strong> (richtig ist <code>wrs-lg.webuntis.com</code>); der QR-Code beim Koppeln eines Geräts blieb leer und wird jetzt serverseitig erzeugt</li>
+<li class=""><strong>Ausgelieferte Seiten sind kleiner geworden</strong> – die Einrückung der Vorlagen wird aus der Antwort entfernt, ohne die Darstellung zu ändern</li>
+<li class=""><strong>Code-Formatierung</strong> des gesamten Projekts an den Laravel-Pint-Standard angeglichen (364 Dateien, rein formal)</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="elternportal-v20260806-001">Elternportal (v2026.08.06-001)<a href="https://wiki.scholar.schule/changelogscholar/2026-08-14#elternportal-v20260806-001" class="hash-link" aria-label="Direkter Link zur Elternportal (v2026.08.06-001)" title="Direkter Link zur Elternportal (v2026.08.06-001)" translate="no">​</a></h2>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="neu">Neu<a href="https://wiki.scholar.schule/changelogscholar/2026-08-14#neu" class="hash-link" aria-label="Direkter Link zur Neu" title="Direkter Link zur Neu" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Lernmittel-Anmelde-Assistent</strong> (<code>/lernmittel-wizard</code>) – Geführter Ablauf in vier Schritten: Kindauswahl mit Status-Badges, Abmelden-Option und Tooltip für inaktive Rabatte; Paketauswahl (analog/digital) mit Preisanzeige und Digitalaufpreis sowie Klassenauswahl für Kinder ohne hinterlegte Klasse; AGB, Zahlungsdetails mit fälligem Betrag und Digital-Konfiguration; abschließend Kostenübersicht. Die getrennten Navbar-Einträge „Anmeldung (analog)“ und „Anmeldung (digital)“ sind dem Assistenten gewichen</li>
+<li class=""><strong>IDOR-Schutz</strong> in <code>selectStudent</code> und <code>unregisterStudent</code></li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixes">Fixes<a href="https://wiki.scholar.schule/changelogscholar/2026-08-14#fixes" class="hash-link" aria-label="Direkter Link zur Fixes" title="Direkter Link zur Fixes" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Arbeitsheftbestellung abgesichert</strong> – Bestellungen ohne Position werden abgewiesen, Bücher müssen zur gewählten Klassenstufe gehören, doppelte Positionen werden abgelehnt, das Absenden bei geschlossenem Bestellsystem wird serverseitig verhindert. Bestellung und Positionen entstehen in einer Transaktion; der Absenden-Knopf ist bei leerer Auswahl deaktiviert und Doppelklicks lösen keine zweite Bestellung aus</li>
+<li class=""><strong>Kein 500-Fehler mehr</strong>, wenn die Verifizierungs-E-Mail nicht versendet werden kann – stattdessen ein Hinweis für die Eltern; SMTP-Fehler werden allgemein abgefangen</li>
+<li class=""><strong>Rechtschreibung in den Bestellbestätigungs-Mails</strong> korrigiert (Grußformel, Schülerin/Schüler, Leerzeichen vor Währungszeichen)</li>
+<li class=""><strong>Race Condition beim Passwort-Reset</strong> behoben, Klasse 14 auf <code>/learningMaterials_register</code> ausgeblendet, Hinweistext zur Lernmittelpflicht ergänzt, <code>version.json</code>-Korruption behoben</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Scholar" term="Scholar"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v2026.04.24 – Web-Update, Etikettendruck, Mahn-Vorlagen & Gastschüler]]></title>
+        <id>https://wiki.scholar.schule/changelogscholar/2026-04-24</id>
+        <link href="https://wiki.scholar.schule/changelogscholar/2026-04-24"/>
+        <updated>2026-04-24T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Sammel-Release für alle Änderungen vom 14.04. – 24.04.2026 (Scholar-Versionen 2026.04.14-000 bis 2026.04.24-001 und Elternportal-Versionen 2026.04.14-001 bis 2026.04.24-001).]]></summary>
+        <content type="html"><![CDATA[<p>Sammel-Release für alle Änderungen vom <strong>14.04. – 24.04.2026</strong> (Scholar-Versionen <code>2026.04.14-000</code> bis <code>2026.04.24-001</code> und Elternportal-Versionen <code>2026.04.14-001</code> bis <code>2026.04.24-001</code>).</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="scholar-v20260424-001">Scholar (v2026.04.24-001)<a href="https://wiki.scholar.schule/changelogscholar/2026-04-24#scholar-v20260424-001" class="hash-link" aria-label="Direkter Link zur Scholar (v2026.04.24-001)" title="Direkter Link zur Scholar (v2026.04.24-001)" translate="no">​</a></h2>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="update-system--komplette-überarbeitung">Update-System – komplette Überarbeitung<a href="https://wiki.scholar.schule/changelogscholar/2026-04-24#update-system--komplette-%C3%BCberarbeitung" class="hash-link" aria-label="Direkter Link zur Update-System – komplette Überarbeitung" title="Direkter Link zur Update-System – komplette Überarbeitung" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Vollautomatisches Web-Update mit Admin-Bypass</strong> – Signiertes Cookie (<code>scholar_update_bypass</code>, HMAC-SHA256, 60 min TTL) lässt den initiierenden Admin während des Updates durch den Wartungsmodus durch</li>
+<li class=""><strong>Update-Fortschrittsanzeige auf der Lizenz-Seite</strong> – Live-Polling alle 3 Sekunden, Fortschrittsbalken, Schritt-für-Schritt-Liste, Farbcodierung (aktiv/abgeschlossen/fehlgeschlagen) und Fehlermeldung</li>
+<li class=""><strong>503-Wartungsseite zeigt Live-Update-Fortschritt</strong> – Eigener <code>/update-progress</code>-Endpoint, Heartbeat-Anzeige, automatischer Reload nach Wartungsmodus-Ende, 3 s Polling-Intervall</li>
+<li class=""><strong>Force-Unlock-Button als Notfall-Recovery</strong> – Prozess-Kill, Lock entfernen, Wartungsmodus deaktivieren – sichtbar bei Fehler oder über 5 min ohne Heartbeat</li>
+<li class=""><strong>Graceful-Update-UI im Lizenz-Menü</strong> – Direkter Update-Button durch <code>AdminUpdateControl</code> ersetzt; Updates werden geplant, alle angemeldeten Benutzer erhalten einen Countdown-Hinweis mit Zeit zum Speichern</li>
+<li class=""><strong>Update-System auf CRM-Server umgestellt</strong> – <code>crm.scholar.schule</code> statt <code>entwurf.io</code>, Lizenzschlüssel- bzw. Token-basierter Download, SHA256-Checksum-Prüfung, SSL-Verify wieder aktiv</li>
+<li class=""><strong>Lizenz-Key DB-first</strong> – <code>UpdateApplication</code> liest Lizenz-Key und Update-URL primär aus der <code>configs</code>-Tabelle; Fallback-Kette: DB → <code>config/services</code> → <code>.env</code></li>
+<li class=""><strong>Notfall-Bootstrap-Skript</strong> – <code>emergency_update_bootstrap.sh</code> für festgefahrene Update-Mechanismen; neues Flag <code>app:update --skip-download</code> nutzt eine bereits vorhandene <code>storage/app/update.zip</code> und umgeht das Versions-Gate</li>
+<li class=""><strong>Stündlicher Update-Check sendet Lizenz-Key + Domain-Header</strong> – CRM kann gruppenspezifische Versionen ausliefern</li>
+<li class=""><strong>Robusterer Update-Prozess</strong> – ZIP-Download via HTTP-Streaming statt RAM, leere ZIP wird früh erkannt, <code>temp_update</code>-Verzeichnis automatisch bereinigt, veraltete Lock-Dateien (&gt;30 min) werden entfernt, <code>php -d memory_limit=-1</code></li>
+<li class=""><strong>Permission <code>run-update</code></strong> für <code>POST /update</code> zusätzlich erforderlich</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="lernmittel--bibliothek">Lernmittel &amp; Bibliothek<a href="https://wiki.scholar.schule/changelogscholar/2026-04-24#lernmittel--bibliothek" class="hash-link" aria-label="Direkter Link zur Lernmittel &amp; Bibliothek" title="Direkter Link zur Lernmittel &amp; Bibliothek" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Editierbare Mahn-E-Mail-Vorlagen</strong> – Bibliothekare bearbeiten Stufe 1/2/3 unter <code>/lib/loans/reminder-templates</code>. Platzhalter-Tags als Pills mit Drag &amp; Drop, Live-Preview, „Auf Standard zurücksetzen". Neue Tabelle <code>email_templates</code>, generischer <code>EmailTemplateRenderer</code> (Mustache-Style, kein Blade-Code-Exec)</li>
+<li class=""><strong>Gesamtliste beliebtester Bücher</strong> – Neue Seite <code>/lib/scanner/popular-books</code> mit Suche, Medienart-Filter, Sortierung (Ausleihzahl / Exemplare / Titel / Jahr / Medienart) und Pagination</li>
+<li class=""><strong>Exemplar-Tabelle</strong> – Bulk-Löschen per Checkbox, inline editierbarer Status-Dropdown (AJAX), neues Bemerkungsfeld pro Exemplar, Echtzeit-Barcode-Suche, Hover blendet andere Barcodes aus (Scanner liest nur den aktiven), Inventarnummer unter jedem Barcode</li>
+<li class=""><strong>Zebra ZT220 Etikettendruck</strong> – ZPL-Label (57 mm × 32 mm, 203 dpi) mit Titel, Barcode und ISBN direkt aus der Exemplar-Erfassung über IPP. Druckerkonfiguration (IP + CUPS-Queue) in EP-Einstellungen pflegbar; nachträglicher Druck per POST-Route; <code>label_printed_at</code>-Feld zur Nachverfolgung</li>
+<li class=""><strong>Schuljahres-Tracking für Online-Buch-Bestellungen</strong> – <code>school_year_id</code> zu <code>online_book_orders</code> hinzugefügt; Schuljahr-Umschalter, Verschieben-Modal zwischen Schuljahren, Export berücksichtigt gewähltes Schuljahr; Sync-Command weist neue Einträge automatisch dem aktiven Schuljahr zu</li>
+<li class=""><strong>Wartungssound-Fix</strong> – Sound auf Kachel-Ansicht spielt nur noch einmal ab (Loop-Attribut entfernt)</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="schüler--klassen">Schüler &amp; Klassen<a href="https://wiki.scholar.schule/changelogscholar/2026-04-24#sch%C3%BCler--klassen" class="hash-link" aria-label="Direkter Link zur Schüler &amp; Klassen" title="Direkter Link zur Schüler &amp; Klassen" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Klassendurchschnitt + Export</strong> – Klassen-Ø auf Übersichtsseite (neue Spalte) und Klassendetail-Seite (Kachel + tfoot); Export der Klassenliste mit Anzahl und Klassen-Ø als PDF und Excel; bestehende PDFs zeigen den Klassen-Ø ebenfalls im Fuß</li>
+<li class=""><strong>Gastschüler-Onboarding mit PDF-Ausgabe</strong> – Gastschüler erscheinen auf <code>/students/with-dates</code>; eigener <code>GuestStudentOnboardingController</code> mit Formular, PDF-Download und Passwort-Regenerierung; PDF-Vorlage enthält Herkunftsland, Host-Schüler und gastschüler-spezifische Checkliste</li>
+<li class=""><strong>Herkunftsland-Feld für Gastschüler</strong> – Länder-Dropdown nach Häufigkeit (AFS/YFU/Rotary), Spalte in Übersicht und Excel-Export</li>
+<li class=""><strong>Gastschüler-Übersicht redesigned</strong> – Card-Design, Echtzeit-Suche (Alpine.js), CSV-Export (UTF-8 BOM) und XLSX-Export, „Gastschüler anlegen" im Header</li>
+<li class=""><strong>Barcode-Druck für Gastschüler</strong> – ZPL-Etikett an BP730-Drucker, identisch zu regulären Schülern</li>
+<li class=""><strong>Schülerprofil – eingeschränkte Ansicht statt 403</strong> – Lehrkräfte ohne Klassenzuordnung sehen Header (Name, Klasse, Foto, medizinischer Hinweis, Nachteilsausgleich, Klassenlehrer-Info) plus gelben Hinweisbalken statt einer 403-Seite</li>
+<li class=""><strong>Schülerprofil-Berechtigungen</strong> – Klassenlehrer/Fachlehrkräfte sehen E-Mail-Felder (iServ/O365) und können Passwörter zurücksetzen; eigenes Passwort und Kiosk-Versand bleiben Admin-only; Klassenlehrer/Fachlehrkräfte werden im Header angezeigt</li>
+<li class=""><strong>Zeugniskonferenz</strong> – Verwaltungs-Rolle darf Zeugnisse auch aus inaktiven Schuljahren bearbeiten</li>
+<li class=""><strong>Klassenverwaltung <code>/users/classes</code></strong> – Klassen-Filter, Nur-Klassenlehrer-Filter, inaktive Benutzer ausgeblendet</li>
+<li class=""><strong>Magellan-Import</strong> – <code>class_id</code> wird per Lookup aus <code>class_number/class_letter</code> gesetzt; Klassenleiter-Übersicht lädt Schüler per <code>class_id</code> ODER <code>class_number+class_letter</code>, sodass kein Schüler verloren geht</li>
+<li class=""><strong>„Noten"-Tab in Schülerdetailseite zu „Zeugnisse" umbenannt</strong></li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="wartung-lager--geräte">Wartung, Lager &amp; Geräte<a href="https://wiki.scholar.schule/changelogscholar/2026-04-24#wartung-lager--ger%C3%A4te" class="hash-link" aria-label="Direkter Link zur Wartung, Lager &amp; Geräte" title="Direkter Link zur Wartung, Lager &amp; Geräte" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Scan-Warteschlange für Lager- und Wartungsscanner</strong> – Barcodes werden gepuffert und sequenziell per AJAX verarbeitet, kein Page-Reload mehr; Status-Overlay zeigt Anzahl ausstehender Scans</li>
+<li class=""><strong>AJAX-Modal für Wartungs-Checklisten</strong> – Queue pausiert automatisch bei Geräten mit Checkliste und läuft nach Bestätigung/Abbruch weiter; <code>DeviceAssignmentController::kachelResponse()</code> und <code>MaintenanceController</code> liefern JSON statt klassischem Redirect</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="support--verwaltung">Support &amp; Verwaltung<a href="https://wiki.scholar.schule/changelogscholar/2026-04-24#support--verwaltung" class="hash-link" aria-label="Direkter Link zur Support &amp; Verwaltung" title="Direkter Link zur Support &amp; Verwaltung" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Support-Statistik-Reset</strong> – Neuer Danger-Zone-Card im adminTools › Support-Panel; <code>POST /admin/support-cases/reset</code> (nur Admin) löscht alle <code>SupportCase</code>-Einträge mit Audit-Log und Confirm-Dialog</li>
+<li class=""><strong>Quer-Navigation zwischen Support-Seiten</strong> – Sidebar-Partial mit Links zu Neuer Supportfall / Fallübersicht / Statistiken; im adminTools-Panel zusätzlich Quick-Links</li>
+<li class=""><strong>Logs- und Backup-Verwaltung in adminTools mit GFS-Retention</strong>
+<ul>
+<li class="">Logs: Konfigurierbare Retention (Default 7 Tage), Artisan <code>logs:prune</code>, UI mit Größe/Alter/Lösch-Kandidaten; Live-<code>laravel.log</code> bleibt erhalten</li>
+<li class="">Backups: <code>BackupRetentionService</code> mit Grandfather-Father-Son-Strategie (letzte N Stunden + Tage + Monate + Jahre), optional stündliches DB-Backup, tägliche Uhrzeit per UI; <code>backups:prune</code> läuft automatisch nach jedem <code>system:backup</code></li>
+<li class="">Speicherplatz-Progressbar mit Breakdown Logs/Backups/Frei (60 s Cache)</li>
+</ul>
+</li>
+<li class=""><strong>Berechtigungssystem für Küchenreservierung</strong> – Neue Spatie-Permissions <code>approve_kitchen_reservation</code> und <code>inspect_kitchen_reservation</code> ersetzen hartcodierte Rollen; bisheriges Verhalten (Admin/Schulleitung/Koordinatoren/Verwaltung) 1:1 erhalten; eigene Kategorie „Küchenreservierung" auf der Benutzer-Edit-Seite</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="bugfixes">Bugfixes<a href="https://wiki.scholar.schule/changelogscholar/2026-04-24#bugfixes" class="hash-link" aria-label="Direkter Link zur Bugfixes" title="Direkter Link zur Bugfixes" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>AdminUpdateControl crashte nach Updates</strong> mit <code>PropertyNotFoundException [$activeSessionCount]</code> – Computed Methods in reguläre Properties umgebaut, Befüllung in <code>refreshData()</code> per <code>mount()</code>/Action/<code>wire:poll</code></li>
+<li class=""><strong>Fatal Error in <code>PreventRequestsDuringMaintenance</code></strong> – Methode <code>hasValidBypassCookie</code> überschrieb unbeabsichtigt die Parent-Methode (Signatur-Konflikt) → in <code>hasValidUpdateBypassCookie</code> umbenannt</li>
+<li class=""><strong>Emergency-Bootstrap extrahiert defensiv</strong> kritische Dateien (<code>UpdateApplication.php</code>, <code>PreventRequestsDuringMaintenance.php</code>, <code>UpdateController.php</code>) aus der ZIP <strong>bevor</strong> <code>app:update</code> startet, damit ein fehlerhaftes Middleware-Update den Recovery-Pfad nicht blockiert</li>
+<li class=""><strong>Update-Kopierfehler durch PDO-Deprecation behoben</strong> – <code>error_clear_last()</code> vor <code>@copy()</code>, damit <code>error_get_last()</code> den tatsächlichen Fehler liefert; <code>bootstrap/cache</code> wird beim Update übersprungen (wird nach <code>artisan optimize</code> regeneriert)</li>
+<li class=""><strong>Blade-Parser-Fehler in <code>reminder-templates</code>-View</strong> (zwei Fixes) – <code>@js()</code> in Alpine-Attributen ersetzt durch <code>data-*</code>-Attribute + <code>x-on:</code>-Schreibweise; <code>&lt;script&gt;</code>-Block in <code>@verbatim</code>/<code>@endverbatim</code> gewrappt; <code>@json([...])</code> durch <code>@php</code>/<code>json_encode</code> ersetzt</li>
+<li class=""><strong>Lizenzschlüssel-Lesepfad</strong> – Direktes Lesen aus <code>.env</code>, wenn <code>config/services.php</code> keinen <code>scholar_update</code>-Eintrag hat; Lizenzschlüssel und Update-URL werden beim Speichern in der UI synchron in die <code>.env</code> geschrieben</li>
+<li class=""><strong>EP-Settings Fremdsprachenwahl</strong> – Key-Mismatch <code>allow_language_vote</code> → <code>show_Language_Vote</code> korrigiert, damit die Einstellung korrekt ans Elternportal übertragen wird</li>
+<li class=""><strong>Bearbeiten-Aktion aus Offboarding-Tabelle entfernt</strong> (Onboarding-Bearbeitung dort nicht relevant)</li>
+<li class=""><strong><code>EpSyncController</code></strong> – Symfony Process durch <code>Artisan::call</code> ersetzt (behebt Windows-Subprocess-Probleme mit MySQL-DLL-Pfaden)</li>
+<li class=""><strong><code>lib/loans/index</code></strong> – Null-safe-Operator für <code>copy-&gt;book</code> und <code>copy-&gt;exemplarnummer</code> (verhindert Fehler bei gelöschten Exemplaren)</li>
+<li class=""><strong><code>adminhome</code>-Sidebar</strong> – <code>relative</code> + <code>pb-24</code>, damit die Versionsnummer das Menü nicht überlagert</li>
+<li class=""><strong>Composer-Update</strong> – <code>--no-scripts</code> + <code>Artisan::call(package:discover)</code> behebt 1200 s-Timeout durch hängendes <code>post-autoload-dump</code>-Hook auf PHP 8.5</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="elternportal-v20260424-001">Elternportal (v2026.04.24-001)<a href="https://wiki.scholar.schule/changelogscholar/2026-04-24#elternportal-v20260424-001" class="hash-link" aria-label="Direkter Link zur Elternportal (v2026.04.24-001)" title="Direkter Link zur Elternportal (v2026.04.24-001)" translate="no">​</a></h2>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="neu">Neu<a href="https://wiki.scholar.schule/changelogscholar/2026-04-24#neu" class="hash-link" aria-label="Direkter Link zur Neu" title="Direkter Link zur Neu" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Latein zur Fremdsprachenwahl hinzugefügt</strong> – Neue Option im Wahlformular</li>
+<li class=""><strong>API-Endpoint <code>/api/language-votes</code> aktiviert</strong> – Damit Scholar die Fremdsprachenwahl-Ergebnisse über <code>GET /api/language-votes</code> abholen kann (geschützt via <code>auth.api</code>/Bearer-Token)</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="verbesserungen">Verbesserungen<a href="https://wiki.scholar.schule/changelogscholar/2026-04-24#verbesserungen" class="hash-link" aria-label="Direkter Link zur Verbesserungen" title="Direkter Link zur Verbesserungen" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Fremdsprachenwahl – Korrekturen</strong>
+<ul>
+<li class="">Nur Kinder des eingeloggten Elternteils werden angezeigt (statt aller Schüler)</li>
+<li class="">Nur Schüler der 5. Klasse können abstimmen</li>
+<li class="">Nur Spanisch und Französisch als Optionen (Englisch entfernt)</li>
+<li class="">Fehlermeldung bei gleicher Erst- und Zweitwahl auf Deutsch übersetzt</li>
+</ul>
+</li>
+<li class=""><strong>Welcome-Seite</strong> – Logo größer und klarer, Hero-Bereich kompakter, Footer bleibt am Seitenende</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="aufräumarbeiten">Aufräumarbeiten<a href="https://wiki.scholar.schule/changelogscholar/2026-04-24#aufr%C3%A4umarbeiten" class="hash-link" aria-label="Direkter Link zur Aufräumarbeiten" title="Direkter Link zur Aufräumarbeiten" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Lernmittel-Refactoring</strong> – Legacy-Bestellsystem entfernt: <code>LearningMaterialOrder</code>-Controller, <code>OrderGroupe</code>-Model, <code>OrderRepository</code></li>
+<li class=""><strong>API-Bereinigung</strong> – Felder <code>religion</code> und <code>zweite_fremdsprache</code> aus <code>DigitalBookOrder</code> und API-Controller entfernt</li>
+<li class=""><strong>Workbook-Order-Views überarbeitet</strong> – Alte Bestell-Views (<code>order</code>, <code>orderAdditional</code>) gelöscht</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="security">Security<a href="https://wiki.scholar.schule/changelogscholar/2026-04-24#security" class="hash-link" aria-label="Direkter Link zur Security" title="Direkter Link zur Security" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Abhängigkeiten auf sichere Versionen aktualisiert</strong>
+<ul>
+<li class=""><code>axios</code> ^1.12.2 → ^1.15.0 (CVE-2025-62718, <strong>Critical</strong>)</li>
+<li class=""><code>vite</code> ^6.2.4 → ^6.4.2 (CVE-2026-39363 High, CVE-2026-39365 Moderate)</li>
+<li class=""><code>picomatch</code> auf 4.0.4+ (CVE-2026-33671/72)</li>
+<li class=""><code>league/commonmark</code> 2.8.0 → 2.8.2 (CVE-2026-33347/30838 Moderate)</li>
+<li class="">Frontend-Assets neu gebaut mit Vite 6.4.2</li>
+</ul>
+</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Scholar" term="Scholar"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v2026.04.09 – Klassenliste, Datenverifizierung & Update-System]]></title>
+        <id>https://wiki.scholar.schule/changelogscholar/2026-04-09</id>
+        <link href="https://wiki.scholar.schule/changelogscholar/2026-04-09"/>
+        <updated>2026-04-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Neu]]></summary>
+        <content type="html"><![CDATA[<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="neu">Neu<a href="https://wiki.scholar.schule/changelogscholar/2026-04-09#neu" class="hash-link" aria-label="Direkter Link zur Neu" title="Direkter Link zur Neu" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Klassenliste als PDF</strong> – Neue Druckansicht (<code>/druckansicht</code>) mit konfigurierbaren Spalten (Klasse, Geburtsdatum, Adresse, Telefon der Erziehungsberechtigten), HTML-Vorschau und PDF-Download; doppelte Festnetznummern werden automatisch dedupliziert</li>
+<li class=""><strong>Eltern-Datenverifizierung</strong> – Neuer Verifizierungsprozess für Elterndaten mit Ansichten für ausstehende und geänderte Datensätze</li>
+<li class=""><strong>Footer-Links konfigurierbar</strong> – Datenschutz-, Hilfe- und Nutzungsbedingungen-Link können im Admin-Menü ein-/ausgeblendet und mit eigenem Text versehen werden</li>
+<li class=""><strong>Lizenzschlüssel maskiert</strong> – Schlüssel wird nur teilweise angezeigt; neuer „Jetzt prüfen"-Button für manuellen Update-Check</li>
+<li class=""><strong>Stündlicher Auto-Update-Check</strong> – Oranges Banner auf <code>/adminTools</code> bei verfügbarem Update; gecachte Prüfung verhindert wiederholte HTTP-Requests pro Seitenaufruf</li>
+<li class=""><strong>Update als Hintergrundprozess</strong> – Update-Prozess startet per <code>nohup</code> im Hintergrund; kein 504 Gateway Timeout mehr</li>
+<li class=""><strong>Schuljahreswechsel-Reset</strong> – Lernmittel-Felder aller aktiven Schüler per Knopfdruck zurücksetzen; synchronisiert das Elternportal automatisch via API</li>
+<li class=""><strong>Workbook-Jahresfilter</strong> – Standardmäßig nur Bestellungen des aktuellen Jahres; Checkbox „Alte Bestellungen anzeigen" mit Session-Persistenz</li>
+<li class=""><strong>Security-Alert-Empfänger per <code>.env</code></strong> – <code>SECURITY_ALERT_RECIPIENTS</code> ersetzt hartcodierte Admin-E-Mail-Adressen</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="bugfixes">Bugfixes<a href="https://wiki.scholar.schule/changelogscholar/2026-04-09#bugfixes" class="hash-link" aria-label="Direkter Link zur Bugfixes" title="Direkter Link zur Bugfixes" translate="no">​</a></h4>
+<ul>
+<li class="">PHP-FPM als PHP-Binary beim Update behoben – CLI-Binary wird nun korrekt erkannt (FPM kann keine Skripte ausführen)</li>
+<li class=""><code>livewire:publish</code> aus Update-Kommandos entfernt (existiert in Livewire 3 nicht; Assets sind vorgebaut im ZIP enthalten)</li>
+<li class="">Bootstrap-Cache wird vor Update geleert – verhindert PDO-Deprecation-Fehler auf PHP 8.5</li>
+<li class=""><code>FetchAndStoreParentModels</code>: API-Pfad auf <code>/api/get-users</code> korrigiert</li>
+<li class="">Fehlende View für Reihen-Detailseite erstellt (behebt 500-Fehler in Produktion)</li>
+<li class="">Update-Overlay mit Auto-Reload nach Maintenance Mode</li>
+<li class="">Auto-Cleanup steckengebliebener Updates nach 30 Minuten</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Scholar" term="Scholar"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v2026.04.08 – Pre-built Assets & SSL-Fix]]></title>
+        <id>https://wiki.scholar.schule/changelogscholar/2026-04-08</id>
+        <link href="https://wiki.scholar.schule/changelogscholar/2026-04-08"/>
+        <updated>2026-04-08T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Neu]]></summary>
+        <content type="html"><![CDATA[<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="neu">Neu<a href="https://wiki.scholar.schule/changelogscholar/2026-04-08#neu" class="hash-link" aria-label="Direkter Link zur Neu" title="Direkter Link zur Neu" translate="no">​</a></h4>
+<ul>
+<li class="">Update-Command überspringt <code>npm install</code>/<code>npm build</code> wenn vorgebaute Assets im ZIP enthalten sind (Fallback auf npm für ältere ZIPs) – kein Node.js mehr auf Kundenservern nötig</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="bugfixes">Bugfixes<a href="https://wiki.scholar.schule/changelogscholar/2026-04-08#bugfixes" class="hash-link" aria-label="Direkter Link zur Bugfixes" title="Direkter Link zur Bugfixes" translate="no">​</a></h4>
+<ul>
+<li class="">SSL-Verifizierung im LicenseService für lokale Dev-Umgebung deaktiviert</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Scholar" term="Scholar"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v2026.04.06 – Wiki-Migration & Dev-Setup]]></title>
+        <id>https://wiki.scholar.schule/changelogscholar/2026-04-06</id>
+        <link href="https://wiki.scholar.schule/changelogscholar/2026-04-06"/>
+        <updated>2026-04-06T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Neu]]></summary>
+        <content type="html"><![CDATA[<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="neu">Neu<a href="https://wiki.scholar.schule/changelogscholar/2026-04-06#neu" class="hash-link" aria-label="Direkter Link zur Neu" title="Direkter Link zur Neu" translate="no">​</a></h4>
+<ul>
+<li class="">Footer: Wiki-Link zeigt auf wiki.scholar.schule, Störungen-Link zeigt auf Blog</li>
+<li class="">Changelog-Versionsnummer verlinkt direkt auf wiki.scholar.schule/changelogscholar</li>
+<li class=""><code>docker-compose.yml</code> für lokale MariaDB-Entwicklungsumgebung hinzugefügt</li>
+<li class="">Help-Link-Icon 2px höher gesetzt</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="entfernt">Entfernt<a href="https://wiki.scholar.schule/changelogscholar/2026-04-06#entfernt" class="hash-link" aria-label="Direkter Link zur Entfernt" title="Direkter Link zur Entfernt" translate="no">​</a></h4>
+<ul>
+<li class="">Internes Changelog-System entfernt (ChangelogManager-Command, ChangelogController, Routen und <code>public/docs/admin/</code>) – Dokumentation ist jetzt extern auf wiki.scholar.schule</li>
+<li class="">Admin-Link aus Footer entfernt</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Scholar" term="Scholar"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Start der Scholar-Dokumentation]]></title>
+        <id>https://wiki.scholar.schule/changelogscholar/welcome</id>
+        <link href="https://wiki.scholar.schule/changelogscholar/welcome"/>
+        <updated>2026-04-03T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Heute, am 3. April 2026, haben wir offiziell mit der Dokumentation von Scholar begonnen. Scholar ist das umfassende Schulverwaltungssystem der dWilhelm-Raabe-Schule und bildet das Herzstück der digitalen Schuladministration.]]></summary>
+        <content type="html"><![CDATA[<p>Heute, am 3. April 2026, haben wir offiziell mit der Dokumentation von <strong>Scholar</strong> begonnen. Scholar ist das umfassende Schulverwaltungssystem der dWilhelm-Raabe-Schule und bildet das Herzstück der digitalen Schuladministration.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="was-ist-scholar">Was ist Scholar?<a href="https://wiki.scholar.schule/changelogscholar/welcome#was-ist-scholar" class="hash-link" aria-label="Direkter Link zur Was ist Scholar?" title="Direkter Link zur Was ist Scholar?" translate="no">​</a></h2>
+<p>Scholar ist ein modernes Schulverwaltungssystem auf Basis von Laravel, das sämtliche Prozesse rund um die Schüleradministration abdeckt – von der Aufnahme neuer Schüler über die Notenverwaltung bis hin zur Geräteverwaltung und Bibliotheksverwaltung.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="was-dokumentieren-wir">Was dokumentieren wir?<a href="https://wiki.scholar.schule/changelogscholar/welcome#was-dokumentieren-wir" class="hash-link" aria-label="Direkter Link zur Was dokumentieren wir?" title="Direkter Link zur Was dokumentieren wir?" translate="no">​</a></h2>
+<p>In dieser Dokumentation werden wir schrittweise alle Bereiche von Scholar erfassen:</p>
+<ul>
+<li class=""><strong>Schülerverwaltung</strong> – Stammdaten, Klassen, Laufbahnen</li>
+<li class=""><strong>Notenverwaltung &amp; Zeugnisse</strong> – Berechnung und PDF-Ausgabe</li>
+<li class=""><strong>Bibliothek</strong> – Ausleihe, Rückgabe und Bestandsverwaltung</li>
+<li class=""><strong>Geräteverwaltung</strong> – Zuweisung und Tracking von Schulgeräten</li>
+<li class=""><strong>WLAN-Zugang</strong> – RADIUS-Integration und Benutzerverwaltung</li>
+<li class=""><strong>Finanzen</strong> – Lernmittel, Zahlungen und Transaktionen</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="warum-eine-dokumentation">Warum eine Dokumentation?<a href="https://wiki.scholar.schule/changelogscholar/welcome#warum-eine-dokumentation" class="hash-link" aria-label="Direkter Link zur Warum eine Dokumentation?" title="Direkter Link zur Warum eine Dokumentation?" translate="no">​</a></h2>
+<p>Eine klare und gepflegte Dokumentation hilft dem Team, neue Funktionen konsistent umzusetzen, Einarbeitungszeiten zu verkürzen und das System langfristig wartbar zu halten.</p>
+<p>Wir freuen uns auf diesen Prozess und werden die Dokumentation kontinuierlich erweitern.</p>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Scholar" term="Scholar"/>
+        <category label="Dokumentation" term="Dokumentation"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v2026.03.31 – Modulsystem & Sichtbarkeitssteuerung]]></title>
+        <id>https://wiki.scholar.schule/changelogscholar/2026-03-31</id>
+        <link href="https://wiki.scholar.schule/changelogscholar/2026-03-31"/>
+        <updated>2026-03-31T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Neu]]></summary>
+        <content type="html"><![CDATA[<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="neu">Neu<a href="https://wiki.scholar.schule/changelogscholar/2026-03-31#neu" class="hash-link" aria-label="Direkter Link zur Neu" title="Direkter Link zur Neu" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Modulsystem</strong> mit 17+ konfigurierbaren Modulen: Library, Learning-Materials, WiFi-Management, AGS, ILE, Case-Management, Locker-Management, Onboarding, Grades, IServ, Microsoft 365, Device-Management, WebUntis, Self-Service, Kassenbuch, Support, Kopiercodes, moin.schule</li>
+<li class=""><strong>Modul-Toggle</strong> mit Alpine.js Bestätigungs-Modal (ersetzt Browser-confirm-Dialog)</li>
+<li class=""><strong>Sichtbarkeitssteuerung</strong> – Deaktivierte Module werden in Navigation (Desktop + Mobil), Dashboard, Schülerprofil, AdminTools und Routen-Middleware automatisch ausgeblendet</li>
+<li class=""><strong>Device-Management-Modul</strong> – Lagerverwaltung, Lagerübersicht/Scanner, Leihverlauf, Geräte im Verleih und Gerätewartung als eigenes Modul steuerbar</li>
+<li class=""><strong>WebUntis-Modul</strong> – Stundenplan (Klassen/Lehrer) und Raumübersicht als eigenes Modul steuerbar</li>
+<li class=""><strong>IServ- und Microsoft-Module</strong> – IServ-Abgleich/Export/Mail-Import und O365-Validierung/Benutzer in AdminTools und Schülerprofil modul-gesteuert</li>
+<li class=""><strong>Grades-Modul</strong> – Notensystem als konfigurierbares Modul mit Routen-Middleware</li>
+<li class=""><strong>Self-Service- und Kassenbuch-Module</strong> – Dashboard-Karten, AdminTools-Einträge und Navigation modul-gesteuert</li>
+<li class=""><strong>Support-, Kopiercodes- und moin.schule-Module</strong> – Sidebar-Buttons, Dashboard-Karten und Systemabgleich modul-gesteuert</li>
+<li class=""><strong>Update-Button</strong> auf der Lizenz-Seite mit aktueller Version und Update-Badge</li>
+<li class="">Lizenz-Seite: helles Design, automatische Telemetrie beim Speichern (alle 5 Stunden statt täglich)</li>
+<li class="">Lizenzinfos werden nach dem Speichern direkt vom CRM geladen</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="bugfixes">Bugfixes<a href="https://wiki.scholar.schule/changelogscholar/2026-03-31#bugfixes" class="hash-link" aria-label="Direkter Link zur Bugfixes" title="Direkter Link zur Bugfixes" translate="no">​</a></h4>
+<ul>
+<li class="">Versionserkennung korrigiert – <code>isNewerVersion()</code> strippt git-describe-Suffix vor Vergleich, Fallback auf <code>version.json</code></li>
+<li class=""><code>version_compare()</code> durch custom Scholar-Versionsvergleich ersetzt (YYYY.MM.DD-NNN Format wurde falsch verglichen)</li>
+<li class="">Schließfachverwaltung, AGS, Onboarding, ILE, Lernmittel, WLAN und Notenlisten bei deaktiviertem Modul korrekt ausgeblendet</li>
+<li class="">Admin-Link aus Footer entfernt</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Scholar" term="Scholar"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v2026.03.30 – Web-Installationsassistent]]></title>
+        <id>https://wiki.scholar.schule/changelogscholar/2026-03-30</id>
+        <link href="https://wiki.scholar.schule/changelogscholar/2026-03-30"/>
+        <updated>2026-03-30T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Neu]]></summary>
+        <content type="html"><![CDATA[<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="neu">Neu<a href="https://wiki.scholar.schule/changelogscholar/2026-03-30#neu" class="hash-link" aria-label="Direkter Link zur Neu" title="Direkter Link zur Neu" translate="no">​</a></h4>
+<ul>
+<li class="">Web-Installationsassistent (<code>public/install.php</code>) – Selbstständiger 7-Schritt-Wizard für Neuinstallationen ohne CLI-Kenntnisse: Systemprüfung, Datenbankverbindung mit Live-Test, App-Konfiguration, Admin-Benutzer anlegen, Live-Installation via Server-Sent Events und Ein-Klick-Installer-Löschung</li>
+<li class="">Lizenz-Menüeintrag in der AdminTools-Sidebar mit Livewire-Komponente <code>admin.license-settings</code></li>
+<li class="">Telemetrie-Fehlermeldungen: HTTP-Statuscodes werden in lesbare deutsche Meldungen übersetzt (401, 403, 404, 422, 429, 5xx)</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="bugfixes">Bugfixes<a href="https://wiki.scholar.schule/changelogscholar/2026-03-30#bugfixes" class="hash-link" aria-label="Direkter Link zur Bugfixes" title="Direkter Link zur Bugfixes" translate="no">​</a></h4>
+<ul>
+<li class="">PHP CLI Binary wird korrekt ermittelt statt PHP_BINARY (zeigt unter php-fpm auf den FPM-Prozess)</li>
+<li class=""><code>storage/framework</code>-Verzeichnisse werden vor <code>composer install</code> angelegt (verhindert "Please provide a valid cache path")</li>
+<li class="">Composer Deprecation Notices (PHP 8.4+) aus Installer-Ausgabe gefiltert</li>
+<li class="">Konsolidierte Migration: fehlende Spalten <code>type</code> und <code>description</code> zur <code>configs</code>-Tabelle hinzugefügt</li>
+<li class="">Schema-Mismatches in konsolidierter Migration und Seeder behoben (school_year_settings, device_types, lib_configuration, modules)</li>
+<li class="">Seeder auf <code>insertOrIgnore</code> umgestellt für Idempotenz (kein Duplicate-Key-Fehler bei wiederholtem db<!-- -->:seed<!-- -->)</li>
+<li class="">Seeder <code>lib_*</code>-Tabellen auf korrekte deutsche Spaltennamen korrigiert (lib_media_types, lib_languages, lib_people_roles, lib_classifications, lib_interest_groups)</li>
+<li class=""><code>APP_BASE</code> statt <code>__DIR__</code> im Migrations-Script (temporäres Script liegt in storage/app/)</li>
+<li class="">Migrationen einzeln ausführen und "Column/Table already exists"-Fehler überspringen</li>
+<li class="">Neuere Migrationen nach konsolidierter Migration korrekt einspielen</li>
+<li class="">Livewire-Assets im Installer publizieren und Cache korrekt aufbauen</li>
+<li class="">Admin-User <code>email_verified_at</code> bei Installation automatisch setzen</li>
+<li class=""><code>maintenance_mode</code> auf 0 setzen damit Login nach Erstinstallation sichtbar ist</li>
+<li class="">Installer-Löschen-Button und IP Open Mode nach Installation automatisch aktivieren</li>
+<li class=""><code>tinker --execute</code> ohne <code>&lt;?php</code> Tag (Parse-Fehler beim Admin anlegen)</li>
+<li class="">Alle "ScholarV2"-Bezeichnungen im Installer durch "Scholar" ersetzt</li>
+<li class="">Standardwert Anwendungsname auf "Scholar" geändert</li>
+<li class="">Wilhelm-Raabe-Schule durch DashTec Service im Installer ersetzt</li>
+<li class=""><code>--force</code> Flag von <code>livewire:publish</code> entfernt (wird nicht unterstützt)</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Scholar" term="Scholar"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v2026.03.29-001]]></title>
+        <id>https://wiki.scholar.schule/changelogscholar/2026-03-29</id>
+        <link href="https://wiki.scholar.schule/changelogscholar/2026-03-29"/>
+        <updated>2026-03-29T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Neu]]></summary>
+        <content type="html"><![CDATA[<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="neu">Neu<a href="https://wiki.scholar.schule/changelogscholar/2026-03-29#neu" class="hash-link" aria-label="Direkter Link zur Neu" title="Direkter Link zur Neu" translate="no">​</a></h4>
+<ul>
+<li class="">Lizenz &amp; Update-Server: Neuer Admin-Bereich unter /admin/license zur Verwaltung des Scholar-Lizenzschlüssels und der Update-Server-URL (Standard: crm.scholar.schule)</li>
+<li class="">Lizenz &amp; Update-Server: Verbindungstest prüft Lizenzstatus live (Edition, Ablaufdatum, Update-Gruppe, Max. Schüler) und zeigt verfügbare Versionen</li>
+<li class="">Telemetrie: Schüler-/Lehrerzahl, installierte Version und PHP-Version werden täglich automatisch an den Update-Server gesendet (06:00 Uhr, Artisan-Befehl license<!-- -->:send-telemetry<!-- -->)</li>
+<li class="">Telemetrie: Manuelle Übertragung über den Admin-Bereich möglich – Rückmeldung enthält neueste Version der zugewiesenen Update-Gruppe sowie Warnungen bei Überschreitung des Lizenzlimits</li>
+<li class="">Update-Check: Wenn ein Lizenzschlüssel hinterlegt ist, werden Updates über das CRM (crm.scholar.schule/api/v1/latest) abgefragt statt über entwurf.io</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Scholar" term="Scholar"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v2026.03.16 (-002, -001)]]></title>
+        <id>https://wiki.scholar.schule/changelogscholar/2026-03-16</id>
+        <link href="https://wiki.scholar.schule/changelogscholar/2026-03-16"/>
+        <updated>2026-03-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[2026.03.16-002]]></summary>
+        <content type="html"><![CDATA[<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="20260316-002">2026.03.16-002<a href="https://wiki.scholar.schule/changelogscholar/2026-03-16#20260316-002" class="hash-link" aria-label="Direkter Link zur 2026.03.16-002" title="Direkter Link zur 2026.03.16-002" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="bugfixes">Bugfixes<a href="https://wiki.scholar.schule/changelogscholar/2026-03-16#bugfixes" class="hash-link" aria-label="Direkter Link zur Bugfixes" title="Direkter Link zur Bugfixes" translate="no">​</a></h4>
+<ul>
+<li class="">Lernmittel /learning-materials: Klassen ohne Bücher werden nicht mehr angezeigt – leere Klassenstufen-Gruppen werden jetzt immer herausgefiltert, nicht nur beim aktiven Klassenstufen-Filter</li>
+<li class="">Lernmittel /learning-materials: Jahrgänge 1–4 in allen Validierungen, Filter-Dropdowns, Create/Edit-Formularen und der fklview ergänzt – Bücher für Klassen 1–4 konnten bisher nicht korrekt angelegt oder bearbeitet werden</li>
+<li class="">Lernmittel /learning-materials: Löschen-Button entfernt nur den aktuellen Jahrgang aus dem Buch – ist ein Buch mehreren Jahrgängen zugeordnet, wird nur der angeklickte Jahrgang aus grade_levels entfernt; Soft Delete erfolgt nur noch wenn keine weiteren Jahrgänge vorhanden sind</li>
+<li class="">AdminTools Seitentitel von 'ADMIN' zu 'Administration' umbenannt</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="20260316-001">2026.03.16-001<a href="https://wiki.scholar.schule/changelogscholar/2026-03-16#20260316-001" class="hash-link" aria-label="Direkter Link zur 2026.03.16-001" title="Direkter Link zur 2026.03.16-001" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="bugfixes-1">Bugfixes<a href="https://wiki.scholar.schule/changelogscholar/2026-03-16#bugfixes-1" class="hash-link" aria-label="Direkter Link zur Bugfixes" title="Direkter Link zur Bugfixes" translate="no">​</a></h4>
+<ul>
+<li class="">Lernmittel bearbeiten: Berechtigungspruefung verwendet wieder die korrekten Permission-Keys lm_edit/lm_admin</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Scholar" term="Scholar"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v2026.03.12 (-002, -001)]]></title>
+        <id>https://wiki.scholar.schule/changelogscholar/2026-03-12</id>
+        <link href="https://wiki.scholar.schule/changelogscholar/2026-03-12"/>
+        <updated>2026-03-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[2026.03.12-002]]></summary>
+        <content type="html"><![CDATA[<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="20260312-002">2026.03.12-002<a href="https://wiki.scholar.schule/changelogscholar/2026-03-12#20260312-002" class="hash-link" aria-label="Direkter Link zur 2026.03.12-002" title="Direkter Link zur 2026.03.12-002" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="neu">Neu<a href="https://wiki.scholar.schule/changelogscholar/2026-03-12#neu" class="hash-link" aria-label="Direkter Link zur Neu" title="Direkter Link zur Neu" translate="no">​</a></h4>
+<ul>
+<li class="">Lernmittel Buchauswertung: Farbige Gruppen-Titel (Grundausstattung, Fremdsprachen, Religion/WN) analog zum digitalen Lernmittel-Report ergänzt</li>
+<li class="">Lernmittel Übersicht: Verlag-Spalte in der Übersichtstabelle mit Inline-Bearbeitung und Autocomplete ergänzt</li>
+<li class="">Lernmittel Bearbeiten: Verlag-Feld mit Autocomplete-Vorschlägen aus der Verlags-Datenbank hinzugefügt</li>
+<li class="">Lernmittel Fehlende Preise: Verlag-Spalte mit Inline-Bearbeitung ergänzt</li>
+<li class="">Lernmittel Buchauswertung und Digitale Lernmittel Auswertung: Druckoptimierung mit Kopfzeile, Seitenumbrüchen und druckfreundlichem Layout</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="bugfixes">Bugfixes<a href="https://wiki.scholar.schule/changelogscholar/2026-03-12#bugfixes" class="hash-link" aria-label="Direkter Link zur Bugfixes" title="Direkter Link zur Bugfixes" translate="no">​</a></h4>
+<ul>
+<li class="">Lernmittel Buchauswertung und Digitale Lernmittel Auswertung: Ungültige Jahrgänge werden jetzt herausgefiltert, nur Jahrgang 5-13 wird berücksichtigt</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="20260312-001">2026.03.12-001<a href="https://wiki.scholar.schule/changelogscholar/2026-03-12#20260312-001" class="hash-link" aria-label="Direkter Link zur 2026.03.12-001" title="Direkter Link zur 2026.03.12-001" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="neu-1">Neu<a href="https://wiki.scholar.schule/changelogscholar/2026-03-12#neu-1" class="hash-link" aria-label="Direkter Link zur Neu" title="Direkter Link zur Neu" translate="no">​</a></h4>
+<ul>
+<li class="">Lernmittel Fehlende Preise: Gesamtzähler für aktuell gelistete Bücher ohne Preis sowie neuer Button 'Nur gelistete Preise abfragen' ergänzt</li>
+<li class="">Lernmittel Übersicht und Fehlende Preise: Preisabfrage gegen isbn.de mit Pausen, Timeouts und Retry-Backoff stabilisiert</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="bugfixes-1">Bugfixes<a href="https://wiki.scholar.schule/changelogscholar/2026-03-12#bugfixes-1" class="hash-link" aria-label="Direkter Link zur Bugfixes" title="Direkter Link zur Bugfixes" translate="no">​</a></h4>
+<ul>
+<li class="">Gerätereservierungen: Parallele Kategorien-Reservierungen führen bei bereits belegten Slots nicht mehr zu einem kritischen SQL-Fehler, sondern geben eine saubere Fehlermeldung zurück</li>
+<li class="">Lernmittel Fehlende Preise: Button 'Alle gedruckten Preise abfragen' klar von der neuen Listen-Aktion getrennt, damit nicht versehentlich nur die sichtbare Tabelle gemeint ist</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Scholar" term="Scholar"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v2026.03.09-001]]></title>
+        <id>https://wiki.scholar.schule/changelogscholar/2026-03-09</id>
+        <link href="https://wiki.scholar.schule/changelogscholar/2026-03-09"/>
+        <updated>2026-03-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Bugfixes]]></summary>
+        <content type="html"><![CDATA[<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="bugfixes">Bugfixes<a href="https://wiki.scholar.schule/changelogscholar/2026-03-09#bugfixes" class="hash-link" aria-label="Direkter Link zur Bugfixes" title="Direkter Link zur Bugfixes" translate="no">​</a></h4>
+<ul>
+<li class="">Schulanmeldungen /student_registrations/{id}/edit: Einwilligungs-Checkboxen speichern und laden wieder korrekt mit den String-Werten 'einverstanden' / 'nicht einverstanden' statt als boolesche Werte</li>
+<li class="">Schulanmeldungen /student_registrations/{id}/edit: Validierung fuer 'first_choice_profile' akzeptiert das Feld wieder als String und verlangt es nur noch bei gewuenschter Profilklasse</li>
+<li class="">Schulanmeldungen /student_registrations/{id}/edit + PDF: Bezeichnung fuer 'parent1_sole_custody' auf 'Allein erziehungsberechtigt' korrigiert, PDF-Label 'EP::' auf 'EP:' bereinigt</li>
+<li class="">Schulanmeldungen /student_registrations/{id}/edit: Bereich 'Einwilligungen' mit erklaerenden Beschreibungen fuer unklare Punkte wie Austauschprogramme, Nutzungsrechte und Pressefreigaben erweitert</li>
+<li class="">Geraetewartung /maintenance/devices: Schnelles mehrfaches Scannen loest keine konkurrierenden Mehrfach-Submits mit Browser-Umleitungsfehler mehr aus</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Scholar" term="Scholar"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v2026.03.06 (-007, -006, -005)]]></title>
+        <id>https://wiki.scholar.schule/changelogscholar/2026-03-06</id>
+        <link href="https://wiki.scholar.schule/changelogscholar/2026-03-06"/>
+        <updated>2026-03-06T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[2026.03.06-007]]></summary>
+        <content type="html"><![CDATA[<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="20260306-007">2026.03.06-007<a href="https://wiki.scholar.schule/changelogscholar/2026-03-06#20260306-007" class="hash-link" aria-label="Direkter Link zur 2026.03.06-007" title="Direkter Link zur 2026.03.06-007" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="bugfixes">Bugfixes<a href="https://wiki.scholar.schule/changelogscholar/2026-03-06#bugfixes" class="hash-link" aria-label="Direkter Link zur Bugfixes" title="Direkter Link zur Bugfixes" translate="no">​</a></h4>
+<ul>
+<li class="">Self-Service /self-service/moinschule: Zugangsdaten werden nicht mehr angezeigt, Hinweis auf E-Mail-Versand ergänzt</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="20260306-006">2026.03.06-006<a href="https://wiki.scholar.schule/changelogscholar/2026-03-06#20260306-006" class="hash-link" aria-label="Direkter Link zur 2026.03.06-006" title="Direkter Link zur 2026.03.06-006" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="neu">Neu<a href="https://wiki.scholar.schule/changelogscholar/2026-03-06#neu" class="hash-link" aria-label="Direkter Link zur Neu" title="Direkter Link zur Neu" translate="no">​</a></h4>
+<ul>
+<li class="">Magellan Import /magellanimport: Student-Import umbenannt (nur Studenten) und Dateiupload akzeptiert jetzt XLS/XLSX/CSV/TXT</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="bugfixes-1">Bugfixes<a href="https://wiki.scholar.schule/changelogscholar/2026-03-06#bugfixes-1" class="hash-link" aria-label="Direkter Link zur Bugfixes" title="Direkter Link zur Bugfixes" translate="no">​</a></h4>
+<ul>
+<li class="">Magellan Import /magellanimport: XLS/XLSX wird direkt eingelesen, Encoding-Probleme durch UTF-8 Normalisierung reduziert</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="20260306-005">2026.03.06-005<a href="https://wiki.scholar.schule/changelogscholar/2026-03-06#20260306-005" class="hash-link" aria-label="Direkter Link zur 2026.03.06-005" title="Direkter Link zur 2026.03.06-005" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="neu-1">Neu<a href="https://wiki.scholar.schule/changelogscholar/2026-03-06#neu-1" class="hash-link" aria-label="Direkter Link zur Neu" title="Direkter Link zur Neu" translate="no">​</a></h4>
+<ul>
+<li class="">Schulanmeldungen /student_registrations: Soft-Delete für Einträge (Löschen entfernt nur aus der Liste, Daten bleiben erhalten)</li>
+<li class="">Schulanmeldungen /student_registrations: Checkbox 'Gelöschte anzeigen' zum Einblenden soft-gelöschter Einträge</li>
+<li class="">Lernmittel /learning-materials: Hinweise (Notes) inline anlegen, bearbeiten und löschen mit Sofort-Feedback</li>
+<li class="">Lernmittel /learning-materials: Hinweise (Notes) werden in PDF-Listen angezeigt</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="bugfixes-2">Bugfixes<a href="https://wiki.scholar.schule/changelogscholar/2026-03-06#bugfixes-2" class="hash-link" aria-label="Direkter Link zur Bugfixes" title="Direkter Link zur Bugfixes" translate="no">​</a></h4>
+<ul>
+<li class="">Schulanmeldungen /student_registrations: Ausblenden/Einblenden aktualisiert die Liste ohne Reload</li>
+<li class="">Schulanmeldungen /student_registrations: Ausgeblendet-Status und Filter bleiben konsistent bei Umschalten</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Scholar" term="Scholar"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v2026.03.05-001]]></title>
+        <id>https://wiki.scholar.schule/changelogscholar/2026-03-05</id>
+        <link href="https://wiki.scholar.schule/changelogscholar/2026-03-05"/>
+        <updated>2026-03-05T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Bugfixes]]></summary>
+        <content type="html"><![CDATA[<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="bugfixes">Bugfixes<a href="https://wiki.scholar.schule/changelogscholar/2026-03-05#bugfixes" class="hash-link" aria-label="Direkter Link zur Bugfixes" title="Direkter Link zur Bugfixes" translate="no">​</a></h4>
+<ul>
+<li class="">Schulanmeldungen /student_registrations: 'Ausblenden'-Button funktioniert jetzt korrekt (PATCH statt POST, JSON-Response)</li>
+<li class="">Schulanmeldungen /student_registrations: Ausblenden/Einblenden-Button nur noch für Benutzer mit 'edit_register_student' Berechtigung sichtbar</li>
+<li class="">Schulanmeldungen /student_registrations: Import/Export-Buttons nur für berechtigte Benutzer sichtbar</li>
+<li class="">Schulanmeldungen /student_registrations/edit: Feld 'Bewerbungsgrund' entfernt (existiert nicht mehr)</li>
+<li class="">Schulanmeldungen /student_registrations/edit: Validierung - 'first_choice_profile' ist Pflichtfeld wenn 'wants_profile_class' = yes</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Scholar" term="Scholar"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v2026.03.04 (-003, -002, -001)]]></title>
+        <id>https://wiki.scholar.schule/changelogscholar/2026-03-04</id>
+        <link href="https://wiki.scholar.schule/changelogscholar/2026-03-04"/>
+        <updated>2026-03-04T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[2026.03.04-003]]></summary>
+        <content type="html"><![CDATA[<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="20260304-003">2026.03.04-003<a href="https://wiki.scholar.schule/changelogscholar/2026-03-04#20260304-003" class="hash-link" aria-label="Direkter Link zur 2026.03.04-003" title="Direkter Link zur 2026.03.04-003" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="neu">Neu<a href="https://wiki.scholar.schule/changelogscholar/2026-03-04#neu" class="hash-link" aria-label="Direkter Link zur Neu" title="Direkter Link zur Neu" translate="no">​</a></h4>
+<ul>
+<li class="">Lernmittel /learning-materials: Titel inline bearbeitbar - Klick auf Stift-Icon öffnet Eingabefeld mit Speichern/Abbrechen-Buttons, Enter speichert</li>
+<li class="">Lernmittel /learning-materials: Kopieren-Funktion bleibt erhalten - Klick auf Titel kopiert den Buchtitel mit visuellem Feedback (grün + ✓ Kopiert!)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="20260304-002">2026.03.04-002<a href="https://wiki.scholar.schule/changelogscholar/2026-03-04#20260304-002" class="hash-link" aria-label="Direkter Link zur 2026.03.04-002" title="Direkter Link zur 2026.03.04-002" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="neu-1">Neu<a href="https://wiki.scholar.schule/changelogscholar/2026-03-04#neu-1" class="hash-link" aria-label="Direkter Link zur Neu" title="Direkter Link zur Neu" translate="no">​</a></h4>
+<ul>
+<li class="">Lernmittel /learning-materials: Inline-Toggle für 'Im Elternportal' (showEP) - Admin kann per Klick auf das Badge den Status ändern</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="bugfixes">Bugfixes<a href="https://wiki.scholar.schule/changelogscholar/2026-03-04#bugfixes" class="hash-link" aria-label="Direkter Link zur Bugfixes" title="Direkter Link zur Bugfixes" translate="no">​</a></h4>
+<ul>
+<li class="">Lernmittel /learning-materials: 'Sp' (Sport) im Fach-Select hinzugefügt</li>
+<li class="">Lernmittel /learning-materials: PDF-Sortierung und Preisübersicht - 'Sp' (Sport) in Fachreihenfolge integriert</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="20260304-001">2026.03.04-001<a href="https://wiki.scholar.schule/changelogscholar/2026-03-04#20260304-001" class="hash-link" aria-label="Direkter Link zur 2026.03.04-001" title="Direkter Link zur 2026.03.04-001" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="neu-2">Neu<a href="https://wiki.scholar.schule/changelogscholar/2026-03-04#neu-2" class="hash-link" aria-label="Direkter Link zur Neu" title="Direkter Link zur Neu" translate="no">​</a></h4>
+<ul>
+<li class="">Schulanmeldungen /student_registrations: Live-Suche mit JavaScript (filtert client-seitig nach Name/Stadt, 3+ Zeichen, 300ms Debounce)</li>
+<li class="">Schulanmeldungen /student_registrations: Inline Status-Änderung per AJAX (Dropdown: Offen, In Bearbeitung, Abgeschlossen, Abgelehnt)</li>
+<li class="">Schulanmeldungen /student_registrations: Inline Ein-/Ausblenden-Button per AJAX</li>
+<li class="">Schulanmeldungen /student_registrations: Profilklassen-Übersetzung (Französischklasse statt 'French', Bläserklasse, Theaterklasse)</li>
+<li class="">AG-Auswahl: Null-Check für classNumber verhindert Fehler wenn kein Schüler ausgewählt ist</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="bugfixes-1">Bugfixes<a href="https://wiki.scholar.schule/changelogscholar/2026-03-04#bugfixes-1" class="hash-link" aria-label="Direkter Link zur Bugfixes" title="Direkter Link zur Bugfixes" translate="no">​</a></h4>
+<ul>
+<li class="">Schülerprofil /students/{id}/show: AG-Dopplung behoben - zugeordnete AGs werden jetzt nach aktuellem Schuljahr gefiltert (vorher wurden alle AG-Zuweisungen ohne Schuljahr-Filter angezeigt)</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Scholar" term="Scholar"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v2026.03.03-001]]></title>
+        <id>https://wiki.scholar.schule/changelogscholar/2026-03-03</id>
+        <link href="https://wiki.scholar.schule/changelogscholar/2026-03-03"/>
+        <updated>2026-03-03T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Neu]]></summary>
+        <content type="html"><![CDATA[<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="neu">Neu<a href="https://wiki.scholar.schule/changelogscholar/2026-03-03#neu" class="hash-link" aria-label="Direkter Link zur Neu" title="Direkter Link zur Neu" translate="no">​</a></h4>
+<ul>
+<li class="">Lernmittel /lm_books/books/fklview: Druckfunktion für ausgewählte Fächer - neuer Button 'Ausgewählte drucken' öffnet PDF mit nur den selektierten Fächern (nur lm_admin)</li>
+<li class="">Lernmittel /lm_books/books/fklview: PDF-Druckansicht überarbeitet - mehrere Klassen pro Seite, Schriftgröße 12px</li>
+<li class="">Lernmittel /lm_books/books/fklview: PDF-Coverseite mit neuen Hinweistexten - Regelungen zu neuen Lernmitteln, Konferenzbeschlüsse bis Dezember, Einführung nur für einen Jahrgang</li>
+<li class="">Lernmittel /lm_books/books/fklview: PDF-Coverseite mit Jahresablauf - Änderungen bis 1. Dezember möglich, Berücksichtigung im folgenden Schuljahr</li>
+<li class="">Lernmittel /lm_books/books/fklview: Unterschriftenfeld auf PDF-Coverseite - Bestätigung der Richtigkeit (Titel, Fach, ISBN, Klassenstufe), Hinweis zu Preisen und Änderungen nach Bestandsaufbau</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Scholar" term="Scholar"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v2026.03.02-001]]></title>
+        <id>https://wiki.scholar.schule/changelogscholar/2026-03-02</id>
+        <link href="https://wiki.scholar.schule/changelogscholar/2026-03-02"/>
+        <updated>2026-03-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Neu]]></summary>
+        <content type="html"><![CDATA[<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="neu">Neu<a href="https://wiki.scholar.schule/changelogscholar/2026-03-02#neu" class="hash-link" aria-label="Direkter Link zur Neu" title="Direkter Link zur Neu" translate="no">​</a></h4>
+<ul>
+<li class="">Lernmittel /create: Gelber Info-Hinweis unter 'Lernmittel erfassen' - weist auf weitere Informationen unten links im I-Menü hin</li>
+<li class="">Lernmittel /ep-settings: Neue Option 'FKL Lernmittel-Erstellung sperren' - wenn aktiviert, dürfen nur lm_admin neue Lernmittel anlegen (FKL ausgeschlossen)</li>
+<li class="">Schülerprofil /students/{id}/show: Schließfach-Anzeige im Tutor-Bereich - zeigt aktives Schließfach mit Link zur Detailseite (nur klickbar mit locker_manage Berechtigung)</li>
+<li class="">Küchenreservierungen /kitchen-reservations: Bestätigungsberechtigung erweitert - Koordinatoren und Verwaltung können jetzt ebenfalls Reservierungen bestätigen/stornieren</li>
+<li class="">Transaktionen /transactions/guthaben: Neue Seite für Guthaben-Übersicht - zeigt alle Schüler mit positivem oder negativem Guthaben, nur für lm_admin sichtbar</li>
+<li class="">Transaktionen /transactions/guthaben: Reset-Funktion für Lernmittel-Status - setzt accept_lm, lm_payed, lm_payed_digital, lernmittel_digital für alle Schüler zurück (mit Bestätigung)</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Scholar" term="Scholar"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v2026.02.27 (-003, -002, -001)]]></title>
+        <id>https://wiki.scholar.schule/changelogscholar/2026-02-27</id>
+        <link href="https://wiki.scholar.schule/changelogscholar/2026-02-27"/>
+        <updated>2026-02-27T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[2026.02.27-003]]></summary>
+        <content type="html"><![CDATA[<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="20260227-003">2026.02.27-003<a href="https://wiki.scholar.schule/changelogscholar/2026-02-27#20260227-003" class="hash-link" aria-label="Direkter Link zur 2026.02.27-003" title="Direkter Link zur 2026.02.27-003" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="bugfixes">Bugfixes<a href="https://wiki.scholar.schule/changelogscholar/2026-02-27#bugfixes" class="hash-link" aria-label="Direkter Link zur Bugfixes" title="Direkter Link zur Bugfixes" translate="no">​</a></h4>
+<ul>
+<li class="">Sicherheit: Zugriff auf Schülerprofile wird nun korrekt auf die eigenen Klassen bzw. berechtigte Rollen beschränkt</li>
+<li class="">Sicherheit: Transaktionszuweisungen können nur noch von Nutzern mit Lernmittel-Berechtigung vorgenommen werden</li>
+<li class="">Sicherheit: Benutzeranlage durch die Verwaltung schränkt Admin-Felder (E-Mail, Rollen) serverseitig zuverlässig ein</li>
+<li class="">Sicherheit: Quittungs-PDF-Generierung verwendet einen sichereren Rendering-Modus</li>
+<li class="">Sicherheit: Geräteverwaltung akzeptiert beim Speichern nur die vorgesehenen Felder</li>
+<li class="">Bibliothek: Klassifikations-Datensätze sind gegen unerwünschte Massenänderungen geschützt</li>
+<li class="">Bibliothek /lib/scanner: Statusmeldungen im Buchscanner werden korrekt als Klartext dargestellt</li>
+<li class="">Self-Service: Statusmeldungen in den Self-Service-Bereichen (IServ, WLAN, Untis, Office, Moin.Schule, Lernmittel digital) werden korrekt als Klartext dargestellt</li>
+<li class="">Sicherheitsmonitoring: Letzte Anmeldungen, fehlgeschlagene Login-Versuche und auffällige IP-Adressen werden jetzt korrekt aus der Datenbank ausgelesen und im Dashboard angezeigt</li>
+<li class="">Sicherheitsmonitoring: System stabilitätsprüfung schlägt bei leerer Datenbankabfrage nicht mehr fehl</li>
+<li class="">Schülerdokumente: Upload-Verzeichnisse werden mit eingeschränkten Zugriffsrechten angelegt</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="20260227-002">2026.02.27-002<a href="https://wiki.scholar.schule/changelogscholar/2026-02-27#20260227-002" class="hash-link" aria-label="Direkter Link zur 2026.02.27-002" title="Direkter Link zur 2026.02.27-002" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="neu">Neu<a href="https://wiki.scholar.schule/changelogscholar/2026-02-27#neu" class="hash-link" aria-label="Direkter Link zur Neu" title="Direkter Link zur Neu" translate="no">​</a></h4>
+<ul>
+<li class="">Lernmittel /learning-materials: Neuer Filter 'Ohne Klasse' in Klassenstufen-Dropdown – zeigt Bücher ohne Klassenzuordnung in eigener Gruppe 'Ohne Klassenzuordnung' (nur lm_admin)</li>
+<li class="">Lernmittel /learning-materials: Neuer Filter 'Gelöschte anzeigen' (Checkbox) – blendet soft-gelöschte Bücher ein, mit roter Zeile und 'Gelöscht'-Badge beim Titel (nur lm_admin)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="20260227-001">2026.02.27-001<a href="https://wiki.scholar.schule/changelogscholar/2026-02-27#20260227-001" class="hash-link" aria-label="Direkter Link zur 2026.02.27-001" title="Direkter Link zur 2026.02.27-001" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="neu-1">Neu<a href="https://wiki.scholar.schule/changelogscholar/2026-02-27#neu-1" class="hash-link" aria-label="Direkter Link zur Neu" title="Direkter Link zur Neu" translate="no">​</a></h4>
+<ul>
+<li class="">Bestandsübersicht /books/inventory/overview: Button 'Exemplare' pro Textbook-Zeile wechselt direkt in den Exemplar-Modus und filtert auf die Exemplare des gewählten Buches (filterBookId) – ersetzt das umständliche Inline-Dropdown</li>
+<li class="">Bestandsübersicht /books/inventory/overview: Aktiver Buch-Filter wird als Chip mit Buchtitel und ISBN angezeigt, mit 'Buch-Filter aufheben'-Button</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="bugfixes-1">Bugfixes<a href="https://wiki.scholar.schule/changelogscholar/2026-02-27#bugfixes-1" class="hash-link" aria-label="Direkter Link zur Bugfixes" title="Direkter Link zur Bugfixes" translate="no">​</a></h4>
+<ul>
+<li class="">Benutzerverwaltung /UserManagment/users: 'There is no permission named FL-Rk for guard web' – Permission war in der DB als FL-RK (Großbuchstabe) gespeichert, per Migration auf FL-Rk (korrektes Casing laut Config) umbenannt</li>
+<li class="">Bestandsübersicht /books/inventory/overview: Exemplare des gewählten Buches werden korrekt per filterBookId gefiltert (zuvor keine Filterung aktiv)</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Scholar" term="Scholar"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v2026.02.25 (-003, -002, -001)]]></title>
+        <id>https://wiki.scholar.schule/changelogscholar/2026-02-25</id>
+        <link href="https://wiki.scholar.schule/changelogscholar/2026-02-25"/>
+        <updated>2026-02-25T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[2026.02.25-003]]></summary>
+        <content type="html"><![CDATA[<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="20260225-003">2026.02.25-003<a href="https://wiki.scholar.schule/changelogscholar/2026-02-25#20260225-003" class="hash-link" aria-label="Direkter Link zur 2026.02.25-003" title="Direkter Link zur 2026.02.25-003" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="bugfixes">Bugfixes<a href="https://wiki.scholar.schule/changelogscholar/2026-02-25#bugfixes" class="hash-link" aria-label="Direkter Link zur Bugfixes" title="Direkter Link zur Bugfixes" translate="no">​</a></h4>
+<ul>
+<li class="">Klassifikation bearbeiten: Fehlende Closing-Tags in edit.blade.php (&lt;/script&gt;&lt;/x-app-layout&gt;) behoben - verursachte PHP Syntax Error auf Production</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="20260225-002">2026.02.25-002<a href="https://wiki.scholar.schule/changelogscholar/2026-02-25#20260225-002" class="hash-link" aria-label="Direkter Link zur 2026.02.25-002" title="Direkter Link zur 2026.02.25-002" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="bugfixes-1">Bugfixes<a href="https://wiki.scholar.schule/changelogscholar/2026-02-25#bugfixes-1" class="hash-link" aria-label="Direkter Link zur Bugfixes" title="Direkter Link zur Bugfixes" translate="no">​</a></h4>
+<ul>
+<li class="">SelfService /selfservice-pickup/books/scanner: Rk-Bücher wurden nicht angezeigt – Religionsfilter in freeAccess.php (load-books Route) normalisiert RK/Re/WN jetzt case-insensitiv via strtoupper() + match(), analog zu SelfServiceBookController</li>
+<li class="">SelfService /self-service/digital-book: Gleicher Religionsfilter-Fehler in SelfServiceDigitalBookController behoben – in_array ohne Normalisierung schloss Rk-Bücher aus wenn religion_type_select als 'RK' gespeichert war</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="20260225-001">2026.02.25-001<a href="https://wiki.scholar.schule/changelogscholar/2026-02-25#20260225-001" class="hash-link" aria-label="Direkter Link zur 2026.02.25-001" title="Direkter Link zur 2026.02.25-001" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="neu">Neu<a href="https://wiki.scholar.schule/changelogscholar/2026-02-25#neu" class="hash-link" aria-label="Direkter Link zur Neu" title="Direkter Link zur Neu" translate="no">​</a></h4>
+<ul>
+<li class="">Fachleitung Religion Katholisch (Rk / FL-Rk) systemweit ergänzt – SubjectService, Berechtigungen, GradeSystemController, StudentInterimGradesController, RolePermissionController, UserManagement-Anzeige und Lernmittel-Berechtigungen</li>
+<li class="">Lernmittel /learning-materials: Erstellungsdatum (Erstellt am) in der Bestand-Spalte – sichtbar nur für Benutzer mit lm_admin-Berechtigung (Admin, Schulleitung)</li>
+<li class="">Lernmittel /learning-materials: Erstellungsdatum per Klick inline editierbar – Änderung wird per PATCH-Request gespeichert, nur für lm_admin</li>
+<li class="">Lernmittel /learning-materials: Datumsfilter (Monat/Jahr) in der Suche – Filteroptionen: Genau am, Ab dem, Bis zum; Firefox-kompatibel via zwei Select-Dropdowns, nur für lm_admin</li>
+</ul>]]></content>
+        <author>
+            <name>David Schomburg</name>
+        </author>
+        <category label="Scholar" term="Scholar"/>
+    </entry>
+</feed>
